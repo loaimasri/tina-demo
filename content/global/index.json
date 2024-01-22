@@ -1,0 +1,39 @@
+{
+  "header": {
+    "logo": {
+      "name": "Tina",
+      "color": "red",
+      "style": "circle"
+    },
+    "name": "Foothill Solutions Technology",
+    "color": "default",
+    "nav": [
+      {
+        "href": "",
+        "label": "Home"
+      },
+      {
+        "href": "/about",
+        "label": "About"
+      },
+      {
+        "href": "/post",
+        "label": "Blog"
+      }
+    ]
+  },
+  "footer": {
+    "color": "default",
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "twitter": "/twitter",
+      "instagram": "/insta",
+      "github": "/git"
+    }
+  },
+  "theme": {
+    "color": "yellow",
+    "font": "sans",
+    "darkMode": "system"
+  }
+}
