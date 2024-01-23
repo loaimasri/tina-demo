@@ -1,4 +1,4 @@
-import { Collection } from "tinacms";
+import { Collection, TinaField } from "tinacms";
 import { IconPickerInput, ColorPickerInput } from "../fields";
 
 const logoSchema = {
@@ -50,6 +50,7 @@ export const Global: Collection = {
   },
   ui: {
     global: true,
+    allowedActions: { create: false, delete: false },
   },
 
   fields: [
@@ -63,15 +64,6 @@ export const Global: Collection = {
           type: "string",
           label: "Name",
           name: "name",
-        },
-        {
-          type: "string",
-          label: "Color",
-          name: "color",
-          options: [
-            { label: "Default", value: "default" },
-            { label: "Primary", value: "primary" },
-          ],
         },
         {
           type: "object",
@@ -107,15 +99,6 @@ export const Global: Collection = {
       label: "Footer",
       name: "footer",
       fields: [
-        {
-          type: "string",
-          label: "Color",
-          name: "color",
-          options: [
-            { label: "Default", value: "default" },
-            { label: "Primary", value: "primary" },
-          ],
-        },
         {
           type: "object",
           label: "Social Links",
