@@ -1,5 +1,5 @@
 import client from "@/tina/__generated__/client";
-import { PostComponent } from "../_lib/components/Post";
+import { Post } from "../_lib/components/Post";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const result = await client.queries.post({
@@ -7,5 +7,5 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
   console.log(`${params.slug}.md`);
 
-  return <PostComponent {...result} />;
+  return <Post {...result} />;
 }
