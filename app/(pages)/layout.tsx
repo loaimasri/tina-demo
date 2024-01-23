@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import client from "@/tina/__generated__/client";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { GlobalQuery } from "../../../my-tina-app/tina/__generated__/types";
+import { GlobalQuery } from "@/tina/__generated__/types";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,16 +18,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const {
-      data: {
-        globalConnection: { edges },
-      },
-    } = await client.queries.globalConnection(),
-    header: GlobalQuery["global"]["header"] = edges?.[0]?.node?.header,
-    footer: GlobalQuery["global"]["footer"] = edges?.[0]?.node?.footer,
-    theme: GlobalQuery["global"]["theme"] = edges?.[0]?.node?.theme;
-
-  console.log(theme?.darkMode);
+  const connection = await client.queries.globalConnection();
 
   return (
     <html lang="en">
@@ -45,10 +36,10 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex min-h-screen flex-col container">
-            <Header data={header} theme={theme} className="py-8 flex-none" />
+            <Header {...connection} className="py-8 flex-none" />
 
             <main className="flex-1">{children}</main>
-            <Footer data={footer} className="py-8 flex-none" />
+            <Footer {...connection} className="py-8 flex-none" />
           </div>
         </ThemeProvider>
       </body>

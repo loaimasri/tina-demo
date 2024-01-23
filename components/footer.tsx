@@ -1,21 +1,40 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import { GlobalQuery } from "@/tina/__generated__/types";
+import { GlobalConnectionQuery, GlobalQuery } from "@/tina/__generated__/types";
+import { tinaField, useTina } from "tinacms/dist/react";
 
 type FooterProps = {
-  data: GlobalQuery["global"]["footer"];
+  data: GlobalConnectionQuery;
+  variables: {};
+  query: string;
 } & React.HTMLAttributes<HTMLElement>;
 
-function Footer({ data, ...props }: FooterProps) {
-  if (!data) return null;
+function Footer({ data, variables, query, ...props }: FooterProps) {
+  const {
+    data: { globalConnection },
+  } = useTina({
+    data,
+    variables,
+    query,
+  });
+
+  const footer = globalConnection?.edges?.[0]?.node?.footer;
+
+  if (!footer) return null;
+
+  console.log("", footer);
 
   type Social = {
     name: string;
     url: string;
   };
 
-  const socials: Social[] = Object.entries(data.social as object)
-    .filter(([key, _]) => key !== "__typename")
+  //TODO: remove this when we have a better way to ignore fields
+  const ignoredKeys = ["__typename", "_tina_metadata", "_content_source"];
+
+  const socials: Social[] = Object.entries(footer.social as object)
+    .filter(([key]) => !ignoredKeys.includes(key))
     .map(([key, value]) => ({
       name: key,
       url: value,
@@ -35,6 +54,7 @@ function Footer({ data, ...props }: FooterProps) {
               href={url}
               target="_blank"
               className="mr-4 hover:underline capitalize"
+              data-tina-field={tinaField(footer, "social")}
             >
               {name}
             </Link>

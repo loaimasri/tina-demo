@@ -1,6 +1,6 @@
 "use client";
 import { PageQuery } from "@/tina/__generated__/types";
-import { useTina } from "tinacms/dist/react";
+import { tinaField, useTina } from "tinacms/dist/react";
 
 export function PageComponent(props: {
   data: PageQuery;
@@ -11,9 +11,11 @@ export function PageComponent(props: {
 }) {
   const { data } = useTina(props);
 
+  const page = data?.page;
+
   return (
     <>
-      <h1>{data?.page.title}</h1>
+      <h1 data-tina-field={tinaField(page, "title")}>{page.title}</h1>
     </>
   );
 }
