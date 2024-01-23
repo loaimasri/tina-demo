@@ -51,6 +51,7 @@ export const Global: Collection = {
   ui: {
     global: true,
     allowedActions: { create: false, delete: false },
+    router: () => `/`,
   },
 
   fields: [
