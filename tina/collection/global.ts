@@ -1,6 +1,5 @@
 import { Collection } from "tinacms";
-import { IconPickerInput } from "../fields/icon";
-import { ColorPickerInput } from "../fields/color";
+import { IconPickerInput, ColorPickerInput } from "../fields";
 
 const logoSchema = {
   label: "Logo",

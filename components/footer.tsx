@@ -1,6 +1,6 @@
 import React from "react";
-import { GlobalQuery } from "../../my-tina-app/tina/__generated__/types";
 import Link from "next/link";
+import { GlobalQuery } from "@/tina/__generated__/types";
 
 type FooterProps = {
   data: GlobalQuery["global"]["footer"];

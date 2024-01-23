@@ -1,12 +1,12 @@
 {
   "header": {
     "logo": {
-      "name": "Tina",
-      "color": "red",
-      "style": "circle"
+      "name": "BiCodeAlt",
+      "color": "blue",
+      "style": "float"
     },
     "name": "Foothill Solutions Technology",
-    "color": "default",
+    "color": "primary",
     "nav": [
       {
         "href": "",
@@ -23,7 +23,7 @@
     ]
   },
   "footer": {
-    "color": "default",
+    "color": "primary",
     "social": {
       "facebook": "https://www.facebook.com",
       "twitter": "/twitter",

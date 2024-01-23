@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { GlobalQuery } from "@/tina/__generated__/types";
-import { Icon } from "../../my-tina-app/components/util/icon";
+import { Icon } from "@/components/util/icon";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 import { usePathname } from "next/navigation";
