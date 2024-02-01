@@ -90,7 +90,7 @@ export const Icon = ({ data, className = "", tinaField = "" }: IconProps) => {
   if (!data) {
     return null;
   }
-  console.log(data);
+  
 
   if (IconOptions[data.name] === undefined || IconOptions[data.name] === null) {
     return null;

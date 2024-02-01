@@ -1,20 +1,23 @@
-import { defineConfig } from "tinacms";
+import { Collection, LocalAuthProvider, defineConfig } from "tinacms";
 import { Post, Page, Global } from "./collection";
-// Your hosting provider likely exposes this as an environment variable
+import {
+  UsernamePasswordAuthJSProvider,
+  TinaUserCollection,
+} from "tinacms-authjs/dist/tinacms";
+import { environment } from "../config";
+
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
   "main";
 
+const isLocal = environment.general.isLocal === "true";
+
 export default defineConfig({
   branch,
-
-  // Get this from tina.io
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
-  token: process.env.TINA_TOKEN,
-
+  clientId: "1e0e2238-bff7-4a97-a01c-2b8597d735e2",
+  token: "84c73d10758dcdc58b351c1c2cea7cb6dc25ced8",
   build: {
     outputFolder: "admin",
     publicFolder: "public",
@@ -23,10 +26,15 @@ export default defineConfig({
     tina: {
       mediaRoot: "",
       publicFolder: "public",
+      static: true,
     },
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
+  authProvider: isLocal
+    ? new LocalAuthProvider()
+    : new UsernamePasswordAuthJSProvider(),
+  contentApiUrlOverride: "/api/tina/gql",
+
   schema: {
-    collections: [Post, Page, Global],
+    collections: [Post, Page, Global, TinaUserCollection],
   },
 });

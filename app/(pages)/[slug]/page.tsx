@@ -1,6 +1,5 @@
 import { PageComponent } from "@/components/app/page";
-import client from "@/tina/__generated__/client";
-import React from "react";
+import { client } from "@/tina/__generated__/databaseClient";
 
 type Props = {
   params: { slug: string };
@@ -11,5 +10,7 @@ export default async function Page({ params: { slug } }: Props) {
     relativePath: `${slug}.md`,
   });
 
-  return <PageComponent {...result} />;
+  return (
+    <PageComponent {...result} data={JSON.parse(JSON.stringify(result.data))} />
+  );
 }

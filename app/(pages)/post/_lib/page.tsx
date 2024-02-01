@@ -6,7 +6,7 @@ import { PostList } from "./containers/post-list";
 
 type PostListProps = {
   data: PostConnectionQuery;
-  variables: {};
+  variables: object;
   query: string;
 };
 

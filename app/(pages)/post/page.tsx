@@ -1,8 +1,12 @@
-import client from "@/tina/__generated__/client";
+import { client } from "@/tina/__generated__/databaseClient";
 import { PostListPage } from "./_lib/page";
 
 export default async function Page() {
   const result = await client.queries.postConnection();
 
-  return <PostListPage {...result} />;
+  return (
+    <PostListPage {...result} data={JSON.parse(JSON.stringify(result.data))} />
+  );
 }
+
+

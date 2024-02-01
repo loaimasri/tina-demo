@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { fontSans } from "@/lib/fonts";
-import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import client from "@/tina/__generated__/client";
+
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { GlobalQuery } from "@/tina/__generated__/types";
+import { client } from "@/tina/__generated__/databaseClient";
+
+import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -36,10 +37,18 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex min-h-screen flex-col container">
-            <Header {...connection} className="py-8 flex-none" />
+            <Header
+              {...connection}
+              data={JSON.parse(JSON.stringify(connection.data))}
+              className="py-8 flex-none"
+            />
 
             <main className="flex-1">{children}</main>
-            <Footer {...connection} className="py-8 flex-none" />
+            <Footer
+              {...connection}
+              data={JSON.parse(JSON.stringify(connection.data))}
+              className="py-8 flex-none"
+            />
           </div>
         </ThemeProvider>
       </body>

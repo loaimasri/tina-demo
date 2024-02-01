@@ -23,7 +23,7 @@ function Footer({ data, variables, query, ...props }: FooterProps) {
 
   if (!footer) return null;
 
-  console.log("", footer);
+
 
   type Social = {
     name: string;
