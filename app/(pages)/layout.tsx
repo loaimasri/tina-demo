@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { fontSans } from "@/lib/fonts";
-import { ThemeProvider } from "@/components/theme-provider";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { client } from "@/tina/__generated__/databaseClient";
+import { Providers } from "@/components/providers";
 
 import "../globals.css";
 
@@ -22,7 +22,7 @@ export default async function RootLayout({
   const connection = await client.queries.globalConnection();
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <head />
       <body
         className={cn(
@@ -30,12 +30,7 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <div className="flex min-h-screen flex-col container">
             <Header
               {...connection}
@@ -50,7 +45,7 @@ export default async function RootLayout({
               className="py-8 flex-none"
             />
           </div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

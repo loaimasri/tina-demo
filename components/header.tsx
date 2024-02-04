@@ -10,6 +10,8 @@ import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 import { usePathname } from "next/navigation";
 import { tinaField, useTina } from "tinacms/dist/react";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 type HeaderProps = {
   data: GlobalConnectionQuery;
   variables: {};
@@ -17,6 +19,10 @@ type HeaderProps = {
 } & React.HTMLAttributes<HTMLElement>;
 
 function Header({ data, variables, query, ...props }: HeaderProps) {
+  const { data: user } = useSession();
+
+  console.log("🚀 ~ file: header.tsx ~ line 29 ~ RootLayout ~ session", user);
+
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
   const {
@@ -71,6 +77,28 @@ function Header({ data, variables, query, ...props }: HeaderProps) {
 
             <li>
               <ModeToggle data={theme} />
+            </li>
+            {user?.user?.image && (
+              <li>
+                <Image
+                  src={user?.user?.image}
+                  alt="user avatar"
+                  width="40"
+                  height="40"
+                  className="rounded-full"
+                />
+              </li>
+            )}
+
+            <li>
+              <Link
+                href="/auth"
+                className={`${
+                  isActive("/auth") ? "text-primary" : "text-gray-500"
+                }  hover:underline`}
+              >
+                {user ? "Logout" : "Login"}
+              </Link>
             </li>
           </ul>
         </nav>

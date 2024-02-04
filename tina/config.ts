@@ -1,6 +1,7 @@
 import { Collection, LocalAuthProvider, defineConfig } from "tinacms";
-import { Post, Page, Global } from "./collection";
+import { Post, Page, Global, User } from "./collection";
 import {
+  DefaultAuthJSProvider,
   UsernamePasswordAuthJSProvider,
   TinaUserCollection,
 } from "tinacms-authjs/dist/tinacms";
