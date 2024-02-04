@@ -5,9 +5,10 @@ import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 import { usePathname } from "next/navigation";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { useSession } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { Icon } from "./icon";
+import { Button } from "../ui";
 
 type HeaderProps = {
   data: GlobalConnectionQuery;
@@ -85,16 +86,16 @@ export function Header({ data, variables, query, ...props }: HeaderProps) {
               </li>
             )}
 
-            <li>
-              <Link
-                href="/auth"
-                className={`${
-                  isActive("/auth") ? "text-primary" : "text-gray-500"
-                }  hover:underline`}
-              >
-                {user ? "Logout" : "Login"}
-              </Link>
-            </li>
+            {user && (
+              <li>
+                <Button onClick={() => signOut()}>Sign Out</Button>
+              </li>
+            )}
+            {!user && (
+              <li>
+                <Button onClick={() => signIn()}>Sign In</Button>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

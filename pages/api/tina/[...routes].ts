@@ -16,6 +16,7 @@ export const NextAuthOptions = TinaAuthJSOptions({
   databaseClient,
   secret: environment.auth.secret,
   debug: true,
+
 });
 
 const isLocal = environment.general.isLocal === "true";

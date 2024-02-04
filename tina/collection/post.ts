@@ -1,5 +1,4 @@
 import { Collection } from "tinacms";
-import { v4 as uuid } from "uuid";
 
 export const Post: Collection = {
   name: "post",

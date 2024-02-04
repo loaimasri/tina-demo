@@ -1,4 +1,5 @@
 ---
-title: About Me
+title: about
+requireAuth: true
 ---
 

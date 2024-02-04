@@ -12,6 +12,13 @@ export const Page: Collection = {
     {
       name: "title",
       type: "string",
+      required: true,
+    },
+    {
+      label: "Require Auth",
+      name: "requireAuth",
+      type: "boolean",
+      required: true,
     },
   ],
 };
