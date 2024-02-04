@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
 import Link from "next/link";
-import { GlobalConnectionQuery, GlobalQuery } from "@/tina/__generated__/types";
+import { GlobalConnectionQuery } from "@/tina/__generated__/types";
 import { tinaField, useTina } from "tinacms/dist/react";
 
 type FooterProps = {
@@ -10,7 +9,7 @@ type FooterProps = {
   query: string;
 } & React.HTMLAttributes<HTMLElement>;
 
-function Footer({ data, variables, query, ...props }: FooterProps) {
+export function Footer({ data, variables, query, ...props }: FooterProps) {
   const {
     data: { globalConnection },
   } = useTina({
@@ -22,8 +21,6 @@ function Footer({ data, variables, query, ...props }: FooterProps) {
   const footer = globalConnection?.edges?.[0]?.node?.footer;
 
   if (!footer) return null;
-
-
 
   type Social = {
     name: string;
@@ -64,5 +61,3 @@ function Footer({ data, variables, query, ...props }: FooterProps) {
     </footer>
   );
 }
-
-export default Footer;

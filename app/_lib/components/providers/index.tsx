@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "../theme-provider";
+import { ThemeProvider } from "./theme-provider";
 import { getServerSession } from "next-auth";
 import { SessionProvider } from "./session-provider";
 

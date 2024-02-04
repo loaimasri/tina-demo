@@ -1,5 +1,3 @@
-import * as React from "react";
-import { ColorPickerInput, IconPickerInput } from "../../tina/fields";
 import * as BoxIcons from "react-icons/bi";
 import { useTheme } from "next-themes";
 
@@ -90,7 +88,6 @@ export const Icon = ({ data, className = "", tinaField = "" }: IconProps) => {
   if (!data) {
     return null;
   }
-  
 
   if (IconOptions[data.name] === undefined || IconOptions[data.name] === null) {
     return null;

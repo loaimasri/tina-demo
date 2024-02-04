@@ -1,27 +1,22 @@
 "use client";
-import React from "react";
-import {
-  GlobalConnection,
-  GlobalConnectionQuery,
-  GlobalQuery,
-} from "@/tina/__generated__/types";
-import { Icon } from "@/components/util/icon";
+import { GlobalConnectionQuery } from "@/tina/__generated__/types";
+
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 import { usePathname } from "next/navigation";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { Icon } from "./icon";
+
 type HeaderProps = {
   data: GlobalConnectionQuery;
   variables: {};
   query: string;
 } & React.HTMLAttributes<HTMLElement>;
 
-function Header({ data, variables, query, ...props }: HeaderProps) {
+export function Header({ data, variables, query, ...props }: HeaderProps) {
   const { data: user } = useSession();
-
-  console.log("🚀 ~ file: header.tsx ~ line 29 ~ RootLayout ~ session", user);
 
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
@@ -106,5 +101,3 @@ function Header({ data, variables, query, ...props }: HeaderProps) {
     </header>
   );
 }
-
-export default Header;

@@ -2,9 +2,9 @@ import * as React from "react";
 import { GoCircleSlash } from "react-icons/go";
 import { Button, wrapFieldsWithMeta } from "tinacms";
 import { Popover, Transition } from "@headlessui/react";
-import { Icon, IconOptions } from "../../components/util/icon";
-import { BiChevronRight } from "react-icons/bi";
 
+import { BiChevronRight } from "react-icons/bi";
+import { Icon, IconOptions } from "../../app/_lib/components/core/icon";
 
 const parseIconName = (name: string) => {
   const splitName = name.split(/(?=[A-Z])/);
@@ -14,7 +14,6 @@ const parseIconName = (name: string) => {
     return name;
   }
 };
-
 
 export const IconPickerInput = wrapFieldsWithMeta(({ input }) => {
   const [filter, setFilter] = React.useState("");

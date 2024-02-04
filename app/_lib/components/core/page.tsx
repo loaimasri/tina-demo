@@ -2,7 +2,7 @@
 import { PageQuery } from "@/tina/__generated__/types";
 import { tinaField, useTina } from "tinacms/dist/react";
 
-export function PageComponent(props: {
+export function BasePage(props: {
   data: PageQuery;
   variables: {
     relativePath: string;

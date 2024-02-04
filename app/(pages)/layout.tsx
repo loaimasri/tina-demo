@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { cn } from "@/lib/utils";
-import { fontSans } from "@/lib/fonts";
 
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import { client } from "@/tina/__generated__/databaseClient";
-import { Providers } from "@/components/providers";
 
-import "../globals.css";
+import { cn } from "@utils/cn";
+import { fontSans } from "@utils/fonts";
+import { Providers } from "@components/providers";
+import "@styles/styles.css";
+import { Header, Footer } from "../_lib/components/core";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -39,6 +38,7 @@ export default async function RootLayout({
             />
 
             <main className="flex-1">{children}</main>
+
             <Footer
               {...connection}
               data={JSON.parse(JSON.stringify(connection.data))}

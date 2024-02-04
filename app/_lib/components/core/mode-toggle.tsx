@@ -1,17 +1,18 @@
 "use client";
 
-import * as React from "react";
+import { useEffect } from "react";
+import { GlobalQuery } from "@/tina/__generated__/types";
+
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { GlobalQuery } from "@/tina/__generated__/types";
+  Button,
+} from "@components/ui";
 
 type ModeToggleProps = {
   data: GlobalQuery["global"]["theme"];
@@ -19,7 +20,7 @@ type ModeToggleProps = {
 
 export function ModeToggle({ data }: ModeToggleProps) {
   const { setTheme } = useTheme();
-  React.useEffect(() => {
+  useEffect(() => {
     setTheme(data?.darkMode || "system");
   }, [data, setTheme]);
 

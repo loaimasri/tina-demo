@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@components/ui";
 import { PostConnectionQuery } from "@/tina/__generated__/types";
 import Link from "next/link";
 import { tinaField } from "tinacms/dist/react";
