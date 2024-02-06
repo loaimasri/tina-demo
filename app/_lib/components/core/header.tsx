@@ -9,6 +9,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { Icon } from "./icon";
 import { Button } from "../ui";
+import { cn } from "../../utils/cn";
 
 type HeaderProps = {
   data: GlobalConnectionQuery;
@@ -37,8 +38,11 @@ export function Header({ data, variables, query, ...props }: HeaderProps) {
   if (!header || !theme) return null;
 
   return (
-    <header {...props}>
-      <div className="flex items-center justify-between">
+    <header
+      className={cn("flex-none py-[var(--header-padding)]", props.className)}
+      {...props}
+    >
+      {/* <div className="flex items-center justify-between">
         <Link href="/">
           <Icon
             data={header?.logo}
@@ -98,7 +102,8 @@ export function Header({ data, variables, query, ...props }: HeaderProps) {
             )}
           </ul>
         </nav>
-      </div>
+      </div> */}
+      header
     </header>
   );
 }

@@ -11,7 +11,7 @@ export const environment = {
   },
 
   general: {
-    isLocal: "false",
+    isLocal: "true",
     debug: "true",
   },
 

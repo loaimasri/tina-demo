@@ -7,6 +7,7 @@ import { fontSans } from "@utils/fonts";
 import { Providers } from "@components/providers";
 import "@styles/styles.css";
 import { Header, Footer } from "../_lib/components/core";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,19 +26,18 @@ export default async function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased relative",
           fontSans.variable
         )}
       >
         <Providers>
-          <div className="flex min-h-screen flex-col container">
+          <div className="flex min-h-screen flex-col container z-10">
             <Header
               {...connection}
               data={JSON.parse(JSON.stringify(connection.data))}
-              className="py-8 flex-none"
             />
 
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 h-[var(--section-height)]">{children}</main>
 
             <Footer
               {...connection}
