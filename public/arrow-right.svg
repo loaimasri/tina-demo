@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="18px" viewBox="0 0 21 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>CE54E9E6-A7B2-4572-8B39-2EFE751D8EA6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M4.22941892,9.74999458 L13.299275,9.74999458 L9.33679533,13.4099945 C9.02012175,13.7024945 9.02012175,14.1824945 9.33679533,14.4749944 C9.6534689,14.7674944 10.1650185,14.7674944 10.4816921,14.4749944 L15.8326636,9.53249459 C16.1493371,9.2399946 16.1493371,8.76749461 15.8326636,8.47499462 L10.4898119,3.52499476 C10.3381078,3.38455526 10.1321475,3.30563056 9.91736355,3.30563056 C9.70257958,3.30563056 9.49661928,3.38455526 9.34491516,3.52499476 C9.02824159,3.81749475 9.02824159,4.28999474 9.34491516,4.58249473 L13.299275,8.24999462 L4.22941892,8.24999462 C3.78282798,8.24999462 3.41743539,8.58749461 3.41743539,8.9999946 C3.41743539,9.41249459 3.78282798,9.74999458 4.22941892,9.74999458 Z" id="path-1"></path>
+    </defs>
+    <g id="Asset-Artboard-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/navigation/arrow_forward_24px" transform="translate(0.950413, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use fill="#348DCD" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

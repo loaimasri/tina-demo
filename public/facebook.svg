@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="31px" viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>805CDD1B-717D-48BE-8A6A-F3C97663AABB@1.5x</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M11.9734795,27.125 L16.8682776,27.125 L16.8682776,17.3234118 L21.2785579,17.3234118 L21.7630145,12.4527449 L16.8682776,12.4527449 L16.8682776,9.99342105 C16.8682776,9.31760474 17.416121,8.76973684 18.0919618,8.76973684 L21.7630145,8.76973684 L21.7630145,3.875 L18.0919618,3.875 C14.7127578,3.875 11.9734795,6.614315 11.9734795,9.99342105 L11.9734795,12.4527449 L9.52611102,12.4527449 L9.04166667,17.3234118 L11.9734795,17.3234118 L11.9734795,27.125 Z" id="path-1"></path>
+    </defs>
+    <g id="Asset-Artboard-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="facebook-copy-5" transform="translate(0.462810, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="facebook" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
