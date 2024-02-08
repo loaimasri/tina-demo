@@ -3,6 +3,7 @@ import { PageQuery } from "@/tina/__generated__/types";
 import { signIn, useSession } from "next-auth/react";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { Button } from "../../../../_lib/components/ui";
+import { Blocks } from "../components/block-renderer";
 
 type PageContainerProps = {
   data: PageQuery;
@@ -27,7 +28,7 @@ export function PageContainer(props: PageContainerProps) {
 
   return (
     <>
-      <h1 data-tina-field={tinaField(page, "title")}>{title}</h1>
+      <Blocks {...page} data-tina-field={tinaField(page)} />
     </>
   );
 }
