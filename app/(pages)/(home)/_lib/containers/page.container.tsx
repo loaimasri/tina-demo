@@ -4,7 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { Button } from "../../../../_lib/components/ui";
 
-type BasePageProps = {
+type PageContainerProps = {
   data: PageQuery;
   variables: {
     relativePath: string;
@@ -12,7 +12,7 @@ type BasePageProps = {
   query: string;
 };
 
-export function BasePage(props: BasePageProps) {
+export function PageContainer(props: PageContainerProps) {
   const {
     data: { page },
   } = useTina(props);

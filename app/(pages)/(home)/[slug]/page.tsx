@@ -1,4 +1,4 @@
-import { BasePage } from "../_lib/components/base-page";
+import { PageContainer } from "../_lib/containers/page.container";
 import { client } from "@/tina/__generated__/databaseClient";
 
 type Props = {
@@ -11,6 +11,6 @@ export default async function Page({ params: { slug } }: Props) {
   });
 
   return (
-    <BasePage {...result} data={JSON.parse(JSON.stringify(result.data))} />
+    <PageContainer {...result} data={JSON.parse(JSON.stringify(result.data))} />
   );
 }

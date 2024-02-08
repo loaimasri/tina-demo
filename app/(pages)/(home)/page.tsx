@@ -1,4 +1,4 @@
-import { BasePage } from "@/app/(pages)/(home)/_lib/components/base-page";
+import { PageContainer } from "./_lib/containers/page.container";
 import { client } from "@/tina/__generated__/databaseClient";
 
 import { Hero, OurClients, Services, Testimonials } from "./_lib/blocks";
