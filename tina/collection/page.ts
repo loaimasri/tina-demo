@@ -1,7 +1,10 @@
 import type { Collection } from "tinacms";
-import { HeroTemplate } from "../templates/hero.template";
-import { ServicesTemplate } from "../templates/services.template";
-import { OurClientsTemplate } from "../templates/our-clients.template";
+import {
+  HeroTemplate,
+  TestimonialsTemplate,
+  ServicesTemplate,
+  OurClientsTemplate,
+} from "../templates";
 
 export const Page: Collection = {
   name: "page",
@@ -30,7 +33,12 @@ export const Page: Collection = {
         visualSelector: true,
       },
       list: true,
-      templates: [HeroTemplate, ServicesTemplate, OurClientsTemplate],
+      templates: [
+        HeroTemplate,
+        ServicesTemplate,
+        OurClientsTemplate,
+        TestimonialsTemplate,
+      ],
     },
   ],
 };
