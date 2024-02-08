@@ -6,14 +6,14 @@ type BlockRendererProps = Omit<Page, "id" | "_sys" | "_values">;
 
 export const Blocks = ({ blocks }: BlockRendererProps) => {
   return (
-    <>
+    <div className="">
       {blocks &&
         blocks.map((block, index) => (
           <div key={index} data-tina-field={tinaField(block as any)}>
             <Block {...block} />
           </div>
         ))}
-    </>
+    </div>
   );
 };
 

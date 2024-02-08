@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+@layer utilities {
+  .FTSContainer {
+    @apply mx-auto;
+  }
+
+  .FTSContainer section {
+    @apply px-4 lg:px-16 xl:px-24 2xl:px-28;
+  }
+}
+
+html {
   scroll-behavior: smooth;
 }
 

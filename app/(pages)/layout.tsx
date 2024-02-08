@@ -31,7 +31,7 @@ export default async function RootLayout({
         )}
       >
         <Providers>
-          <div className="flex min-h-screen flex-col container z-10">
+          <div className="flex min-h-screen flex-col z-10 FTSContainer">
             <Header
               {...connection}
               data={JSON.parse(JSON.stringify(connection.data))}
