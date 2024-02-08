@@ -8,7 +8,7 @@ type HeroProps = PageBlocksHero;
 export function Hero({ image, socials, subtitle, title, cta }: HeroProps) {
   return (
     <div className="text-white">
-      <div className="h-[var(--hero-height)] absolute inset-0 -z-10 before:block before:absolute before:inset-0 before:z-10 before:bg-gradient-to-t before:from-black before:to-transparent">
+      <div className="h-[calc(var(--hero-height))] absolute inset-0 -z-10 before:block before:absolute before:inset-0 before:z-10 before:bg-gradient-to-t before:from-black before:to-transparent">
         {image && (
           <Image
             src={image}
@@ -28,7 +28,11 @@ export function Hero({ image, socials, subtitle, title, cta }: HeroProps) {
         <p className="text-lg font-light leading-10 mt-10 md:text-2xl md:leading-10 ">
           {subtitle}
         </p>
-        <Button size="xxl" className="mt-7 bg-white text-[#439dd5]" asChild>
+        <Button
+          size="xxl"
+          className="mt-7 bg-white text-[#439dd5] hover:opacity-90 hover:bg-white  hover:text-[#439dd5]"
+          asChild
+        >
           {cta && (
             <Link href={cta.link || "/"}>{cta.label || "Learn More"}</Link>
           )}
