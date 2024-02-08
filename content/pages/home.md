@@ -163,7 +163,7 @@ blocks:
           that your software platform will be ever evolving, and programming
           done today must work with upgrades for tomorrow. 
     background:
-      - bg-secondary-light
+      - bg-secondary
     _template: testimonials
 ---
 
