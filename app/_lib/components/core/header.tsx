@@ -2,14 +2,11 @@
 import { GlobalConnectionQuery } from "@/tina/__generated__/types";
 
 import Link from "next/link";
-import { ModeToggle } from "./mode-toggle";
 import { usePathname } from "next/navigation";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { Icon } from "./icon";
-import { Button } from "../ui";
-import { cn } from "../../utils/cn";
+import { cn } from "@utils/cn";
 
 type HeaderProps = {
   data: GlobalConnectionQuery;
@@ -33,77 +30,53 @@ export function Header({ data, variables, query, ...props }: HeaderProps) {
   });
 
   const header = edges?.[0]?.node?.header;
-  const theme = edges?.[0]?.node?.theme;
 
-  if (!header || !theme) return null;
+  if (!header) return null;
+
+  const isMain = pathname === "/";
 
   return (
     <header
-      className={cn("flex-none py-[var(--header-padding)]", props.className)}
+      className={cn(
+        "py-[var(--header-padding)] ",
+        props.className,
+        isMain ? "text-white" : "text-black shadow-sm"
+      )}
       {...props}
     >
-      {/* <div className="flex items-center justify-between">
-        <Link href="/">
-          <Icon
-            data={header?.logo}
-            className="w-8 h-8"
-            tinaField={tinaField(header, "logo")}
+      <div className="flex items-center">
+        <Link href="/" data-tina-field={tinaField(header, "logo")}>
+          <Image
+            src={(isMain ? header.logo?.main : header.logo?.dark) || ""}
+            alt="logo"
+            width="200"
+            height="30"
+            className="h-7"
           />
         </Link>
-        <h1
-          className="text-lg font-bold"
-          data-tina-field={tinaField(header, "name")}
-        >
-          {header.name}
-        </h1>
-        <nav>
-          <ul className="flex space-x-4 items-center">
+
+        <nav className="ml-auto">
+          <ul className="flex gap-16 text-lg">
             {header.nav &&
               header.nav.map((link, index) => (
                 <li key={index} data-tina-field={tinaField(header)}>
                   <Link
                     href={link?.href || "/"}
-                    className={`${
-                      isActive(link?.href || "/")
-                        ? "text-primary"
-                        : "text-gray-500"
-                    }  hover:underline`}
+                    className={cn(
+                      "relative font-light ",
+                      isActive(link?.href || "/") &&
+                        "font-semibold after:block after:absolute after:w-[40%] after:h-1 after:bottom-[-13px] after:rounded-full after:hover:w-[100%] after:hover:transition-all after:ease-in-out after:duration-200",
+                      isMain ? "after:bg-white" : "after:bg-[#348dcd]"
+                    )}
                     color="text-primary"
                   >
                     {link?.label}
                   </Link>
                 </li>
               ))}
-
-            <li>
-              <ModeToggle data={theme} />
-            </li>
-            {user?.user?.image && (
-              <li>
-                <Image
-                  src={user?.user?.image}
-                  alt="user avatar"
-                  width="40"
-                  height="40"
-                  className="rounded-full"
-                />
-              </li>
-            )}
-
-            {user && (
-              <li>
-                <Button onClick={() => signOut()}>Sign Out</Button>
-              </li>
-            )}
-            {!user && (
-              <li>
-                <Button onClick={() => signIn()}>Sign In</Button>
-              </li>
-            )}
           </ul>
         </nav>
-      </div> */}
-      header
+      </div>
     </header>
   );
 }

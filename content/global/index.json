@@ -1,11 +1,14 @@
 {
+  "theme": {
+    "color": "yellow",
+    "font": "sans",
+    "darkMode": "system"
+  },
   "header": {
     "logo": {
-      "name": "BiSolidCar",
-      "color": "yellow",
-      "style": "float"
+      "main": "/white-logo.png",
+      "dark": "/logo.png"
     },
-    "name": "LoaiMasri",
     "nav": [
       {
         "href": "",
@@ -28,10 +31,5 @@
       "instagram": "https://instagram.com",
       "github": "https://github.com/LoaiMasri1"
     }
-  },
-  "theme": {
-    "color": "yellow",
-    "font": "sans",
-    "darkMode": "system"
   }
 }

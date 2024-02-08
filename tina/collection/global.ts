@@ -60,11 +60,22 @@ export const Global: Collection = {
       label: "Header",
       name: "header",
       fields: [
-        logoSchema as any,
         {
-          type: "string",
-          label: "Name",
-          name: "name",
+          name: "logo",
+          label: "Logo",
+          type: "object",
+          fields: [
+            {
+              type: "image",
+              label: "White Logo",
+              name: "main",
+            },
+            {
+              type: "image",
+              label: "normal Logo",
+              name: "dark",
+            },
+          ],
         },
         {
           type: "object",
@@ -129,59 +140,59 @@ export const Global: Collection = {
         },
       ],
     },
-    {
-      type: "object",
-      label: "Theme",
-      name: "theme",
+    // {
+    //   type: "object",
+    //   label: "Theme",
+    //   name: "theme",
 
-      fields: [
-        {
-          type: "string",
-          label: "Primary Color",
-          name: "color",
-          ui: {
-            component: ColorPickerInput,
-          },
-        },
-        {
-          type: "string",
-          name: "font",
-          label: "Font Family",
-          options: [
-            {
-              label: "System Sans",
-              value: "sans",
-            },
-            {
-              label: "Nunito",
-              value: "nunito",
-            },
-            {
-              label: "Lato",
-              value: "lato",
-            },
-          ],
-        },
-        {
-          type: "string",
-          name: "darkMode",
-          label: "Dark Mode",
-          options: [
-            {
-              label: "System",
-              value: "system",
-            },
-            {
-              label: "Light",
-              value: "light",
-            },
-            {
-              label: "Dark",
-              value: "dark",
-            },
-          ],
-        },
-      ],
-    },
+    //   fields: [
+    //     {
+    //       type: "string",
+    //       label: "Primary Color",
+    //       name: "color",
+    //       ui: {
+    //         component: ColorPickerInput,
+    //       },
+    //     },
+    //     {
+    //       type: "string",
+    //       name: "font",
+    //       label: "Font Family",
+    //       options: [
+    //         {
+    //           label: "System Sans",
+    //           value: "sans",
+    //         },
+    //         {
+    //           label: "Nunito",
+    //           value: "nunito",
+    //         },
+    //         {
+    //           label: "Lato",
+    //           value: "lato",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: "string",
+    //       name: "darkMode",
+    //       label: "Dark Mode",
+    //       options: [
+    //         {
+    //           label: "System",
+    //           value: "system",
+    //         },
+    //         {
+    //           label: "Light",
+    //           value: "light",
+    //         },
+    //         {
+    //           label: "Dark",
+    //           value: "dark",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
   ],
 };

@@ -7,7 +7,9 @@
     @apply mx-auto;
   }
 
-  .FTSContainer section {
+  .FTSContainer section,
+  .FTSContainer header,
+  .FTSContainer footer {
     @apply px-4 lg:px-16 xl:px-24 2xl:px-28;
   }
 }
@@ -50,7 +52,7 @@ html {
 
     --radius: 0.5rem;
 
-    --header-padding: 1.315rem;
+    --header-padding: 1.675rem;
     --header-height: calc(var(--header-padding) * 2 + 1.2rem);
     --section-height: calc(100vh - var(--header-height));
     --hero-height: calc(var(--section-height) + var(--header-height));
