@@ -2,6 +2,6 @@
 
 export * from "./icon";
 export * from "./mode-toggle";
-export * from "./page";
+export * from "../../../(pages)/(home)/_lib/components/base-page";
 export * from "./header";
 export * from "./footer";

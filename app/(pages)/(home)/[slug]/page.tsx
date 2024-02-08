@@ -1,5 +1,4 @@
-
-import { BasePage } from "@/app/_lib/components/core/page";
+import { BasePage } from "../_lib/components/base-page";
 import { client } from "@/tina/__generated__/databaseClient";
 
 type Props = {

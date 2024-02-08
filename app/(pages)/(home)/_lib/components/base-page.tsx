@@ -2,7 +2,7 @@
 import { PageQuery } from "@/tina/__generated__/types";
 import { signIn, useSession } from "next-auth/react";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { Button } from "../ui";
+import { Button } from "../../../../_lib/components/ui";
 
 type BasePageProps = {
   data: PageQuery;
