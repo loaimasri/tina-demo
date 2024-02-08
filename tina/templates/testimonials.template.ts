@@ -23,7 +23,7 @@ export const TestimonialsTemplate: Template = {
       type: "object",
       ui: {
         itemProps: (item) => ({
-          label: item?.label,
+          label: item?.author?.name,
         }),
       },
       list: true,

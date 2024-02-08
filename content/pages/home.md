@@ -121,5 +121,43 @@ blocks:
         logo: /nation-link.png
         link: 'https://nationallinkatm.com/'
     _template: ourClients
+  - title: Testimonials
+    subtitle: Here’s what our clients say about our work.
+    testimonials:
+      - author:
+          name: Charles Fink
+          title: CRM Practice Manager
+          avatar: /software-rd.svg
+        quote: >-
+          I've worked with FTS for over 10 years on numerous Microsoft Dynamics
+          projects, ranging from solving small support issues up to full-cycle
+          Dynamics implementations with complex requirements and
+          mission-critical integrations. Unlike many outsourced development
+          teams which can feel like a distant black box", FTS always felt like
+          part of our in-house delivery team.
+      - author:
+          name: Tony Smith
+          title: Co-Founder & CEO Restaurant365
+          avatar: /software-rd.svg
+        quote: >-
+          Working with FTS has been a great experience for Restaurant365 and for
+          me personally.  Ramsey and FTS have earned our full trust and respect
+          through this partnership and we couldn’t be happier with the
+          relationship and their performance. They provide quality work that is
+          a great value for the price, and I fully recommend them to others.
+      - author:
+          name: Paul Spruiell
+          title: VP Group Operations
+          avatar: /software-rd.svg
+        quote: >-
+          Foothill Solutions is hands down the best partner when you’re looking
+          for new implementation services. Their ability to understand your
+          issues and your needs is by far better than anyone I have worked with.
+          They truly listen and will make the best recommendations for your
+          solution. They understand the difference between configuration and
+          customization which key to future upgrades. They always keep in mind
+          that your software platform will be ever evolving, and programming
+          done today must work with upgrades for tomorrow. 
+    _template: testimonials
 ---
 

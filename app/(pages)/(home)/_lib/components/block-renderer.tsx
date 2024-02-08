@@ -1,5 +1,5 @@
 import { Page, PageBlocks } from "@/tina/__generated__/types";
-import { Hero, OurClients, Services } from "../blocks";
+import { Hero, OurClients, Services, Testimonials } from "../blocks";
 import { tinaField } from "tinacms/dist/react";
 
 type BlockRendererProps = Omit<Page, "id" | "_sys" | "_values">;
@@ -23,8 +23,10 @@ const Block = (block: PageBlocks) => {
       return <Hero {...block} />;
     case "PageBlocksServices":
       return <Services {...block} />;
-      case "PageBlocksOurClients":
-        return <OurClients {...block} />;
+    case "PageBlocksOurClients":
+      return <OurClients {...block} />;
+    case "PageBlocksTestimonials":
+      return <Testimonials {...block} />;
 
     default:
       return null;

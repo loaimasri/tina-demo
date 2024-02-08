@@ -6,14 +6,14 @@ type TestimonialCardProps = {
   avatar: {
     src: string;
     name: string;
-    description: string;
+    title: string;
   };
   description: string;
 };
 
 function TestimonialCard({ avatar, description }: TestimonialCardProps) {
   return (
-    <Card className="w-[560px] h-[530px]">
+    <Card className="w-[560px] h-[530px] text-left">
       <CardHeader>
         <div className="flex items-center">
           <Image
@@ -25,9 +25,7 @@ function TestimonialCard({ avatar, description }: TestimonialCardProps) {
           />
           <div className="ml-7">
             <h3 className="text-lg font-bold">{avatar.name}</h3>
-            <p className="font-light text-muted-foreground">
-              {avatar.description}
-            </p>
+            <p className="font-light text-muted-foreground">{avatar.title}</p>
           </div>
         </div>
       </CardHeader>

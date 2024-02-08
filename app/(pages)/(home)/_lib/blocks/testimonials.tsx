@@ -8,67 +8,43 @@ import {
 } from "@components/ui";
 import React from "react";
 import TestimonialCard from "../components/testimonial-card";
+import { PageBlocksTestimonials } from "@/tina/__generated__/types";
 
-export function Testimonials() {
+type TestimonialsProps = PageBlocksTestimonials;
+
+export function Testimonials({
+  title,
+  subtitle,
+  testimonials,
+}: TestimonialsProps) {
   return (
     <section className="text-center pt-28">
       <h2 className="text-4xl font-bold leading-[54px] text-center mb-6">
-        Testimonials
+        {title}
       </h2>
 
       <p className="text-lg font-light leading-10 mt-10 md:text-2xl md:leading-10 ">
-        Here’s what our clients say about our work.
+        {subtitle}
       </p>
 
       <Carousel className="w-[100%] pt-28">
         <CarouselContent>
-          <CarouselItem className="md:basis-1/2 flex justify-center items-center">
-            <TestimonialCard
-              avatar={{
-                description: "CEO, Restaurant 365",
-                name: "Morgan Harris",
-                src: "/customer-support.svg",
-              }}
-              description="
-      Foothill Technology Solutions has been an invaluable partner in helping us develop and maintain our software. They are a team of dedicated professionals who are always available to help us with any issues that may arise. We highly recommend them to anyone looking for a reliable and trustworthy software development company."
-            />
-          </CarouselItem>
-
-          <CarouselItem className="md:basis-1/2 flex justify-center items-center">
-            <TestimonialCard
-              avatar={{
-                description: "CEO, Restaurant 365",
-                name: "Morgan Harris",
-                src: "/customer-support.svg",
-              }}
-              description="
-      Foothill Technology Solutions has been an invaluable partner in helping us develop and maintain our software. They are a team of dedicated professionals who are always available to help us with any issues that may arise. We highly recommend them to anyone looking for a reliable and trustworthy software development company."
-            />
-          </CarouselItem>
-
-          <CarouselItem className="md:basis-1/2 flex justify-center items-center">
-            <TestimonialCard
-              avatar={{
-                description: "CEO, Restaurant 365",
-                name: "Morgan Harris",
-                src: "/customer-support.svg",
-              }}
-              description="
-      Foothill Technology Solutions has been an invaluable partner in helping us develop and maintain our software. They are a team of dedicated professionals who are always available to help us with any issues that may arise. We highly recommend them to anyone looking for a reliable and trustworthy software development company."
-            />
-          </CarouselItem>
-
-          <CarouselItem className="md:basis-1/2 flex justify-center items-center">
-            <TestimonialCard
-              avatar={{
-                description: "CEO, Restaurant 365",
-                name: "Morgan Harris",
-                src: "/customer-support.svg",
-              }}
-              description="
-      Foothill Technology Solutions has been an invaluable partner in helping us develop and maintain our software. They are a team of dedicated professionals who are always available to help us with any issues that may arise. We highly recommend them to anyone looking for a reliable and trustworthy software development company."
-            />
-          </CarouselItem>
+          {testimonials &&
+            testimonials.map((testimonial, index) => (
+              <CarouselItem
+                key={index}
+                className="md:basis-1/2 flex justify-center items-center"
+              >
+                <TestimonialCard
+                  avatar={{
+                    title: testimonial?.author?.title || "",
+                    name: testimonial?.author?.name || "",
+                    src: testimonial?.author?.avatar || "",
+                  }}
+                  description={testimonial?.quote || ""}
+                />
+              </CarouselItem>
+            ))}
         </CarouselContent>
         <div className="hidden md:block">
           <CarouselNext />
