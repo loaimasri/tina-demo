@@ -36,6 +36,6 @@ export default defineConfig({
   contentApiUrlOverride: "/api/tina/gql",
 
   schema: {
-    collections: [Post, Page, Global, TinaUserCollection],
+    collections: [Post, Page, Global, User],
   },
 });
