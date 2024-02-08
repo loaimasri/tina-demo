@@ -20,10 +20,42 @@ export const Page: Collection = {
       required: true,
     },
     {
-      label: "Require Auth",
-      name: "requireAuth",
-      type: "boolean",
-      required: true,
+      label: "Authentication Options",
+      name: "auth",
+      type: "object",
+      fields: [
+        {
+          label: "Require Authentication",
+          name: "requireAuth",
+          type: "boolean",
+          ui: {
+            description: "Require the user to be logged in to view this page",
+          },
+        },
+        {
+          label: "Roles",
+          name: "roles",
+          type: "string",
+          list: true,
+          ui: {
+            description: "A list of roles that are allowed to view this page",
+          },
+          options: [
+            {
+              label: "Admin",
+              value: "admin",
+            },
+            {
+              label: "Team Lead",
+              value: "lead",
+            },
+            {
+              label: "Team Member",
+              value: "member",
+            },
+          ],
+        },
+      ],
     },
     {
       label: "Sections",

@@ -18,7 +18,11 @@ Sections:
         link: 'https://www.facebook.com/FoothillTechnologySolutions'
     _template: hero
 title: Home
-requireAuth: false
+auth:
+  roles:
+    - admin
+    - lead
+    - member
 blocks:
   - title: Empowering Operators Worldwide
     subtitle: >+
