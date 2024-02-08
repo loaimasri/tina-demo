@@ -30,7 +30,7 @@ export default function ServiceCard({
   title,
 }: ServiceCardProps) {
   return (
-    <Card className="w-[334px] h-[300px] rounded-2xl outline-[#348dcd] hover:transition-all hover:outline hover:outline-4">
+    <Card className="w-[334px] h-[300px] rounded-2xl outline-[#348dcd] hover:transition-all hover:outline hover:outline-4 pointer-events-none">
       <CardHeader>
         <div className="flex items-center justify-center gap-4">
           <div
@@ -49,16 +49,14 @@ export default function ServiceCard({
         </div>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-lg text-left pointer-events-none">
-          {description.length > 74
-            ? `${description.substring(0, 74)}...`
-            : description}
+        <CardDescription className="text-lg text-left line-clamp-3">
+          {description}
         </CardDescription>
       </CardContent>
       <CardFooter>
         <Dialog>
           <DialogTrigger asChild>
-            <div className="flex justify-center align-center cursor-pointer">
+            <div className="flex justify-center align-center pointer-events-auto cursor-pointer">
               <span
                 style={{
                   color: "#348dcd",
@@ -76,13 +74,15 @@ export default function ServiceCard({
               />
             </div>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[700px] max-w-[90%] rounded-md">
             <DialogHeader>
               <DialogTitle className="border-b-2 pb-4 mb-2">
                 {title}
               </DialogTitle>
             </DialogHeader>
-            <DialogDescription>{description}</DialogDescription>
+            <DialogDescription className="text-lg">
+              {description}
+            </DialogDescription>
           </DialogContent>
         </Dialog>
       </CardFooter>
