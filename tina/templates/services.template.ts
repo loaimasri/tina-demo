@@ -69,5 +69,19 @@ export const ServicesTemplate: Template = {
         },
       ],
     },
+    {
+      type: "string",
+      name: "background",
+      label: "Background Color",
+      list: true,
+      ui: {
+        component: "select",
+      },
+      options: [
+        { label: "Main", value: "bg-secondary" },
+        { label: "Light", value: "bg-secondary-light" },
+        { label: "Transparent", value: "bg-transparent" },
+      ],
+    },
   ],
 };

@@ -9,6 +9,7 @@ import {
 import React from "react";
 import TestimonialCard from "../components/testimonial-card";
 import { PageBlocksTestimonials } from "@/tina/__generated__/types";
+import { cn } from "@/app/_lib/utils/cn";
 
 type TestimonialsProps = PageBlocksTestimonials;
 
@@ -16,9 +17,10 @@ export function Testimonials({
   title,
   subtitle,
   testimonials,
+  background: backgroundColor,
 }: TestimonialsProps) {
   return (
-    <section className="text-center pt-28">
+    <section className={cn("text-center pt-28", backgroundColor?.[0])}>
       <h2 className="text-4xl font-bold leading-[54px] text-center mb-6">
         {title}
       </h2>
@@ -27,7 +29,7 @@ export function Testimonials({
         {subtitle}
       </p>
 
-      <Carousel className="w-[100%] pt-28">
+      <Carousel className="w-[100%] pt-28 pb-8">
         <CarouselContent>
           {testimonials &&
             testimonials.map((testimonial, index) => (

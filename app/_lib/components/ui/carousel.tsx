@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, Car } from "lucide-react";
 
 import { cn } from "@utils/cn";
 import { Button } from "./button";
+import { useTheme } from "next-themes";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -257,6 +258,7 @@ const CarouselDots = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
+  const { theme } = useTheme();
   const { api, selectedIndex } = useCarousel();
   const slides = api?.scrollSnapList().length || 0;
 
@@ -265,8 +267,8 @@ const CarouselDots = React.forwardRef<
       <button
         key={index}
         className={cn(
-          "w-2.5 h-2.5 rounded-full cursor-pointer",
-          selectedIndex === index ? "bg-primary" : "bg-secondary"
+          "w-2.5 h-2.5 rounded-full cursor-pointer bg-gray-300",
+          selectedIndex === index ? "bg-[#439dd5]" : ""
         )}
         onClick={() => api && api.scrollTo(index)}
       >

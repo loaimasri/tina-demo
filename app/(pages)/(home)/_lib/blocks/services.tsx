@@ -1,13 +1,22 @@
 import { PageBlocksServices } from "@/tina/__generated__/types";
 import ServiceCard from "../components/service-card";
+import { cn } from "@/app/_lib/utils/cn";
 
 type ServicesProps = PageBlocksServices;
 
-export function Services({ title, subtitle, services }: ServicesProps) {
+export function Services({
+  title,
+  subtitle,
+  services,
+  background: backgroundColor,
+}: ServicesProps) {
   return (
     <section
       id="services"
-      className="flex justify-center flex-col items-center text-center min-h-screen bg-gray-600 py-20 "
+      className={cn(
+        "flex justify-center flex-col items-center text-center min-h-screen py-20",
+        backgroundColor?.[0]
+      )}
     >
       <h2 className="text-4xl font-bold leading-[54px]">{title}</h2>
       <p className="my-12 text-2xl leading-10 font-light">{subtitle}</p>

@@ -105,6 +105,8 @@ blocks:
           We use the Microsoft cloud services to build, deploy and manage
           services and applications through the network worldwide and are
           managed by the Data-centers of Microsoft.
+    background:
+      - bg-secondary
     _template: services
   - title: Our Clients
     clients:
@@ -120,6 +122,8 @@ blocks:
       - label: national-link
         logo: /nation-link.png
         link: 'https://nationallinkatm.com/'
+    background:
+      - bg-transparent
     _template: ourClients
   - title: Testimonials
     subtitle: Here’s what our clients say about our work.
@@ -158,6 +162,8 @@ blocks:
           customization which key to future upgrades. They always keep in mind
           that your software platform will be ever evolving, and programming
           done today must work with upgrades for tomorrow. 
+    background:
+      - bg-secondary-light
     _template: testimonials
 ---
 

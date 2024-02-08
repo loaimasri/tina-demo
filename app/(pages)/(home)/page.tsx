@@ -13,7 +13,6 @@ export default async function HomePage() {
         data={JSON.parse(JSON.stringify(result.data))}
       />
 
-      <Testimonials />
     </>
   );
 }
