@@ -8,11 +8,10 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero />
-
-      <Services />
-
-      <OurClients />
+      <PageContainer
+        {...result}
+        data={JSON.parse(JSON.stringify(result.data))}
+      />
 
       <Testimonials />
     </>
