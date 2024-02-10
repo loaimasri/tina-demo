@@ -27,8 +27,7 @@ const nextConfig = {
       },
     ],
   },
+  distDir: "build",
 };
-
-//"https://avatars.githubusercontent.com/u/156896065?v=4"
 
 export default nextConfig;
