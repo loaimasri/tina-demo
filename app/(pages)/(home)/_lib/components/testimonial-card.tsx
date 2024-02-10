@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader } from "@components/ui";
 import Image from "next/image";
-import React from "react";
 
 type TestimonialCardProps = {
   avatar: {
@@ -11,15 +10,18 @@ type TestimonialCardProps = {
   description: string;
 };
 
-function TestimonialCard({ avatar, description }: TestimonialCardProps) {
+function TestimonialCard({
+  avatar,
+  description,
+}: TestimonialCardProps): JSX.Element {
   return (
-    <Card className="w-[560px] h-[530px] text-left">
+    <Card className="h-[530px] w-[560px] text-left">
       <CardHeader>
         <div className="flex items-center">
           <Image
             src={avatar.src}
             alt={avatar.name}
-            className="w-12 h-12"
+            className="size-12"
             width={48}
             height={48}
           />

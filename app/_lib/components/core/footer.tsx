@@ -1,15 +1,20 @@
 "use client";
+import { type GlobalConnectionQuery } from "@/tina/__generated__/types";
 import Link from "next/link";
-import { GlobalConnectionQuery } from "@/tina/__generated__/types";
 import { tinaField, useTina } from "tinacms/dist/react";
 
 type FooterProps = {
   data: GlobalConnectionQuery;
-  variables: {};
+  variables: object;
   query: string;
 } & React.HTMLAttributes<HTMLElement>;
 
-export function Footer({ data, variables, query, ...props }: FooterProps) {
+export function Footer({
+  data,
+  variables,
+  query,
+  ...props
+}: FooterProps): JSX.Element | null {
   const {
     data: { globalConnection },
   } = useTina({
@@ -32,7 +37,7 @@ export function Footer({ data, variables, query, ...props }: FooterProps) {
 
   const socials: Social[] = Object.entries(footer.social as object)
     .filter(([key]) => !ignoredKeys.includes(key))
-    .map(([key, value]) => ({
+    .map(([key, value]: [string, string]) => ({
       name: key,
       url: value,
     }));
@@ -40,17 +45,17 @@ export function Footer({ data, variables, query, ...props }: FooterProps) {
   return (
     <footer {...props}>
       <div
-        className="flex justify-between 
-        container py-8
+        className="container flex 
+        justify-between py-8
       "
       >
         <div>
-          {socials.map(({ name, url }, index) => (
+          {socials.map(({ name, url }) => (
             <Link
-              key={index}
+              key={name}
               href={url}
               target="_blank"
-              className="mr-4 hover:underline capitalize"
+              className="mr-4 capitalize hover:underline"
               data-tina-field={tinaField(footer, "social")}
             >
               {name}

@@ -78,7 +78,7 @@ const config = {
         "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
         "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
         "@typescript-eslint/no-empty-interface": "error",
-        "consistent-return": "error",
+        "consistent-return": "off",
         "@typescript-eslint/explicit-function-return-type": [
           "warn",
           {

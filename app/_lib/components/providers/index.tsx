@@ -1,11 +1,11 @@
-import React from "react";
-import { ThemeProvider } from "./theme-provider";
 import { getServerSession } from "next-auth";
+import React from "react";
 import { SessionProvider } from "./session-provider";
+import { ThemeProvider } from "./theme-provider";
 
 export async function Providers({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode }>): Promise<JSX.Element> {
   const session = await getServerSession();
 
   return (

@@ -1,6 +1,5 @@
 "use client";
 
-export * from "./icon";
-export * from "./mode-toggle";
-export * from "./header";
 export * from "./footer";
+export * from "./header";
+export * from "./mode-toggle";

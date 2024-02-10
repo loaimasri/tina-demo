@@ -1,14 +1,20 @@
+import type { PageBlocksHero } from "@/tina/__generated__/types";
+import { Button } from "@components/ui";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@components/ui";
-import { PageBlocksHero } from "@/tina/__generated__/types";
 
 type HeroProps = PageBlocksHero;
 
-export function Hero({ image, socials, subtitle, title, cta }: HeroProps) {
+export function Hero({
+  image,
+  socials,
+  subtitle,
+  title,
+  cta,
+}: HeroProps): JSX.Element {
   return (
     <div className="text-white">
-      <div className="h-[calc(var(--hero-height))] absolute inset-0 -z-10 before:block before:absolute before:inset-0 before:z-10 before:bg-gradient-to-t before:from-black before:to-transparent">
+      <div className="absolute inset-0 -z-10 h-[calc(var(--hero-height))] before:absolute before:inset-0 before:z-10 before:block before:bg-gradient-to-t before:from-black before:to-transparent">
         {image && (
           <Image
             src={image}
@@ -21,26 +27,30 @@ export function Hero({ image, socials, subtitle, title, cta }: HeroProps) {
         )}
       </div>
 
-      <section className="flex justify-center flex-col items-center text-center h-[calc(var(--section-height))]">
+      <section className="flex h-[calc(var(--section-height))] flex-col items-center justify-center text-center">
         <h1 className="text-3xl font-bold leading-[67px] md:text-5xl">
           {title}
         </h1>
-        <p className="text-lg font-light leading-10 mt-10 md:text-2xl md:leading-10 ">
+        <p className="mt-10 text-lg font-light leading-10 md:text-2xl md:leading-10 ">
           {subtitle}
         </p>
         <Button
           size="xxl"
-          className="mt-7 bg-white text-[#439dd5] hover:opacity-90 hover:bg-white  hover:text-[#439dd5]"
+          className="mt-7 bg-white text-[#439dd5] hover:bg-white hover:text-[#439dd5]  hover:opacity-90"
           asChild
         >
           {cta && (
-            <Link href={cta.link || "/"}>{cta.label || "Learn More"}</Link>
+            <Link href={cta.link ?? "/"}>{cta.label ?? "Learn More"}</Link>
           )}
         </Button>
 
-        <div className="flex justify-center items-center gap-7 mt-[1.875rem]">
-          {socials?.map((social, index) => (
-            <Link key={index} href={social?.link || ""} target="_blank">
+        <div className="mt-[1.875rem] flex items-center justify-center gap-7">
+          {socials?.map((social) => (
+            <Link
+              key={social?.__typename}
+              href={social?.link ?? ""}
+              target="_blank"
+            >
               {social?.icon && social.label && (
                 <Image
                   src={social.icon}
@@ -52,7 +62,7 @@ export function Hero({ image, socials, subtitle, title, cta }: HeroProps) {
             </Link>
           ))}
         </div>
-        <Link className="relative animate-bounce mt-7" href="#services">
+        <Link className="relative mt-7 animate-bounce" href="#services">
           <Image
             src="/arrow-down.svg"
             alt="arrow down"

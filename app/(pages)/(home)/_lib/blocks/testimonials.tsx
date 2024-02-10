@@ -1,3 +1,5 @@
+import { cn } from "@/app/_lib/utils/cn";
+import type { PageBlocksTestimonials } from "@/tina/__generated__/types";
 import {
   Carousel,
   CarouselContent,
@@ -6,10 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@components/ui";
-import React from "react";
 import TestimonialCard from "../components/testimonial-card";
-import { PageBlocksTestimonials } from "@/tina/__generated__/types";
-import { cn } from "@/app/_lib/utils/cn";
 
 type TestimonialsProps = PageBlocksTestimonials;
 
@@ -18,35 +17,34 @@ export function Testimonials({
   subtitle,
   testimonials,
   background: backgroundColor,
-}: TestimonialsProps) {
+}: TestimonialsProps): JSX.Element {
   return (
     <section className={cn("text-center pt-28", backgroundColor?.[0])}>
-      <h2 className="text-4xl font-bold leading-[54px] text-center mb-6">
+      <h2 className="mb-6 text-center text-4xl font-bold leading-[54px]">
         {title}
       </h2>
 
-      <p className="text-lg font-light leading-10 mt-10 md:text-2xl md:leading-10 ">
+      <p className="mt-10 text-lg font-light leading-10 md:text-2xl md:leading-10 ">
         {subtitle}
       </p>
 
-      <Carousel className="w-[100%] pt-28 pb-8">
+      <Carousel className="w-[100%] pb-8 pt-28">
         <CarouselContent>
-          {testimonials &&
-            testimonials.map((testimonial, index) => (
-              <CarouselItem
-                key={index}
-                className="md:basis-1/2 flex justify-center items-center"
-              >
-                <TestimonialCard
-                  avatar={{
-                    title: testimonial?.author?.title || "",
-                    name: testimonial?.author?.name || "",
-                    src: testimonial?.author?.avatar || "",
-                  }}
-                  description={testimonial?.quote || ""}
-                />
-              </CarouselItem>
-            ))}
+          {testimonials?.map((testimonial) => (
+            <CarouselItem
+              key={testimonial?.__typename}
+              className="flex items-center justify-center md:basis-1/2"
+            >
+              <TestimonialCard
+                avatar={{
+                  title: testimonial?.author?.title ?? "",
+                  name: testimonial?.author?.name ?? "",
+                  src: testimonial?.author?.avatar ?? "",
+                }}
+                description={testimonial?.quote ?? ""}
+              />
+            </CarouselItem>
+          ))}
         </CarouselContent>
         <div className="hidden md:block">
           <CarouselNext />

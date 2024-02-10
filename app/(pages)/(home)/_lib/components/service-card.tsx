@@ -6,13 +6,12 @@ import {
   CardHeader,
   CardTitle,
   Dialog,
-  DialogTrigger,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
+  DialogTrigger,
 } from "@components/ui";
-import React from "react";
 import Image from "next/image";
 
 type ServiceCardProps = {
@@ -28,13 +27,13 @@ export default function ServiceCard({
   description,
   icon,
   title,
-}: ServiceCardProps) {
+}: ServiceCardProps): JSX.Element {
   return (
-    <Card className="w-[334px] h-[300px] rounded-2xl outline-[#348dcd] hover:transition-all hover:outline hover:outline-4 pointer-events-none">
+    <Card className="pointer-events-none h-[300px] w-[334px] rounded-2xl outline-[#348dcd] hover:outline hover:outline-4 hover:transition-all">
       <CardHeader>
         <div className="flex items-center justify-center gap-4">
           <div
-            className="rounded-full p-4 h-20 w-20 flex items-center justify-center aspect-square"
+            className="flex aspect-square size-20 items-center justify-center rounded-full p-4"
             style={{ backgroundColor: icon.color }}
           >
             <Image
@@ -42,21 +41,21 @@ export default function ServiceCard({
               alt={icon.name}
               width={40}
               height={40}
-              className="h-10 w-10 m-0 p-0"
+              className="m-0 size-10 p-0"
             />
           </div>
-          <CardTitle className="text-2xl text-left">{title}</CardTitle>
+          <CardTitle className="text-left text-2xl">{title}</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-lg text-left line-clamp-3">
+        <CardDescription className="line-clamp-3 text-left text-lg">
           {description}
         </CardDescription>
       </CardContent>
       <CardFooter>
         <Dialog>
           <DialogTrigger asChild>
-            <div className="flex justify-center align-center pointer-events-auto cursor-pointer">
+            <div className="pointer-events-auto flex cursor-pointer items-center justify-center">
               <span
                 style={{
                   color: "#348dcd",
@@ -74,9 +73,9 @@ export default function ServiceCard({
               />
             </div>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[700px] max-w-[90%] rounded-md">
+          <DialogContent className="max-w-[90%] rounded-md sm:max-w-[700px]">
             <DialogHeader>
-              <DialogTitle className="border-b-2 pb-4 mb-2">
+              <DialogTitle className="mb-2 border-b-2 pb-4">
                 {title}
               </DialogTitle>
             </DialogHeader>
