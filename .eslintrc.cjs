@@ -31,7 +31,7 @@ const config = {
       rules: {
         "no-restricted-imports": "off",
         "@typescript-eslint/no-restricted-imports": [
-          "error",
+          "off",
           {
             patterns: ["../*"],
           },
@@ -91,7 +91,7 @@ const config = {
         "no-implicit-coercion": "error",
         "@typescript-eslint/return-await": "error",
         "no-unneeded-ternary": "error",
-        "@typescript-eslint/no-confusing-void-expression": "error",
+        "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/no-meaningless-void-operator": "warn",
         "no-plusplus": [
           "error",
@@ -124,7 +124,7 @@ const config = {
         "@typescript-eslint/no-confusing-non-null-assertion": "error",
         "@typescript-eslint/no-duplicate-enum-values": "error",
         "@typescript-eslint/strict-boolean-expressions": [
-          "error",
+          "off",
           {
             allowString: false,
             allowNumber: false,

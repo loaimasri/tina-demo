@@ -1,8 +1,8 @@
 "use client";
-import { PageQuery } from "@/tina/__generated__/types";
+import { type PageQuery } from "@/tina/__generated__/types";
+import { Button } from "@components/ui";
 import { signIn, useSession } from "next-auth/react";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { Button } from "../../../../_lib/components/ui";
 import { Blocks } from "../components/block-renderer";
 
 type PageContainerProps = {
@@ -13,22 +13,18 @@ type PageContainerProps = {
   query: string;
 };
 
-export function PageContainer(props: PageContainerProps) {
+export function PageContainer(props: PageContainerProps): JSX.Element {
   const {
     data: { page },
   } = useTina(props);
 
   const { data: session } = useSession();
 
-  const { title, requireAuth } = page;
+  const { auth } = page;
 
-  if (requireAuth && !session) {
+  if (auth?.requireAuth && !session) {
     return <Button onClick={() => signIn()}>Sign in to view this Page</Button>;
   }
 
-  return (
-    <>
-      <Blocks {...page} data-tina-field={tinaField(page)} />
-    </>
-  );
+  return <Blocks {...page} data-tina-field={tinaField(page)} />;
 }
