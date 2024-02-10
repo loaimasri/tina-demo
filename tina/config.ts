@@ -1,16 +1,15 @@
-import { Collection, LocalAuthProvider, defineConfig } from "tinacms";
-import { Post, Page, Global, User } from "./collection";
+import { LocalAuthProvider, defineConfig } from "tinacms";
 import {
-  DefaultAuthJSProvider,
-  UsernamePasswordAuthJSProvider,
   TinaUserCollection,
+  UsernamePasswordAuthJSProvider,
 } from "tinacms-authjs/dist/tinacms";
 import { environment } from "../config";
+import { Global, Page, Post } from "./collection";
 
 const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
+  process.env.GITHUB_BRANCH ??
+  process.env.VERCEL_GIT_COMMIT_REF ??
+  process.env.HEAD ??
   "main";
 
 const isLocal = environment.general.isLocal === "true";

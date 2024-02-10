@@ -1,9 +1,9 @@
 import type { Collection } from "tinacms";
 import {
   HeroTemplate,
-  TestimonialsTemplate,
-  ServicesTemplate,
   OurClientsTemplate,
+  ServicesTemplate,
+  TestimonialsTemplate,
 } from "../templates";
 
 export const Page: Collection = {

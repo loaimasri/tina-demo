@@ -1,44 +1,4 @@
-import { Collection, TinaField } from "tinacms";
-import { IconPickerInput, ColorPickerInput } from "../fields";
-
-const logoSchema = {
-  label: "Logo",
-  name: "logo",
-  type: "object",
-  fields: [
-    {
-      type: "string",
-      label: "Icon",
-      name: "name",
-      ui: {
-        component: IconPickerInput,
-      },
-    },
-    {
-      type: "string",
-      label: "Color",
-      name: "color",
-      ui: {
-        component: ColorPickerInput,
-      },
-    },
-    {
-      name: "style",
-      label: "Style",
-      type: "string",
-      options: [
-        {
-          label: "Circle",
-          value: "circle",
-        },
-        {
-          label: "Float",
-          value: "float",
-        },
-      ],
-    },
-  ],
-};
+import type { Collection } from "tinacms";
 
 export const Global: Collection = {
   label: "Global",
@@ -83,7 +43,7 @@ export const Global: Collection = {
           name: "nav",
           list: true,
           ui: {
-            itemProps: (item) => {
+            itemProps: (item: Record<string, string>) => {
               return { label: item?.label };
             },
             defaultItem: {

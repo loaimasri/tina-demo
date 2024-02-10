@@ -1,4 +1,4 @@
-import { Collection } from "tinacms";
+import type { Collection } from "tinacms";
 
 export const Post: Collection = {
   name: "post",
@@ -10,7 +10,7 @@ export const Post: Collection = {
     router: ({ document }) => `/post/${document._sys.filename}`,
     filename: {
       readonly: true,
-      slugify: ({ title }) =>
+      slugify: ({ title }: Record<string, string>) =>
         `${title?.replace(/\s+/g, "-").toLowerCase().slice(0, 20)}`,
     },
   },

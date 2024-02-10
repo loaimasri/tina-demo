@@ -1,4 +1,4 @@
-import { Collection } from "tinacms";
+import type { Collection } from "tinacms";
 import { TinaUserCollection } from "tinacms-authjs/dist/tinacms";
 
 export const User: Collection = {
