@@ -21,7 +21,7 @@ const tinaHandler = TinaNodeBackend({
       }),
   databaseClient,
 });
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   return tinaHandler(req, res);
 };
 
