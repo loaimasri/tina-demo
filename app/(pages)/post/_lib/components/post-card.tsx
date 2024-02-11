@@ -34,7 +34,7 @@ function PostCard({
           alt="post"
           width={185}
           height={208}
-          className="object-cover w-full h-full rounded-xl md:rounded-tl-xl md:rounded-bl-xl md:rounded-tr-none md:rounded-br-none md:h-52"
+          className="object-cover w-full min-h-full rounded-xl md:rounded-tl-xl md:rounded-bl-xl md:rounded-tr-none md:rounded-br-none md:min-h-[208px] md:w-[185px]"
         />
 
         <div className="flex flex-col p-6">
