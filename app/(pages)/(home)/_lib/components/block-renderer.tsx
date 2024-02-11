@@ -6,7 +6,7 @@ type BlockRendererProps = Omit<Page, "id" | "_sys" | "_values">;
 
 export const Blocks = ({ blocks }: BlockRendererProps) => {
   return (
-    <div className="">
+    <div className="bg-transparent">
       {blocks &&
         blocks.map((block, index) => (
           <div key={index} data-tina-field={tinaField(block as any)}>

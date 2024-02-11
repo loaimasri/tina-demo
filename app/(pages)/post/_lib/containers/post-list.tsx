@@ -34,7 +34,7 @@ const categories = [
 export function PostList(props: PostConnectionQuery) {
   const posts = props.postConnection.edges;
   return (
-    <div className="container flex flex-col gap-8 pt-8">
+    <section className="flex flex-col gap-8 pt-8">
       <div className="flex gap-x-4 gap-y-2 flex-wrap">
         {categories.map((category, index) => (
           <CategoryBadge
@@ -54,6 +54,6 @@ export function PostList(props: PostConnectionQuery) {
           publishedBy="John Doe"
         />
       </div>
-    </div>
+    </section>
   );
 }

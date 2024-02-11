@@ -18,6 +18,10 @@ html {
   scroll-behavior: smooth;
 }
 
+main > * {
+  @apply bg-secondary;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

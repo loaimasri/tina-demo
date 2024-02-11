@@ -37,7 +37,7 @@ export default async function RootLayout({
               data={JSON.parse(JSON.stringify(connection.data))}
             />
 
-            <main className="flex-1 h-[var(--section-height)] bg-secondary">
+            <main className="flex-1 h-[var(--section-height)]">
               {children}
             </main>
 
