@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
     "dev:prod": "tinacms dev -c \"next dev\" --env production",
-    "build": "tinacms build && next build",
+    "build": "tinacms --datalayer-port 8080 build && next build",
     "start": "next start",
     "lint": "next lint"
   },

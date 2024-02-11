@@ -15,16 +15,16 @@ import {
 } from "@components/ui";
 
 type ModeToggleProps = {
-  data: GlobalQuery["global"]["theme"];
+  //data: GlobalQuery["global"]["theme"];
 };
 
-export function ModeToggle({ data }: ModeToggleProps) {
+export function ModeToggle({}: ModeToggleProps) {
   const { setTheme } = useTheme();
-  useEffect(() => {
-    setTheme(data?.darkMode || "system");
-  }, [data, setTheme]);
+  // useEffect(() => {
+  //   setTheme(data?.darkMode || "system");
+  // }, [data, setTheme]);
 
-  if (!data) return null;
+  // if (!data) return null;
 
   return (
     <DropdownMenu>

@@ -1,5 +1,5 @@
 import { client } from "@/tina/__generated__/databaseClient";
-import { PostListPage } from "./_lib/page";
+import { PostListPage } from "./_lib/post-list-page";
 
 export default async function Page() {
   const result = await client.queries.postConnection();
