@@ -5,6 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  Badge,
 } from "@components/ui";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,20 +28,20 @@ function PostCard({
 }: PostCardProps) {
   return (
     <Card>
-      <CardContent className="flex gap-2 p-0">
+      <CardContent className="flex flex-col gap-2 p-0 md:flex-row overflow-hidden">
         <Image
           src="/home-header.png"
           alt="post"
           width={185}
           height={208}
-          className="object-cover h-52 rounded-tl-xl rounded-bl-xl"
+          className="object-cover w-full h-full rounded-xl md:rounded-tl-xl md:rounded-bl-xl md:rounded-tr-none md:rounded-br-none md:h-52"
         />
 
         <div className="flex flex-col p-6">
           <CardHeader className="p-0 mb-2">
             <div className="flex gap-2">
               <p className="text-xs">{publishedAt} by</p>
-              <p className="text-xs text-blue-700">{publishedBy}</p>
+              <p className="text-xs text-primary font-bold">{publishedBy}</p>
             </div>
           </CardHeader>
           <div className="flex flex-col gap-1">
@@ -54,14 +55,11 @@ function PostCard({
               Read more...
             </Link>
 
-            <div className="space-x-2">
+            <div className="space-x-2 pointer-events-none">
               {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs bg-gray-100 px-2 py-1 rounded-xl pointer-events-none"
-                >
+                <Badge key={tag} variant="secondary">
                   {tag}
-                </span>
+                </Badge>
               ))}
             </div>
           </CardFooter>
