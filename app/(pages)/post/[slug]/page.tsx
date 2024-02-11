@@ -1,5 +1,5 @@
 import { client } from "@/tina/__generated__/databaseClient";
-import { Post } from "../_lib/components/Post";
+import { Post } from "../_lib/components/post";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const result = await client.queries.post({

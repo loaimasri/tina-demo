@@ -10,21 +10,13 @@ export function Post(props: {
   };
   query: string;
 }) {
-  const { data } = useTina(props);
-
-  const post = data?.post;
+  //const { data } = useTina(props);
+ 
+  //const post = data?.post;
 
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-8">
-      <h1
-        className="text-4xl md:text-5xl font-bold mb-4 md:mb-6"
-        data-tina-field={tinaField(post, "title")}
-      >
-        {post.title}
-      </h1>
-      <div data-tina-field={tinaField(post, "body")}>
-        <TinaMarkdown content={post.body} />
-      </div>
+      <h1>hello world</h1>
     </div>
   );
 }
