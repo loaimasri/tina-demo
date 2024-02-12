@@ -1,7 +1,6 @@
 "use client";
 import type { PostQuery } from "@/tina/__generated__/types";
-import { tinaField, useTina } from "tinacms/dist/react";
-import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
+import { useTina } from "tinacms/dist/react";
 
 export function Post(props: {
   data: PostQuery;
@@ -14,17 +13,11 @@ export function Post(props: {
 
   const post = data?.post;
 
+  console.log(post);
+
   return (
     <div className="mx-auto max-w-4xl p-4 md:p-8">
-      <h1
-        className="mb-4 text-4xl font-bold md:mb-6 md:text-5xl"
-        data-tina-field={tinaField(post, "title")}
-      >
-        {post.title}
-      </h1>
-      <div data-tina-field={tinaField(post, "body")}>
-        <TinaMarkdown content={post.body as TinaMarkdownContent} />
-      </div>
+      <h1>hello world</h1>
     </div>
   );
 }

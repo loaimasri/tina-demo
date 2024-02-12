@@ -1,10 +1,7 @@
 import { LocalAuthProvider, defineConfig } from "tinacms";
-import {
-  TinaUserCollection,
-  UsernamePasswordAuthJSProvider,
-} from "tinacms-authjs/dist/tinacms";
+import { UsernamePasswordAuthJSProvider } from "tinacms-authjs/dist/tinacms";
 import { environment } from "../config";
-import { Global, Page, Post } from "./collection";
+import { Global, Page, Post, User } from "./collection";
 
 const branch =
   process.env.GITHUB_BRANCH ??
@@ -35,6 +32,6 @@ export default defineConfig({
   contentApiUrlOverride: "/api/tina/gql",
 
   schema: {
-    collections: [Post, Page, Global, TinaUserCollection],
+    collections: [Post, Page, Global, User],
   },
 });

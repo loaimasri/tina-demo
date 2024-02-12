@@ -25,6 +25,13 @@ export function PageContainer(props: PageContainerProps): JSX.Element {
   if (auth?.requireAuth && !session) {
     return <Button onClick={() => signIn()}>Sign in to view this Page</Button>;
   }
+  // const roles:string[]= [
+  //   "admin",
+  //   "editor",
+  //   "viewer"
+  // ]
+
+  //TODO: extend the session to have roles attribute and accessing page for current logged in user
 
   return <Blocks {...page} data-tina-field={tinaField(page)} />;
 }

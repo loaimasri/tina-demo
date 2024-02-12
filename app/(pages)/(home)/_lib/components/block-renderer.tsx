@@ -22,7 +22,7 @@ const Block = (block: PageBlocks): JSX.Element | null => {
 
 export const Blocks = ({ blocks }: BlockRendererProps): JSX.Element => {
   return (
-    <div className="">
+    <div className="bg-transparent">
       {blocks?.map((block) => (
         <div
           key={block?.__typename}
