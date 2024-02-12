@@ -1,4 +1,4 @@
-import { Badge } from "@components/ui";
+import { Badge } from "@components/ui/badge";
 import React from "react";
 
 type CategoryBadgeProps = {

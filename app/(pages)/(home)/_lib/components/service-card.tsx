@@ -1,17 +1,7 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@components/ui";
+import { Dialog } from "@components/ui/dialog";
+
+import { Card } from "@/app/_lib/components/ui/card";
+
 import Image from "next/image";
 
 type ServiceCardProps = {
@@ -30,7 +20,7 @@ export default function ServiceCard({
 }: ServiceCardProps): JSX.Element {
   return (
     <Card className="pointer-events-none h-[300px] w-[334px] rounded-2xl outline-[#348dcd] hover:outline hover:outline-4 hover:transition-all">
-      <CardHeader>
+      <Card.Header>
         <div className="flex items-center justify-center gap-4">
           <div
             className="flex aspect-square size-20 items-center justify-center rounded-full p-4"
@@ -44,17 +34,17 @@ export default function ServiceCard({
               className="m-0 size-10 p-0"
             />
           </div>
-          <CardTitle className="text-left text-2xl">{title}</CardTitle>
+          <Card.Title className="text-left text-2xl">{title}</Card.Title>
         </div>
-      </CardHeader>
-      <CardContent>
-        <CardDescription className="line-clamp-3 text-left text-lg">
+      </Card.Header>
+      <Card.Content>
+        <Card.Description className="line-clamp-3 text-left text-lg">
           {description}
-        </CardDescription>
-      </CardContent>
-      <CardFooter>
+        </Card.Description>
+      </Card.Content>
+      <Card.Footer>
         <Dialog>
-          <DialogTrigger asChild>
+          <Dialog.Trigger asChild>
             <div className="pointer-events-auto flex cursor-pointer items-center justify-center">
               <span
                 style={{
@@ -72,19 +62,19 @@ export default function ServiceCard({
                 height={24}
               />
             </div>
-          </DialogTrigger>
-          <DialogContent className="max-w-[90%] rounded-md sm:max-w-[700px]">
-            <DialogHeader>
-              <DialogTitle className="mb-2 border-b-2 pb-4">
+          </Dialog.Trigger>
+          <Dialog.Content className="max-w-[90%] rounded-md sm:max-w-[700px]">
+            <Dialog.Header>
+              <Dialog.Title className="mb-2 border-b-2 pb-4">
                 {title}
-              </DialogTitle>
-            </DialogHeader>
-            <DialogDescription className="text-lg">
+              </Dialog.Title>
+            </Dialog.Header>
+            <Dialog.Description className="text-lg">
               {description}
-            </DialogDescription>
-          </DialogContent>
+            </Dialog.Description>
+          </Dialog.Content>
         </Dialog>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   );
 }

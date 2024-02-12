@@ -1,12 +1,6 @@
-import {
-  Badge,
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@components/ui";
+import { Badge } from "@components/ui/badge";
+import { Card } from "@/app/_lib/components/ui/card";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,7 +21,7 @@ export function PostCard({
 }: PostCardProps): JSX.Element {
   return (
     <Card>
-      <CardContent className="flex flex-col gap-2 overflow-hidden p-0 md:flex-row">
+      <Card.Content className="flex flex-col gap-2 overflow-hidden p-0 md:flex-row">
         <Image
           src="/home-header.png"
           alt="post"
@@ -37,19 +31,19 @@ export function PostCard({
         />
 
         <div className="flex flex-col p-6">
-          <CardHeader className="mb-2 p-0">
+          <Card.Header className="mb-2 p-0">
             <div className="flex gap-2">
               <p className="text-xs">{publishedAt} by</p>
               <p className="text-xs font-bold text-primary">{publishedBy}</p>
             </div>
-          </CardHeader>
+          </Card.Header>
           <div className="flex flex-col gap-1">
-            <CardTitle className="text-2xl font-bold">{title}</CardTitle>
-            <CardDescription className="line-clamp-2">
+            <Card.Title className="text-2xl font-bold">{title}</Card.Title>
+            <Card.Description className="line-clamp-2">
               {description}
-            </CardDescription>
+            </Card.Description>
           </div>
-          <CardFooter className="mt-6 flex w-full justify-between p-0">
+          <Card.Footer className="mt-6 flex w-full justify-between p-0">
             <Link href="/post/1" className="text-sm font-medium">
               Read more...
             </Link>
@@ -61,9 +55,9 @@ export function PostCard({
                 </Badge>
               ))}
             </div>
-          </CardFooter>
+          </Card.Footer>
         </div>
-      </CardContent>
+      </Card.Content>
     </Card>
   );
 }

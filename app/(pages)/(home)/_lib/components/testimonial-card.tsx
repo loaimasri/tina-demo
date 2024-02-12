@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader } from "@components/ui";
+import { Card } from "@/app/_lib/components/ui/card";
 import Image from "next/image";
 
 type TestimonialCardProps = {
@@ -16,7 +16,7 @@ function TestimonialCard({
 }: TestimonialCardProps): JSX.Element {
   return (
     <Card className="h-[530px] w-[560px] text-left">
-      <CardHeader>
+      <Card.Header>
         <div className="flex items-center">
           <Image
             src={avatar.src}
@@ -30,10 +30,10 @@ function TestimonialCard({
             <p className="font-light text-muted-foreground">{avatar.title}</p>
           </div>
         </div>
-      </CardHeader>
-      <CardContent className="mt-8">
-        <CardDescription className="text-xl">{description}</CardDescription>
-      </CardContent>
+      </Card.Header>
+      <Card.Content className="mt-8">
+        <Card.Description className="text-xl">{description}</Card.Description>
+      </Card.Content>
     </Card>
   );
 }
