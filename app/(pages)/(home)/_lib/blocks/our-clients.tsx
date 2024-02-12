@@ -1,9 +1,4 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselDots,
-  CarouselItem,
-} from "@components/ui";
+import { Carousel } from "@components/ui/carousel";
 
 import { cn } from "@/app/_lib/utils/cn";
 import type { PageBlocksOurClients } from "@/tina/__generated__/types";
@@ -31,9 +26,9 @@ export function OurClients({
         {subtitle}
       </p>
       <Carousel className="w-[100%]">
-        <CarouselContent>
+        <Carousel.Content>
           {clients?.map((client) => (
-            <CarouselItem
+            <Carousel.Item
               key={client?.__typename}
               className="flex items-center justify-center md:basis-1/2 lg:basis-1/4"
             >
@@ -45,10 +40,10 @@ export function OurClients({
                   height={200}
                 />
               </Link>
-            </CarouselItem>
+            </Carousel.Item>
           ))}
-        </CarouselContent>
-        <CarouselDots />
+        </Carousel.Content>
+        <Carousel.Dots />
       </Carousel>
     </section>
   );

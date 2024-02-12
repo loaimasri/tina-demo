@@ -1,13 +1,6 @@
 import { cn } from "@/app/_lib/utils/cn";
 import type { PageBlocksTestimonials } from "@/tina/__generated__/types";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselDots,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@components/ui";
+import { Carousel } from "@components/ui/carousel";
 import TestimonialCard from "../components/testimonial-card";
 
 type TestimonialsProps = PageBlocksTestimonials;
@@ -28,10 +21,15 @@ export function Testimonials({
         {subtitle}
       </p>
 
-      <Carousel className="w-[100%] pb-8 pt-28">
-        <CarouselContent>
+      <Carousel
+        className="w-[100%] pb-8 pt-28"
+        opts={{
+          loop: true,
+        }}
+      >
+        <Carousel.Content>
           {testimonials?.map((testimonial) => (
-            <CarouselItem
+            <Carousel.Item
               key={testimonial?.__typename}
               className="flex items-center justify-center md:basis-1/2"
             >
@@ -43,14 +41,13 @@ export function Testimonials({
                 }}
                 description={testimonial?.quote ?? ""}
               />
-            </CarouselItem>
+            </Carousel.Item>
           ))}
-        </CarouselContent>
+        </Carousel.Content>
         <div className="hidden md:block">
-          <CarouselNext />
-          <CarouselPrevious />
+          <Carousel.Next />
         </div>
-        <CarouselDots className="mt-8" />
+        <Carousel.Dots className="mt-8" />
       </Carousel>
     </section>
   );
