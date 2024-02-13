@@ -1,6 +1,6 @@
-import { environment } from "./../config";
-import { MongodbLevel } from "mongodb-level";
 import { createDatabase, createLocalDatabase } from "@tinacms/datalayer";
+import { MongodbLevel } from "mongodb-level";
+import { environment } from "./../config";
 
 import { GitHubProvider } from "tinacms-gitprovider-github";
 
@@ -20,6 +20,10 @@ export default isLocal
         collectionName: `tinacms-${environment.github.branch}`,
         dbName: "tinacms",
         mongoUri: environment.mongodb.uri,
+        createIfMissing: true,
+        errorIfExists: false,
+        keyEncoding: "utf8",
+        valueEncoding: "json",
       }),
 
       debug: process.env.DEBUG === "true" || false,
