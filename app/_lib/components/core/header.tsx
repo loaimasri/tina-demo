@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@utils/cn";
-//import { useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,7 +24,7 @@ export function Header({
   query,
   ...props
 }: HeaderProps): JSX.Element | null {
-  //const { data: user } = useSession();
+  const { data: user } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const pathname = usePathname();
@@ -41,6 +42,8 @@ export function Header({
   const header = edges?.[0]?.node?.header;
 
   if (!header) return null;
+
+  
 
   const isMain = pathname === "/";
 
@@ -94,6 +97,23 @@ export function Header({
                 </Link>
               </li>
             ))}
+            <li>
+              <div className="flex gap-2">
+                {user ? (
+                  <Button
+                    variant="ghost"
+                    className="hidden md:block"
+                    onClick={() => signOut()}
+                  >
+                    Sign Out
+                  </Button>
+                ) : (
+                  <Button className="hidden md:block" onClick={() => signIn()}>
+                    Sign In
+                  </Button>
+                )}
+              </div>
+            </li>
           </ul>
         </nav>
 
