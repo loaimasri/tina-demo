@@ -3,6 +3,7 @@
 export type IconName =
   | "action"
   | "add"
+  | "arrowDownward"
   | "back"
   | "comments"
   | "correct"
