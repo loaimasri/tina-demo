@@ -3,10 +3,10 @@ import { Badge } from "@components/ui/badge";
 type CategoryBadgeProps = {
   tag: string;
   selected?: boolean;
-  onClick: (category: string) => void;
+  onClick: (tag: string) => void;
 };
 
-export default function Tag({
+export function Tag({
   tag,
   selected,
   onClick,

@@ -1,50 +1,94 @@
-import type { PostConnectionQuery } from "@/tina/__generated__/types";
-import { useState } from "react";
-import Tag from "../components/tag";
+"use client";
+import { type PostConnectionQuery } from "@/tina/__generated__/types";
+import { useTina } from "tinacms/dist/react";
+
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PostCard } from "../components/post-card";
+import { Tag } from "../components/tag";
 
-export function PostList(props: PostConnectionQuery): JSX.Element {
-  const posts = props.postConnection.edges;
+type PostListProps = {
+  data: PostConnectionQuery;
+  variables: object;
+  query: string;
+};
 
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+export function PostList(props: PostListProps): JSX.Element {
+  const {
+    data: {
+      postConnection: { edges: posts },
+    },
+  } = useTina(props);
 
-  const tags: string[] | undefined = posts?.reduce((acc: string[], curr) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    if (Array.isArray(curr?.node?.tags)) acc.push(...curr?.node?.tags);
-    return acc;
-  }, []);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  console.log("selected.tags", selectedTags);
+  const selectedTags = searchParams?.get("tags")?.split(",") ?? [];
+
+  console.log("selectedTags", selectedTags);
+
+  const tags: string[] = Array.from(
+    new Set(
+      posts?.reduce((acc: string[], curr) => {
+        if (Array.isArray(curr?.node?.tags)) acc.push(...curr?.node?.tags);
+        return acc;
+      }, []),
+    ),
+  );
 
   const handleSelectTag = (tag: string): void => {
-    setSelectedTags((prevTags) =>
-      prevTags?.includes(tag)
-        ? prevTags.filter((t) => t !== tag)
-        : [...prevTags, tag],
-    );
+    const newSelectedTags = selectedTags.includes(tag)
+      ? selectedTags.filter((selectedTag) => selectedTag !== tag)
+      : [...selectedTags, tag];
+
+    const params = new URLSearchParams(searchParams?.toString());
+    if (newSelectedTags.length > 0) {
+      params.set("tags", newSelectedTags.join(","));
+    } else {
+      params.delete("tags");
+    }
+    const queryString = params.toString();
+    router.push(`${pathname}${queryString ? "?" + queryString : ""}`);
   };
 
   return (
     <section className="flex flex-col gap-8 pt-8">
       <div className="flex flex-wrap gap-x-4 gap-y-2">
-        {tags?.map((category) => (
+        {tags?.map((tag) => (
           <Tag
-            key={category}
-            tag={category}
-            selected={selectedTags.includes(category)}
+            key={tag}
+            tag={tag}
+            selected={selectedTags.includes(tag)}
             onClick={handleSelectTag}
           />
         ))}
       </div>
 
       <div className="flex flex-col gap-6">
-        <PostCard
-          title="What is Agile Development and why is it important?"
-          description="Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Nulla facilisi. Sed auctor, libero nec fermentum."
-          tags={["agile", "development"]}
-          publishedAt="January 4, 2024"
-          publishedBy="John Doe"
-        />
+        {posts
+          ?.filter(
+            (post) =>
+              selectedTags.length === 0 ||
+              post?.node?.tags?.some((tag: string) =>
+                selectedTags.includes(tag),
+              ),
+          )
+          .sort(
+            (a, b) =>
+              new Date(b?.node?.publishedAt ?? "").getTime() -
+              new Date(a?.node?.publishedAt ?? "").getTime(),
+          )
+          .map((post) => (
+            <PostCard
+              key={post?.node?.id}
+              cover={post?.node?.cover ?? ""}
+              title={post?.node?.title ?? ""}
+              tags={post?.node?.tags ?? []}
+              description={post?.node?.description ?? ""}
+              publishedAt={post?.node?.publishedAt ?? ""}
+              author={post?.node?.author ?? ""}
+            />
+          ))}
       </div>
     </section>
   );
