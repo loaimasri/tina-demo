@@ -117,6 +117,7 @@ export function PostList(props: PostListProps): JSX.Element {
             description={post?.node?.description ?? ""}
             publishedAt={post?.node?.publishedAt ?? ""}
             author={post?.node?.author ?? ""}
+            link={`/post/${post?.node?._sys.breadcrumbs.join("/")}`}
           />
         ))}
       </div>

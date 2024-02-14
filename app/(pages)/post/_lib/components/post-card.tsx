@@ -12,6 +12,7 @@ type PostCardProps = {
   tags: string[];
   publishedAt: string;
   author: string;
+  link: string;
 };
 
 export function PostCard({
@@ -21,6 +22,7 @@ export function PostCard({
   description,
   publishedAt,
   author,
+  link,
 }: PostCardProps): JSX.Element {
   return (
     <Card>
@@ -49,7 +51,7 @@ export function PostCard({
             </Card.Description>
           </div>
           <Card.Footer className="mt-6 flex justify-between p-0">
-            <Link href="/post/1" className="text-sm font-medium">
+            <Link href={link} className="text-sm font-medium">
               Read more...
             </Link>
 
