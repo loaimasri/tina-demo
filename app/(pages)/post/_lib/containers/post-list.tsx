@@ -87,7 +87,7 @@ export function PostList(props: PostListProps): JSX.Element {
   ) as string[];
 
   return (
-    <section className="flex flex-col gap-8 pt-8">
+    <section className="flex flex-col gap-3xl pt-3xl">
       <Input
         type="search"
         placeholder="Search something here"
@@ -96,7 +96,7 @@ export function PostList(props: PostListProps): JSX.Element {
         onChange={handleSearchChange}
       />
 
-      <div className="flex flex-wrap gap-x-4 gap-y-2">
+      <div className="flex flex-wrap gap-xs">
         {tags?.map((tag) => (
           <Tag
             key={tag}
@@ -107,7 +107,7 @@ export function PostList(props: PostListProps): JSX.Element {
         ))}
       </div>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-3xl">
         {filteredPosts?.map((post) => (
           <PostCard
             key={post?.node?.id}

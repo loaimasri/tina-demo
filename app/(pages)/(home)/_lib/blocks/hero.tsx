@@ -35,7 +35,7 @@ export function Hero({
           {subtitle}
         </p>
         <Button
-          size="xxl"
+          size="xxxl"
           className="mt-[1.75rem] bg-white text-[#439dd5] hover:bg-white hover:text-[#439dd5]  hover:opacity-90"
           asChild
         >

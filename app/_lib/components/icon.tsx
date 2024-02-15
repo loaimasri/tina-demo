@@ -18,7 +18,10 @@ export function Icon({
   if (children) {
     return (
       <span
-        className={cn(`inline-flex items-center font gap-1.5`, childClassName)}
+        className={cn(
+          `inline-flex items-center font gap-[6px]`,
+          childClassName,
+        )}
       >
         <Icon name={name} className={className} {...props} />
         {children}
@@ -29,7 +32,7 @@ export function Icon({
     <svg
       {...props}
       className={cn(
-        "inline self-center w-[1em] h-[1em] text-[#596780]",
+        "inline self-center size-[1.5rem] text-[#596780]",
         className,
       )}
     >

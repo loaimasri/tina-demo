@@ -26,13 +26,13 @@ export function Post(props: {
   return (
     <div className="relative bg-background">
       <Button
-        variant="outline"
-        size="icon"
         type="button"
-        className="absolute left-6 top-6 z-10 rounded-full"
+        variant="icon"
+        size="icon"
+        className="absolute left-[1.5rem] top-[1.5rem] z-10 rounded-full"
         onClick={() => router.back()}
       >
-        <Icon name="arrowDownward" className="size-4" />
+        <Icon name="arrowDownward" />
       </Button>
 
       <Image
@@ -47,36 +47,36 @@ export function Post(props: {
       <div className="container">
         <div className="h-[91px] w-full">
           <div className="flex items-center justify-center">
-            <div className="flex flex-col gap-2 py-4">
+            <div className="flex flex-col gap-[8px] py-[16px]">
               <h1
-                className="text-xl font-bold leading-8"
+                className="text-title1 font-bold leading-8"
                 data-tina-field={tinaField(post, "title")}
               >
                 {title}
               </h1>
-              <div className="flex gap-2">
+              <div className="flex gap-[8px]">
                 <p
-                  className="text-xs"
+                  className="text-body1"
                   data-tina-field={tinaField(post, "publishedAt")}
                 >
                   {format(new Date(publishedAt ?? ""), "MMMM dd, yyyy")} by
                 </p>
                 <p
-                  className="text-xs text-primary"
-                  data-tina-field={tinaField(post, "cover")}
+                  className="text-body1 font-medium text-primary"
+                  data-tina-field={tinaField(post, "author")}
                 >
                   {author}
                 </p>
               </div>
             </div>
-            <div className="ml-auto flex gap-2">
+            <div className="ml-auto flex gap-[8px]">
               <Button
                 variant="outline"
                 size="icon"
                 type="button"
                 className="rounded-full"
               >
-                <Icon name="heartStroke" className="size-4" />
+                <Icon name="heartStroke" />
               </Button>
               <Button
                 variant="outline"
@@ -84,13 +84,13 @@ export function Post(props: {
                 type="button"
                 className="rounded-full"
               >
-                <Icon name="share" className="size-4" />
+                <Icon name="share" />
               </Button>
             </div>
           </div>
           <hr className="border-t border-border" />
 
-          <div className="prose-xl py-4">
+          <div className="prose-xl py-[16px]">
             <TinaMarkdown
               content={body}
               data-tina-field={tinaField(post, "body")}

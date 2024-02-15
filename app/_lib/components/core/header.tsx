@@ -86,7 +86,7 @@ export function Header({
                     "relative font-light ",
                     isActive(link?.href ?? "/") &&
                       "font-semibold after:block after:absolute after:w-[40%] after:h-[0.25rem] after:bottom-[-13px] after:rounded-full after:hover:w-[100%] after:hover:transition-all after:ease-in-out after:duration-200",
-                    isMain ? "after:bg-white" : "after:bg-[#348dcd]",
+                    isMain ? "after:bg-white" : "after:bg-primary",
                     isMenuOpen ? "after:bg-black" : "",
                   )}
                   color="text-primary"
@@ -106,11 +106,7 @@ export function Header({
                     Sign Out
                   </Button>
                 ) : (
-                  <Button
-                    className="hidden md:block"
-                    variant="stroke"
-                    onClick={() => signIn()}
-                  >
+                  <Button className="hidden md:block" onClick={() => signIn()}>
                     Sign In
                   </Button>
                 )}
