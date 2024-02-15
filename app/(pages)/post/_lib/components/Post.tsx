@@ -4,7 +4,7 @@ import { Icon } from "@components/icon";
 import { Button } from "@components/ui";
 import { format } from "date-fns";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { TinaMarkdown, type TinaMarkdownContent } from "tinacms/dist/rich-text";
 
@@ -16,6 +16,7 @@ export function Post(props: {
   query: string;
 }): JSX.Element {
   const { data } = useTina(props);
+  const router = useRouter();
 
   const post = data?.post;
   const { cover, title, publishedAt, author } = post;
@@ -23,18 +24,15 @@ export function Post(props: {
   const body = data?.post?.body as TinaMarkdownContent;
 
   return (
-    <div className="relative">
+    <div className="relative bg-background">
       <Button
         variant="outline"
         size="icon"
         type="button"
         className="absolute left-6 top-6 z-10 rounded-full"
-        asChild
+        onClick={() => router.back()}
       >
-        {/* //TODO: refresh /post when redirecting */}
-        <Link href="/post">
-          <Icon name="arrowDownward" className="size-4" />
-        </Link>
+        <Icon name="arrowDownward" className="size-4" />
       </Button>
 
       <Image
