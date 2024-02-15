@@ -43,8 +43,6 @@ export function Header({
 
   if (!header) return null;
 
-  
-
   const isMain = pathname === "/";
 
   return (
@@ -64,19 +62,19 @@ export function Header({
             alt="logo"
             width="200"
             height="30"
-            className="h-7"
+            className="h-[1.75rem]"
           />
         </Link>
 
         <nav
-          className="ml-auto sm:hidden md:block"
+          className="ml-[auto] sm:hidden md:block"
           data-tina-field={tinaField(header)}
         >
           <ul
             className={cn(
-              "flex gap-16 text-lg transition-all ease-in-out duration-200",
+              "flex gap-[4rem] text-lg transition-all ease-in-out duration-200",
               isMenuOpen
-                ? "flex flex-col bg-secondary absolute inset-0 z-10 mt-[var(--header-height)] p-4 rounded-lg"
+                ? "flex flex-col bg-secondary absolute inset-[0] z-10 mt-[var(--header-height)] p-[1rem] rounded-lg"
                 : "hidden md:flex",
             )}
           >
@@ -87,7 +85,7 @@ export function Header({
                   className={cn(
                     "relative font-light ",
                     isActive(link?.href ?? "/") &&
-                      "font-semibold after:block after:absolute after:w-[40%] after:h-1 after:bottom-[-13px] after:rounded-full after:hover:w-[100%] after:hover:transition-all after:ease-in-out after:duration-200",
+                      "font-semibold after:block after:absolute after:w-[40%] after:h-[0.25rem] after:bottom-[-13px] after:rounded-full after:hover:w-[100%] after:hover:transition-all after:ease-in-out after:duration-200",
                     isMain ? "after:bg-white" : "after:bg-[#348dcd]",
                     isMenuOpen ? "after:bg-black" : "",
                   )}
@@ -98,7 +96,7 @@ export function Header({
               </li>
             ))}
             <li>
-              <div className="flex gap-2">
+              <div className="flex gap-[8px]">
                 {user ? (
                   <Button
                     variant="ghost"
@@ -108,7 +106,11 @@ export function Header({
                     Sign Out
                   </Button>
                 ) : (
-                  <Button className="hidden md:block" onClick={() => signIn()}>
+                  <Button
+                    className="hidden md:block"
+                    variant="stroke"
+                    onClick={() => signIn()}
+                  >
                     Sign In
                   </Button>
                 )}

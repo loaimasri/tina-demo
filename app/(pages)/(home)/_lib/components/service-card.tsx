@@ -67,7 +67,7 @@ export default function ServiceCard({
           </Dialog.Trigger>
           <Dialog.Content className="max-w-[90%] rounded-md sm:max-w-[700px]">
             <Dialog.Header>
-              <Dialog.Title className="mb-[0.5rem] border-b-[0.5rem] pb-[1rem]">
+              <Dialog.Title className="mb-[0.5rem] border-b-[1.5px] pb-[1rem]">
                 {title}
               </Dialog.Title>
             </Dialog.Header>

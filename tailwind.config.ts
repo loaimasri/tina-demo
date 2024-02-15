@@ -11,6 +11,36 @@ const config = {
   ],
   prefix: "",
   theme: {
+    spacing: {
+      "3xs": "0.188rem",
+      "2xs": "0.375rem",
+      xs: "0.5rem",
+      sm: "0.75rem",
+      md: "1rem",
+      lg: "1.125rem",
+      "2xl": "1.25rem",
+      "3xl": "1.5rem",
+      "4xl": "1.75rem",
+      "5xl": "2rem",
+      "6xl": "2.375rem",
+    },
+    fontSize: {
+      h1: "var(--font-size-h1)",
+      h2: "var(--font-size-h2)",
+      h3: "var(--font-size-h3)",
+      h4: "var(--font-size-h4)",
+      h5: "var(--font-size-h5)",
+      title1: "var(--font-size-t1)",
+      title2: "var(--font-size-t2)",
+      body1: "var(--font-size-b1)",
+      body2: "var(--font-size-b2)",
+    },
+    fontWeight: {
+      bold: "var(--font-weight-bold)",
+      medium: "var(--font-weight-medium)",
+      regular: "var(--font-weight-regular)",
+      light: "var(--font-weight-light)",
+    },
     container: {
       center: true,
       padding: {

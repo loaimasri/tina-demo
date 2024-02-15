@@ -7,7 +7,10 @@ export const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn(
+      "text-[0.875rem] leading-[1.25rem] text-muted-foreground",
+      className,
+    )}
     {...props}
   />
 ));

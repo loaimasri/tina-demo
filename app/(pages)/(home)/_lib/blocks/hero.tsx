@@ -14,7 +14,7 @@ export function Hero({
 }: HeroProps): JSX.Element {
   return (
     <div className="text-white">
-      <div className="inset-0 before:inset-0 absolute -z-10 h-[calc(var(--hero-height))] before:absolute before:z-10 before:block before:bg-gradient-to-t before:from-black before:to-transparent">
+      <div className="absolute inset-[0] -z-10 h-[calc(var(--hero-height))] before:absolute before:inset-[0] before:z-10 before:block before:bg-gradient-to-t before:from-black before:to-transparent">
         {image && (
           <Image
             src={image}

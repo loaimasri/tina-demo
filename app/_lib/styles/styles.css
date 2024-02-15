@@ -10,7 +10,7 @@
   .FTSContainer section,
   .FTSContainer header,
   .FTSContainer footer {
-    @apply px-4 lg:px-16 xl:px-24 2xl:px-28;
+    @apply px-[1rem] lg:px-[4rem] xl:px-[6rem] 2xl:px-[7rem];
   }
 }
 
@@ -58,6 +58,23 @@ main > * {
     --header-height: calc(var(--header-padding) * 2 + 1.2rem);
     --section-height: calc(100vh - var(--header-height));
     --hero-height: calc(var(--section-height) + var(--header-height));
+
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 2.063rem;
+    --font-size-h4: 1.75rem;
+    --font-size-h5: 1.438rem;
+
+    --font-size-t1: 1.188rem;
+    --font-size-t2: 1rem;
+
+    --font-size-b1: 0.813rem;
+    --font-size-b2: 0.688rem;
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
   }
 
   .dark {
