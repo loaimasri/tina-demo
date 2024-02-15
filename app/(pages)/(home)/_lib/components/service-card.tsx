@@ -19,11 +19,11 @@ export default function ServiceCard({
   title,
 }: ServiceCardProps): JSX.Element {
   return (
-    <Card className="pointer-events-none h-[300px] w-[334px] rounded-2xl outline-[#348dcd] hover:outline hover:outline-4 hover:transition-all">
+    <Card className="pointer-events-none h-[300px] w-[334px] rounded-[1rem] outline-[#348dcd] hover:outline hover:outline-[4px] hover:transition-all">
       <Card.Header>
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-[1rem]">
           <div
-            className="flex aspect-square size-20 items-center justify-center rounded-full p-4"
+            className="flex aspect-square size-[5rem] items-center justify-center rounded-full p-[1rem]"
             style={{ backgroundColor: icon.color }}
           >
             <Image
@@ -31,14 +31,16 @@ export default function ServiceCard({
               alt={icon.name}
               width={40}
               height={40}
-              className="m-0 size-10 p-0"
+              className="m-[0] size-[2.5rem] p-[0]"
             />
           </div>
-          <Card.Title className="text-left text-2xl">{title}</Card.Title>
+          <Card.Title className="text-left text-[1.5rem] leading-[2rem]">
+            {title}
+          </Card.Title>
         </div>
       </Card.Header>
       <Card.Content>
-        <Card.Description className="line-clamp-3 text-left text-lg">
+        <Card.Description className="line-clamp-3 text-left text-[1.125rem]">
           {description}
         </Card.Description>
       </Card.Content>
@@ -50,12 +52,12 @@ export default function ServiceCard({
                 style={{
                   color: "#348dcd",
                 }}
-                className="text-lg font-semibold"
+                className="text-[1.125rem] font-[600] leading-[1.75rem]"
               >
                 Learn More
               </span>
               <Image
-                className="ml-3"
+                className="ml-[0.75rem]"
                 src="/arrow-right.svg"
                 alt="arrow right"
                 width={24}
@@ -65,11 +67,11 @@ export default function ServiceCard({
           </Dialog.Trigger>
           <Dialog.Content className="max-w-[90%] rounded-md sm:max-w-[700px]">
             <Dialog.Header>
-              <Dialog.Title className="mb-2 border-b-2 pb-4">
+              <Dialog.Title className="mb-[0.5rem] border-b-[0.5rem] pb-[1rem]">
                 {title}
               </Dialog.Title>
             </Dialog.Header>
-            <Dialog.Description className="text-lg">
+            <Dialog.Description className="text-[1.125rem] leading-[1.75rem]">
               {description}
             </Dialog.Description>
           </Dialog.Content>

@@ -17,12 +17,12 @@ export function OurClients({
     <section
       id="our-clients"
       className={cn(
-        "flex justify-center items-center flex-col py-14",
+        "flex justify-center items-center flex-col py-[3.5rem]",
         BackgroundColor?.[0],
       )}
     >
-      <h2 className="text-4xl font-bold leading-[54px] ">{title}</h2>
-      <p className="my-12 text-lg font-light leading-10 md:text-2xl md:leading-10">
+      <h2 className="text-[2.25rem] font-bold leading-[54px] ">{title}</h2>
+      <p className="my-[3rem] text-[1.125rem] font-light leading-[2.5rem] md:text-[1.5rem] md:leading-[2.5rem]">
         {subtitle}
       </p>
       <Carousel className="w-[100%]">

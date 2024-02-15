@@ -14,14 +14,16 @@ export function Services({
     <section
       id="services"
       className={cn(
-        "flex justify-center flex-col items-center text-center min-h-screen py-20",
+        "flex justify-center flex-col items-center text-center min-h-screen py-[5rem]",
         backgroundColor?.[0],
       )}
     >
-      <h2 className="text-4xl font-bold leading-[54px]">{title}</h2>
-      <p className="my-12 text-2xl font-light leading-10">{subtitle}</p>
+      <h2 className="text-[2.25rem] font-bold leading-[54px]">{title}</h2>
+      <p className="my-[3rem] text-[1.5rem] font-light leading-[2.5rem]">
+        {subtitle}
+      </p>
 
-      <div className="flex flex-wrap items-center justify-center gap-5">
+      <div className="flex flex-wrap items-center justify-center gap-[1.25rem]">
         {services?.map((service) => (
           <ServiceCard
             key={service?.__typename}

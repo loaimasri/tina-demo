@@ -12,17 +12,17 @@ export function Testimonials({
   background: backgroundColor,
 }: TestimonialsProps): JSX.Element {
   return (
-    <section className={cn("text-center pt-28", backgroundColor?.[0])}>
-      <h2 className="mb-6 text-center text-4xl font-bold leading-[54px]">
+    <section className={cn("text-center pt-[7rem]", backgroundColor?.[0])}>
+      <h2 className="mb-[1.5rem] text-center text-[2.25rem] font-bold leading-[54px]">
         {title}
       </h2>
 
-      <p className="mt-10 text-lg font-light leading-10 md:text-2xl md:leading-10 ">
+      <p className="mt-[2.5rem] text-[1.125rem] font-light leading-[2.5rem] md:text-[1.5rem] md:leading-[2.5rem] ">
         {subtitle}
       </p>
 
       <Carousel
-        className="w-[100%] pb-8 pt-28"
+        className="w-[100%] pb-[2rem] pt-[7rem]"
         opts={{
           loop: true,
         }}
@@ -47,7 +47,7 @@ export function Testimonials({
         <div className="hidden md:block">
           <Carousel.Next />
         </div>
-        <Carousel.Dots className="mt-8" />
+        <Carousel.Dots className="mt-[2rem]" />
       </Carousel>
     </section>
   );

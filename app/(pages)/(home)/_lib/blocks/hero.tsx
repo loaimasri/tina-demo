@@ -14,7 +14,7 @@ export function Hero({
 }: HeroProps): JSX.Element {
   return (
     <div className="text-white">
-      <div className="absolute inset-0 -z-10 h-[calc(var(--hero-height))] before:absolute before:inset-0 before:z-10 before:block before:bg-gradient-to-t before:from-black before:to-transparent">
+      <div className="inset-0 before:inset-0 absolute -z-10 h-[calc(var(--hero-height))] before:absolute before:z-10 before:block before:bg-gradient-to-t before:from-black before:to-transparent">
         {image && (
           <Image
             src={image}
@@ -28,15 +28,15 @@ export function Hero({
       </div>
 
       <section className="flex h-[calc(var(--section-height))] flex-col items-center justify-center text-center">
-        <h1 className="text-3xl font-bold leading-[67px] md:text-5xl">
+        <h1 className="text-[1.875rem] font-bold leading-[67px] md:text-[3rem]">
           {title}
         </h1>
-        <p className="mt-10 text-lg font-light leading-10 md:text-2xl md:leading-10 ">
+        <p className="mt-[2.5rem] text-[1.125rem] font-light leading-[2.5rem] md:text-[1.5rem] md:leading-[2.5rem]">
           {subtitle}
         </p>
         <Button
           size="xxl"
-          className="mt-7 bg-white text-[#439dd5] hover:bg-white hover:text-[#439dd5]  hover:opacity-90"
+          className="mt-[1.75rem] bg-white text-[#439dd5] hover:bg-white hover:text-[#439dd5]  hover:opacity-90"
           asChild
         >
           {cta && (
@@ -44,7 +44,7 @@ export function Hero({
           )}
         </Button>
 
-        <div className="mt-[1.875rem] flex items-center justify-center gap-7">
+        <div className="mt-[1.875rem] flex items-center justify-center gap-[1.75rem]">
           {socials?.map((social) => (
             <Link
               key={social?.__typename}
@@ -62,7 +62,7 @@ export function Hero({
             </Link>
           ))}
         </div>
-        <Link className="relative mt-7 animate-bounce" href="#services">
+        <Link className="relative mt-[1.75rem] animate-bounce" href="#services">
           <Image
             src="/arrow-down.svg"
             alt="arrow down"

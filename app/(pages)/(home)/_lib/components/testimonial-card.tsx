@@ -21,18 +21,20 @@ function TestimonialCard({
           <Image
             src={avatar.src}
             alt={avatar.name}
-            className="size-12"
+            className="size-[3rem]"
             width={48}
             height={48}
           />
-          <div className="ml-7">
-            <h3 className="text-lg font-bold">{avatar.name}</h3>
-            <p className="font-light text-muted-foreground">{avatar.title}</p>
+          <div className="ml-[1.75rem]">
+            <h3 className="text-[1.125rem] font-[700]">{avatar.name}</h3>
+            <p className="font-[300] text-muted-foreground">{avatar.title}</p>
           </div>
         </div>
       </Card.Header>
-      <Card.Content className="mt-8">
-        <Card.Description className="text-xl">{description}</Card.Description>
+      <Card.Content className="mt-[2rem]">
+        <Card.Description className="text-[1.25rem] leading-[1.75rem]">
+          {description}
+        </Card.Description>
       </Card.Content>
     </Card>
   );
