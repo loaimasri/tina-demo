@@ -14,7 +14,7 @@ const Root = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-sm bg-surface-primary text-text-primary shadow-sm",
       className,
     )}
     {...props}
