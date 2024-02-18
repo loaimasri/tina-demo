@@ -1,26 +1,23 @@
 import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@utils/cn";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
-
+import { cn } from "../../utils/cn";
+import { Icon, type IconName } from "../icon";
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md px-sm py-2xl text-title2 font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  " bg-surface-brand px-2xl py-sm text-title2 font-bold text-text-secondary hover:bg-surface-brand-hover disabled:cursor-not-allowed disabled:bg-surface-disable disabled:text-text-disable-darker",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-[#dfe9f2] hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        icon: "rounded-full bg-background hover:bg-[#dfe9f2] hover:text-accent-foreground",
+        default: "rounded-xs",
+        rounded: "rounded-circle",
+        stroke:
+          "rounded-xs border-2 border-border-brand bg-transparent text-surface-brand hover:text-text-secondary disabled:border-none",
+        strokeRounded:
+          "rounded-circle border-2 border-border-brand bg-transparent text-surface-brand hover:text-text-secondary disabled:border-none",
+        icon: "aspect-square rounded-circle border border-border-input-stroke bg-transparent text-surface-icon hover:bg-blue-100 hover:text-dark-dark-hover disabled:border-2 disabled:border-border-secondary-dark disabled:bg-dark-light disabled:text-surface-disable",
       },
       size: {
-        default: "px-md py-xs",
+        default: "px-2xl py-sm",
         sm: "rounded-md px-sm py-xs",
         lg: "rounded-md px-lg py-md",
         icon: "size-[2.75rem]",
@@ -28,10 +25,14 @@ const buttonVariants = cva(
         xxl: "h-2xl rounded-lg p-2xl",
         xxxl: "rounded-lg px-5xl py-2xl",
       },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
+      color: {
+        default: "bg-surface-brand text-title2",
+      },
+      defaultVariants: {
+        variant: "default",
+        size: "default",
+        color: "default",
+      },
     },
   },
 );
@@ -42,11 +43,11 @@ export type ButtonProps = {
   VariantProps<typeof buttonVariants>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, color, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, color }), className)}
         ref={ref}
         {...props}
       />
@@ -55,4 +56,36 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+type IconButtonProps = {
+  iconName: IconName;
+  iconClassName?: string;
+} & ButtonProps;
+
+const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    { className, size, asChild = false, iconName, iconClassName, ...props },
+    ref,
+  ) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(
+          "group",
+          buttonVariants({ variant: "icon", size }),
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
+        <Icon
+          name={iconName}
+          className={cn("group-disabled:text-surface-disable", iconClassName)}
+        />
+      </Comp>
+    );
+  },
+);
+
+IconButton.displayName = "IconButton";
+
+export { Button, buttonVariants, IconButton };

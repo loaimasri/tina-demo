@@ -5,16 +5,18 @@ import { cn } from "../utils/cn";
 
 export type { IconName };
 
+type IconProps = SVGProps<SVGSVGElement> & {
+  name: IconName;
+  childClassName?: string;
+};
+
 export function Icon({
   name,
   childClassName,
   className,
   children,
   ...props
-}: SVGProps<SVGSVGElement> & {
-  name: IconName;
-  childClassName?: string;
-}): JSX.Element {
+}: IconProps): JSX.Element {
   if (children) {
     return (
       <span
@@ -32,7 +34,7 @@ export function Icon({
     <svg
       {...props}
       className={cn(
-        "inline self-center size-[1.5rem] text-[#596780]",
+        "inline self-center size-[0.875rem] text-[#596780]",
         className,
       )}
     >

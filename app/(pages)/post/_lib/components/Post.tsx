@@ -1,7 +1,6 @@
 "use client";
 import type { PostQuery } from "@/tina/__generated__/types";
-import { Icon } from "@components/icon";
-import { Button } from "@components/ui";
+import { IconButton } from "@components/ui";
 import { format } from "date-fns";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -24,16 +23,13 @@ export function Post(props: {
   const body = data?.post?.body as TinaMarkdownContent;
 
   return (
-    <div className="relative bg-background">
-      <Button
+    <div className="relative bg-surface-background">
+      <IconButton
         type="button"
-        variant="icon"
-        size="icon"
-        className="absolute left-[1.5rem] top-[1.5rem] z-10 rounded-full"
+        className="absolute left-[1.5rem] top-[1.5rem] bg-white"
+        iconName="arrowDownward"
         onClick={() => router.back()}
-      >
-        <Icon name="arrowDownward" />
-      </Button>
+      />
 
       <Image
         src={cover}
@@ -70,25 +66,11 @@ export function Post(props: {
               </div>
             </div>
             <div className="ml-auto flex gap-[8px]">
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                className="rounded-full"
-              >
-                <Icon name="heartStroke" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                className="rounded-full"
-              >
-                <Icon name="share" />
-              </Button>
+              <IconButton iconName="heartStroke" type="button" />
+              <IconButton iconName="share" type="button" />
             </div>
           </div>
-          <hr className="border-t border-border" />
+          <hr className=" rounded-circle border-t-2 border-t-gray-dark" />
 
           <div className="prose-xl py-[16px]">
             <TinaMarkdown

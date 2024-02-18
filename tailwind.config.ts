@@ -60,46 +60,189 @@ const config = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          light: "hsl(var(--primary-light))",
+          light: {
+            DEFAULT: "hsl(var(--primary-light))",
+            hover: "hsl(var(--primary-light-hover))",
+            active: "hsl(var(--primary-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--primary-normal))",
+            hover: "hsl(var(--primary-normal-hover))",
+            active: "hsl(var(--primary-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--primary-dark))",
+            hover: "hsl(var(--primary-dark-hover))",
+            active: "hsl(var(--primary-dark-active))",
+          },
+          darker: "hsl(var(--primary-darker))",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-          light: "hsl(var(--secondary-light))",
+        dark: {
+          light: {
+            DEFAULT: "hsl(var(--dark-light))",
+            hover: "hsl(var(--dark-light-hover))",
+            active: "hsl(var(--dark-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--dark-normal))",
+            hover: "hsl(var(--dark-normal-hover))",
+            active: "hsl(var(--dark-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--dark-dark))",
+            hover: "hsl(var(--dark-dark-hover))",
+            active: "hsl(var(--dark-dark-active))",
+          },
+          darker: "hsl(var(--dark-darker))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        correct: {
+          light: {
+            DEFAULT: "hsl(var(--correct-light))",
+            hover: "hsl(var(--correct-light-hover))",
+            active: "hsl(var(--correct-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--correct-normal))",
+            hover: "hsl(var(--correct-normal-hover))",
+            active: "hsl(var(--correct-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--correct-dark))",
+            hover: "hsl(var(--correct-dark-hover))",
+            active: "hsl(var(--correct-dark-active))",
+          },
+          darker: "hsl(var(--correct-darker))",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        warning: {
+          light: {
+            DEFAULT: "hsl(var(--warning-light))",
+            hover: "hsl(var(--warning-light-hover))",
+            active: "hsl(var(--warning-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--warning-normal))",
+            hover: "hsl(var(--warning-normal-hover))",
+            active: "hsl(var(--warning-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--warning-dark))",
+            hover: "hsl(var(--warning-dark-hover))",
+            active: "hsl(var(--warning-dark-active))",
+          },
+          darker: "hsl(var(--warning-darker))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+        error: {
+          light: {
+            DEFAULT: "hsl(var(--error-light))",
+            hover: "hsl(var(--error-light-hover))",
+            active: "hsl(var(--error-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--error-normal))",
+            hover: "hsl(var(--error-normal-hover))",
+            active: "hsl(var(--error-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--error-dark))",
+            hover: "hsl(var(--error-dark-hover))",
+            active: "hsl(var(--error-dark-active))",
+          },
+          darker: "hsl(var(--error-darker))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+
+        gray: {
+          light: {
+            DEFAULT: "hsl(var(--gray-light))",
+            hover: "hsl(var(--gray-light-hover))",
+            active: "hsl(var(--gray-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--gray-normal))",
+            hover: "hsl(var(--gray-normal-hover))",
+            active: "hsl(var(--gray-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--gray-dark))",
+            hover: "hsl(var(--gray-dark-hover))",
+            active: "hsl(var(--gray-dark-active))",
+          },
+          darker: "hsl(var(--gray-darker))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        text: {
+          primary: "hsl(var(--text-primary))",
+          secondary: "hsl(var(--text-secondary))",
+          brand: "hsl(var(--text-brand))",
+          disable: {
+            DEFAULT: "hsl(var(--text-disable))",
+            darker: "hsl(var(--text-disable-darker))",
+          },
+          error: "hsl(var(--text-error))",
+          warning: "hsl(var(--text-warning))",
+          correct: "hsl(var(--text-correct))",
+        },
+        surface: {
+          primary: "hsl(var(--surface-primary))",
+          secondary: "hsl(var(--surface-secondary))",
+          invert: "hsl(var(--surface-invert))",
+          disable: {
+            DEFAULT: "hsl(var(--surface-disable))",
+            darker: "hsl(var(--surface-disable-darker))",
+          },
+          brand: {
+            DEFAULT: "hsl(var(--surface-brand))",
+            light: "hsl(var(--surface-brand-light))",
+            hover: "hsl(var(--surface-brand-hover))",
+            active: "hsl(var(--surface-brand-active))",
+          },
+          table: {
+            header: "hsl(var(--surface-table-header))",
+          },
+          background: "hsl(var(--surface-background))",
+          icon: "hsl(var(--surface-icon))",
+          selected: {
+            DEFAULT: "hsl(var(--surface-selected))",
+            light: "hsl(var(--surface-selected-light))",
+          },
+          error: "hsl(var(--surface-error))",
+          warning: "hsl(var(--surface-warning))",
+          correct: "hsl(var(--surface-correct))",
+        },
+        border: {
+          primary: "hsl(var(--border-primary))",
+          secondary: {
+            DEFAULT: "hsl(var(--border-secondary))",
+            dark: "hsl(var(--border-secondary-dark))",
+          },
+          brand: "hsl(var(--border-brand))",
+          icon: "hsl(var(--border-icon))",
+          input: {
+            stroke: "hsl(var(--border-input-stroke))",
+          },
+          selected: {
+            DEFAULT: "hsl(var(--border-selected))",
+            light: "hsl(var(--border-selected-light))",
+          },
+          error: "hsl(var(--border-error))",
+          warning: "hsl(var(--border-warning))",
+          correct: "hsl(var(--border-correct))",
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        "3xs": "var(--radius-3xs)",
+        "2xs": "var(--radius-2xs)",
+        xs: "var(--radius-xs)",
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        "2xl": "var(--radius-2xl)",
+        "3xl": "var(--radius-3xl)",
+        "4xl": "var(--radius-4xl)",
+        "5xl": "var(--radius-5xl)",
+        "6xl": "var(--radius-6xl)",
+        circle: "var(--radius-circle)",
       },
       keyframes: {
         "accordion-down": {
