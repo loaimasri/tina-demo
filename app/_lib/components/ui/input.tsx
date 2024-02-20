@@ -1,34 +1,60 @@
 import * as React from "react";
 
+import { type IconName } from "@/types/name";
 import { cn } from "@utils/cn";
+import { Icon } from "../icon";
 
 export type InputProps = {
-  icon?: React.ReactNode;
+  iconName?: IconName;
+  iconClassName?: string;
+  error?: boolean;
   iconPosition?: "left" | "right";
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ icon, iconPosition = "left", type, className, ...props }, ref) => {
+  (
+    {
+      iconPosition = "left",
+      iconName,
+      iconClassName,
+      error,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
     return (
       <div className="relative">
         <input
-          type={type}
-          className={cn(
-            "flex w-full rounded-full border py-sm px-2xl border-input bg-background ring-offset-primary ring-offset-2 file:border-0 file:bg-transparent file:text-body1 file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            className,
-            iconPosition === "left" ? "pl-[80px]" : "pr-[75px]",
-          )}
-          ref={ref}
           {...props}
+          ref={ref}
+          type={props.type}
+          className={cn(
+            "flex w-full rounded-full border border-border-input-stroke bg-white px-2xl py-sm file:border-0 file:bg-transparent file:text-body1 file:font-medium placeholder:text-text-primary/50 focus:border focus:border-border-selected focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-surface-disable disabled:text-text-primary/45",
+            iconPosition === "left" ? "pl-[80px]" : "pr-[75px]",
+            error &&
+              "border-border-error text-surface-error focus:border-border-error",
+            className,
+          )}
         />
-        {icon && (
+        {iconName && (
           <div
             className={cn(
               "absolute inset-y-[0] flex items-center",
-              iconPosition === "left" ? "left-3 pl-[30px]" : "pr-[30px]",
+              iconPosition === "left"
+                ? "left-3 pl-[30px]"
+                : "right-3 pr-[30px]",
             )}
           >
-            {icon}
+            <Icon
+              name={iconName}
+              className={cn(
+                "text-black",
+                error && "text-surface-error",
+                props.disabled && "text-surface-invert/45 cursor-not-allowed",
+                iconClassName,
+              )}
+            />
           </div>
         )}
       </div>

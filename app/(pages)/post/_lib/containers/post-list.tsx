@@ -2,7 +2,6 @@
 import { type PostConnectionQuery } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 
-import { Icon } from "@/app/_lib/components/icon";
 import { Input } from "@components/ui/input";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -91,7 +90,7 @@ export function PostList(props: PostListProps): JSX.Element {
       <Input
         type="search"
         placeholder="Search something here"
-        icon={<Icon name="search" />}
+        iconName="search"
         value={searchTerm}
         onChange={handleSearchChange}
       />
