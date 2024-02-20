@@ -26,7 +26,7 @@ export function Post(props: {
     <div className="relative bg-surface-background">
       <IconButton
         type="button"
-        className="absolute left-[1.5rem] top-[1.5rem] bg-white"
+        className="absolute left-[1.5rem] top-[1.5rem] z-10 bg-white"
         iconName="arrowDownward"
         onClick={() => router.back()}
       />
@@ -70,7 +70,7 @@ export function Post(props: {
               <IconButton iconName="share" type="button" />
             </div>
           </div>
-          <hr className=" rounded-circle border-t-2 border-t-gray-dark" />
+          <hr className=" rounded-circle border-t-2 border-t-gray-200" />
 
           <div className="prose-xl py-[16px]">
             <TinaMarkdown

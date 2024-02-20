@@ -4,25 +4,27 @@ import * as React from "react";
 import { cn } from "@utils/cn";
 
 const badgeVariants = cva(
-  "focus:ring-ring inline-flex items-center rounded-full border text-body1 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
+  "inline-flex cursor-pointer items-center rounded-circle text-body1 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
   {
     variants: {
       variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent",
-        outline: "text-foreground",
+        primary:
+          "bg-surface-brand text-text-secondary hover:bg-surface-brand-hover",
+        secondary: "bg-gray-light-hover text-text-primary hover:bg-gray-light",
+        error:
+          "bg-surface-error text-text-secondary hover:bg-error-normal-hover",
+        warning:
+          "bg-surface-warning text-text-secondary hover:bg-warning-normal-hover",
+        correct:
+          "bg-surface-correct text-text-secondary hover:bg-correct-normal-hover",
       },
       size: {
-        sm: " px-xs py-[2px]",
+        sm: "px-2xs py-[2px]",
         md: "px-xs py-2xs",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "md",
     },
   },
@@ -39,7 +41,7 @@ function Badge({
 }: BadgeProps): JSX.Element {
   return (
     <div
-      className={cn(badgeVariants({ variant, size }), className)}
+      className={String(cn(badgeVariants({ variant, size }), className))}
       {...props}
     />
   );

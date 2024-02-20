@@ -34,7 +34,7 @@ export function Icon({
     <svg
       {...props}
       className={cn(
-        "inline self-center size-[0.875rem] text-[#596780]",
+        "inline self-center size-[1.5rem] text-[#596780]",
         className,
       )}
     >

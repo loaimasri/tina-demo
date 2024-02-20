@@ -70,8 +70,8 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <Comp
         className={cn(
-          "group",
           buttonVariants({ variant: "icon", size }),
+          "group px-[0] py-[0] size-[2.75rem]",
           className,
         )}
         ref={ref}
