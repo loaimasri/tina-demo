@@ -20,9 +20,8 @@ export function Hero({
             src={image}
             alt="home header"
             layout="fill"
-            objectFit="cover"
             about="home header image"
-            objectPosition="top center"
+            className="object-cover object-top"
           />
         )}
       </div>
@@ -36,7 +35,7 @@ export function Hero({
         </p>
         <Button
           size="xxxl"
-          className="mt-[1.75rem] bg-white text-[#439dd5] hover:bg-white hover:text-[#439dd5]  hover:opacity-90"
+          className="mt-[1.75rem] flex h-[72px] w-[221px] items-center  justify-center rounded-[6px] bg-white text-[#439dd5] hover:bg-white hover:text-[#439dd5] hover:opacity-90"
           asChild
         >
           {cta && (

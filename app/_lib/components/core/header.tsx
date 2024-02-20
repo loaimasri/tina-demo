@@ -10,7 +10,6 @@ import { tinaField, useTina } from "tinacms/dist/react";
 
 import type { GlobalConnectionQuery } from "@/tina/__generated__/types";
 import { useState } from "react";
-import { Icon } from "../icon";
 import { Button } from "../ui";
 
 type HeaderProps = {
@@ -97,7 +96,7 @@ export function Header({
               </li>
             ))}
             <li>
-              <div className="flex gap-[8px]">
+              <div className="flex items-center justify-center gap-[8px]">
                 {user ? (
                   <Button
                     variant="rounded"
@@ -107,22 +106,10 @@ export function Header({
                     Sign Out
                   </Button>
                 ) : (
-                  <Button
-                    className="hidden md:block"
-                    onClick={() => signIn()}
-                    variant="strokeRounded"
-                    disabled
-                  >
+                  <Button className="hidden md:block" onClick={() => signIn()}>
                     Sign In
                   </Button>
                 )}
-
-                <Button variant="icon" disabled className="group">
-                  <Icon
-                    name="search"
-                    className="group-disabled:text-surface-disable"
-                  />
-                </Button>
               </div>
             </li>
           </ul>

@@ -1,4 +1,4 @@
-import { Template } from "tinacms";
+import { type Template } from "tinacms";
 
 export const OurClientsTemplate: Template = {
   name: "ourClients",
@@ -54,8 +54,7 @@ export const OurClientsTemplate: Template = {
         component: "select",
       },
       options: [
-        { label: "Main", value: "bg-secondary" },
-        { label: "Light", value: "bg-secondary-light" },
+        { label: "Light", value: "bg-white" },
         { label: "Transparent", value: "bg-transparent" },
       ],
     },

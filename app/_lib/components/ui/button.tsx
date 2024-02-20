@@ -26,7 +26,7 @@ const buttonVariants = cva(
         xxxl: "rounded-lg px-5xl py-2xl",
       },
       color: {
-        default: "bg-surface-brand text-title2",
+        default: "",
       },
       defaultVariants: {
         variant: "default",
@@ -43,7 +43,17 @@ export type ButtonProps = {
   VariantProps<typeof buttonVariants>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, color, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant = "default",
+      size = "default",
+      color = "default",
+      asChild = false,
+      ...props
+    },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
