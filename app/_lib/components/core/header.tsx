@@ -10,7 +10,7 @@ import { tinaField, useTina } from "tinacms/dist/react";
 
 import type { GlobalConnectionQuery } from "@/tina/__generated__/types";
 import { useState } from "react";
-import { Button } from "../ui";
+import { Button } from "../ui/button";
 
 type HeaderProps = {
   data: GlobalConnectionQuery;

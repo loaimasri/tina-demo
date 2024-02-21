@@ -1,6 +1,6 @@
 "use client";
 import type { PostQuery } from "@/tina/__generated__/types";
-import { IconButton } from "@components/ui";
+import { Button } from "@components/ui/button";
 import { format } from "date-fns";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -24,12 +24,13 @@ export function Post(props: {
 
   return (
     <div className="relative bg-surface-background">
-      <IconButton
+      <Button
         type="button"
         className="absolute left-[1.5rem] top-[1.5rem] z-10 bg-white"
-        iconName="arrowDownward"
         onClick={() => router.back()}
-      />
+      >
+        <Button.Icon name="arrowDownward" />
+      </Button>
 
       <Image
         src={cover}
@@ -66,8 +67,13 @@ export function Post(props: {
               </div>
             </div>
             <div className="ml-auto flex gap-[8px]">
-              <IconButton iconName="heartStroke" type="button" />
-              <IconButton iconName="share" type="button" />
+              <Button>
+                <Button.Icon name="heartStroke" type="button" />
+              </Button>
+
+              <Button>
+                <Button.Icon name="share" type="button" />
+              </Button>
             </div>
           </div>
           <hr className=" rounded-circle border-t-2 border-t-gray-200" />

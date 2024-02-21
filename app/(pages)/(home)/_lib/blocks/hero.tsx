@@ -1,5 +1,5 @@
 import type { PageBlocksHero } from "@/tina/__generated__/types";
-import { Button } from "@components/ui";
+import { Button } from "@components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 

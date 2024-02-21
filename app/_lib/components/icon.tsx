@@ -5,7 +5,7 @@ import { cn } from "../utils/cn";
 
 export type { IconName };
 
-type IconProps = SVGProps<SVGSVGElement> & {
+export type IconProps = SVGProps<SVGSVGElement> & {
   name: IconName;
   childClassName?: string;
 };

@@ -1,8 +1,9 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
-import { cn } from "../../utils/cn";
-import { Icon, type IconName } from "../icon";
+import { cn } from "../../../utils/cn";
+import { ButtonIcon } from "./button-icon";
+
 const buttonVariants = cva(
   " bg-surface-brand px-2xl py-sm text-title2 font-bold text-text-secondary hover:bg-surface-brand-hover disabled:cursor-not-allowed disabled:bg-surface-disable disabled:text-text-disable-darker",
   {
@@ -14,7 +15,7 @@ const buttonVariants = cva(
           "rounded-xs border-2 border-border-brand bg-transparent text-surface-brand hover:text-text-secondary disabled:border-none",
         strokeRounded:
           "rounded-circle border-2 border-border-brand bg-transparent text-surface-brand hover:text-text-secondary disabled:border-none",
-        icon: "aspect-square rounded-circle border border-border-input-stroke bg-transparent text-surface-icon hover:bg-blue-100 hover:text-dark-dark-hover disabled:border-2 disabled:border-border-secondary-dark disabled:bg-dark-light disabled:text-surface-disable",
+        icon: "flex aspect-square items-center justify-center rounded-circle border border-border-input-stroke bg-transparent text-surface-icon hover:bg-blue-100 hover:text-dark-dark-hover disabled:border-2 disabled:border-border-secondary-dark disabled:bg-dark-light disabled:text-surface-disable",
       },
       size: {
         default: "px-2xl py-sm",
@@ -37,12 +38,23 @@ const buttonVariants = cva(
   },
 );
 
-export type ButtonProps = {
+type ButtonProps = {
   asChild?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+type ButtonContextProps = {
+  disabled?: boolean;
+  hasIcon?: boolean;
+  setHasIcon?: (hasIcon: boolean) => void;
+};
+
+const ButtonContext = React.createContext<ButtonContextProps | null>(null);
+
+export const useButtonContext = (): ButtonContextProps | null =>
+  React.useContext(ButtonContext);
+
+const Root = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
@@ -54,48 +66,30 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
+    const [hasIcon, setHasIcon] = React.useState(false);
+
     const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, color }), className)}
-        ref={ref}
-        {...props}
-      />
+
+    const adjustedClassName = cn(
+      buttonVariants(
+        hasIcon
+          ? { variant: "icon", size: "icon", color }
+          : { variant, size, color },
+      ),
+      hasIcon && "px-[0] py-[0] size-[2.75rem]",
+      className,
     );
-  },
-);
-Button.displayName = "Button";
 
-type IconButtonProps = {
-  iconName: IconName;
-  iconClassName?: string;
-} & ButtonProps;
-
-const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  (
-    { className, size, asChild = false, iconName, iconClassName, ...props },
-    ref,
-  ) => {
-    const Comp = asChild ? Slot : "button";
     return (
-      <Comp
-        className={cn(
-          buttonVariants({ variant: "icon", size }),
-          "group px-[0] py-[0] size-[2.75rem]",
-          className,
-        )}
-        ref={ref}
-        {...props}
+      <ButtonContext.Provider
+        value={{ disabled: props.disabled, hasIcon, setHasIcon }}
       >
-        <Icon
-          name={iconName}
-          className={cn("group-disabled:text-surface-disable", iconClassName)}
-        />
-      </Comp>
+        <Comp className={adjustedClassName} ref={ref} {...props} />
+      </ButtonContext.Provider>
     );
   },
 );
 
-IconButton.displayName = "IconButton";
+Root.displayName = "Button";
 
-export { Button, buttonVariants, IconButton };
+export const Button = Object.assign(Root, { Icon: ButtonIcon });

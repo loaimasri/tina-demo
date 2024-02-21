@@ -1,9 +1,8 @@
 "use client";
+import { Button } from "@components/ui/button";
 import { cn } from "@utils/cn";
 import * as React from "react";
 import { useCarousel } from ".";
-import { Icon } from "../../icon";
-import { Button } from "../button";
 
 export const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
@@ -27,7 +26,7 @@ export const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <Icon name="arrowDownward" />
+      <Button.Icon name="arrowDownward" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );

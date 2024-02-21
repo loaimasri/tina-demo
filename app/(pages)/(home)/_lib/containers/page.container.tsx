@@ -1,6 +1,6 @@
 "use client";
 import { type PageQuery } from "@/tina/__generated__/types";
-import { Button } from "@components/ui";
+import { Button } from "@components/ui/button";
 import { signIn, useSession } from "next-auth/react";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { Blocks } from "../components/block-renderer";

@@ -1,8 +1,8 @@
 "use client";
+import { Button } from "@components/ui/button";
 import { cn } from "@utils/cn";
 import * as React from "react";
 import { useCarousel } from ".";
-import { IconButton, type Button } from "../button";
 
 export const CarouselNext = React.forwardRef<
   HTMLButtonElement,
@@ -11,7 +11,7 @@ export const CarouselNext = React.forwardRef<
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
-    <IconButton
+    <Button
       ref={ref}
       variant={variant}
       size={size}
@@ -24,12 +24,12 @@ export const CarouselNext = React.forwardRef<
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
-      iconName="arrowDownward"
-      iconClassName="rotate-180"
       {...props}
     >
+      <Button.Icon name="arrowDownward" className="rotate-180" />
+
       <span className="sr-only">Next slide</span>
-    </IconButton>
+    </Button>
   );
 });
 
