@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import React from "react";
 import { SessionProvider } from "./session-provider";
 import { ThemeProvider } from "./theme-provider";
+import { TooltipProvider } from "./tooltip-provider";
 
 export async function Providers({
   children,
@@ -16,7 +17,7 @@ export async function Providers({
         enableSystem
         disableTransitionOnChange
       >
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
       </ThemeProvider>
     </SessionProvider>
   );
