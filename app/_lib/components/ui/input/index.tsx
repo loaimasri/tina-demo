@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { type IconName } from "@/types/name";
 import { cn } from "@utils/cn";
-import { Icon } from "../icon";
+import { Icon } from "../../icon";
 
 export type InputProps = {
   iconName?: IconName;
