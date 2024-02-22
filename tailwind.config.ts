@@ -229,6 +229,24 @@ const config = {
           warning: "hsl(var(--border-warning))",
           correct: "hsl(var(--border-correct))",
         },
+        blue: {
+          light: {
+            DEFAULT: "hsl(var(--blue-light))",
+            hover: "hsl(var(--blue-light-hover))",
+            active: "hsl(var(--blue-light-active))",
+          },
+          normal: {
+            DEFAULT: "hsl(var(--blue-normal))",
+            hover: "hsl(var(--blue-normal-hover))",
+            active: "hsl(var(--blue-normal-active))",
+          },
+          dark: {
+            DEFAULT: "hsl(var(--blue-dark))",
+            hover: "hsl(var(--blue-dark-hover))",
+            active: "hsl(var(--blue-dark-active))",
+          },
+          darker: "hsl(var(--blue-darker))",
+        },
       },
       borderRadius: {
         "3xs": "var(--radius-3xs)",
@@ -253,10 +271,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "from-bottom": {
+          from: { transform: "translateY(100%) translateX(50%)" },
+          to: { transform: "translateY(0) translateX(50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "from-bottom": "from-bottom 0.2s ease-out",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

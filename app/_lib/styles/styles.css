@@ -141,6 +141,17 @@ main > * {
     --border-warning: 55, 93%, 46%;
     --border-correct: 132, 54%, 55%;
 
+    --blue-light: 210, 40%, 94%;
+    --blue-light-hover: 208, 42%, 91%;
+    --blue-light-active: 208, 41%, 81%;
+    --blue-normal: 209, 61%, 40%;
+    --blue-normal-hover: 209, 61%, 36%;
+    --blue-normal-active: 209, 61%, 32%;
+    --blue-dark: 208, 61%, 30%;
+    --blue-dark-hover: 208, 61%, 24%;
+    --blue-dark-active: 208, 61%, 18%;
+    --blue-darker: 209, 61%, 14%;
+
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 5%;
 

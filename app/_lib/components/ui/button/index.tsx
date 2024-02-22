@@ -15,7 +15,7 @@ const buttonVariants = cva(
           "rounded-xs border-2 border-border-brand bg-transparent text-surface-brand hover:text-text-secondary disabled:border-none",
         strokeRounded:
           "rounded-circle border-2 border-border-brand bg-transparent text-surface-brand hover:text-text-secondary disabled:border-none",
-        icon: "flex aspect-square items-center justify-center rounded-circle border border-border-input-stroke bg-transparent text-surface-icon hover:bg-blue-100 hover:text-dark-dark-hover disabled:border-2 disabled:border-border-secondary-dark disabled:bg-dark-light disabled:text-surface-disable",
+        icon: "flex aspect-square items-center justify-center rounded-circle border border-border-input-stroke bg-transparent text-surface-icon hover:bg-blue-100 hover:text-surface-brand-light disabled:border-2 disabled:border-border-secondary-dark disabled:bg-dark-light disabled:text-surface-disable",
       },
       size: {
         default: "px-2xl py-sm",
