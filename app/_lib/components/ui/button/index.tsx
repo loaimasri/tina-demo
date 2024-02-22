@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "../../../utils/cn";
 import { ButtonIcon } from "./button-icon";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   " bg-surface-brand px-2xl py-sm text-title2 font-bold text-text-secondary hover:bg-surface-brand-hover disabled:cursor-not-allowed disabled:bg-surface-disable disabled:text-text-disable-darker",
   {
     variants: {

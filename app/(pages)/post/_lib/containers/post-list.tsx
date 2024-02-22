@@ -2,7 +2,10 @@
 import { type PostConnectionQuery } from "@/tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
 
+import { AlertDialog } from "@components/ui/alert-dialog";
 import { Input } from "@components/ui/input";
+
+import { Button } from "@components/ui/button";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PostCard } from "../components/post-card";
@@ -120,6 +123,26 @@ export function PostList(props: PostListProps): JSX.Element {
           />
         ))}
       </div>
+
+      <AlertDialog>
+        <AlertDialog.Trigger asChild>
+          <Button variant="stroke">Show Dialog</Button>
+        </AlertDialog.Trigger>
+        <AlertDialog.Content>
+          <AlertDialog.Header>
+            <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+            <AlertDialog.Separator />
+            <AlertDialog.Description>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </AlertDialog.Description>
+          </AlertDialog.Header>
+          <AlertDialog.Footer>
+            <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+            <AlertDialog.Action>Continue</AlertDialog.Action>
+          </AlertDialog.Footer>
+        </AlertDialog.Content>
+      </AlertDialog>
     </section>
   );
 }
