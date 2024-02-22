@@ -7,6 +7,7 @@ export type IconName =
   | "back"
   | "comments"
   | "correct"
+  | "default"
   | "delete"
   | "doubleArrow"
   | "edit"
