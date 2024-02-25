@@ -3,7 +3,7 @@ export const environment = {
     owner: "loaimasri",
     repo: "tina-demo",
     branch: "main",
-    personalToken: "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",
+    personalToken: "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",
   },
 
   mongodb: {

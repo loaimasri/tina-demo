@@ -13,10 +13,12 @@ export default isLocal
         branch: environment.github.branch,
         owner: environment.github.owner,
         repo: environment.github.repo,
-        token: environment.github.personalToken,
+        token:
+          process.env.GITHUB_PERSONAL_ACCESS_TOKEN! ??
+          environment.github.personalToken,
       }),
 
-      databaseAdapter: new MongodbLevel<string, Record<string, any>>({
+      databaseAdapter: new MongodbLevel<string, Record<string, unknown>>({
         collectionName: `tinacms-${environment.github.branch}`,
         dbName: "tinacms",
         mongoUri: environment.mongodb.uri,
