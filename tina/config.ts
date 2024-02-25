@@ -3,22 +3,20 @@ import { UsernamePasswordAuthJSProvider } from "tinacms-authjs/dist/tinacms";
 import { environment } from "../config";
 import { Global, Page, Post, User } from "./collection";
 
-const branch =
-  process.env.GITHUB_BRANCH ??
-  process.env.VERCEL_GIT_COMMIT_REF ??
-  process.env.HEAD ??
-  "main";
+const branch = environment.github.branch;
 
 const isLocal = environment.general.isLocal === "true";
 
 export default defineConfig({
   branch,
+
   clientId: "8190a777-923e-4fba-958d-e6e8b4db8414",
   token: "1f59a0b9dc34482e163db5a6fdc5b8e8640a87a4",
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
+
   media: {
     tina: {
       mediaRoot: "",
