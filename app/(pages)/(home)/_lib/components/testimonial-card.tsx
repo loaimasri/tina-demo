@@ -27,7 +27,7 @@ function TestimonialCard({
           />
           <div className="ml-[1.75rem]">
             <h3 className="text-[1.125rem] font-[700]">{avatar.name}</h3>
-            <p className="font-[300] text-muted-foreground">{avatar.title}</p>
+            <p className="font-[300] text-text-primary">{avatar.title}</p>
           </div>
         </div>
       </Card.Header>

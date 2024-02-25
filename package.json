@@ -7,8 +7,8 @@
     "prepare": "husky install",
     "postinstall": "yarn build:icons",
     "dev": "tinacms dev -c \"next dev\"",
-    "dev:prod": "tinacms dev -c \"next dev\" --env production",
-    "build": "tinacms --datalayer-port 8080 build && next build",
+    "dev:prod": "tinacms build -c \"next dev\"",
+    "build": "tinacms build && next build",
     "start": "next start",
     "lint": "next lint",
     "build:icons": "npx tsx ./others/scripts/build-icons.mts"

@@ -8,7 +8,9 @@ export default async function Page(): Promise<JSX.Element> {
   return (
     <PostList
       {...result}
-      data={JSON.parse(JSON.stringify(result.data)) as PostConnectionQuery}
+      data={
+        JSON.parse(JSON.stringify(result.data ?? {})) as PostConnectionQuery
+      }
     />
   );
 }

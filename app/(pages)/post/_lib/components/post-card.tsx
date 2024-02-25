@@ -45,7 +45,7 @@ export function PostCard({
                 </span>
               </Card.Header>
               <Card.Title className="text-title1 font-bold">{title}</Card.Title>
-              <Card.Description className="line-clamp-2 text-body1 text-secondary-foreground">
+              <Card.Description className="line-clamp-2 text-body1 text-text-primary/45">
                 {description}
               </Card.Description>
             </div>

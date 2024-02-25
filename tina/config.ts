@@ -13,8 +13,8 @@ const isLocal = environment.general.isLocal === "true";
 
 export default defineConfig({
   branch,
-  clientId: "1e0e2238-bff7-4a97-a01c-2b8597d735e2",
-  token: "84c73d10758dcdc58b351c1c2cea7cb6dc25ced8",
+  clientId: "8190a777-923e-4fba-958d-e6e8b4db8414",
+  token: "1f59a0b9dc34482e163db5a6fdc5b8e8640a87a4",
   build: {
     outputFolder: "admin",
     publicFolder: "public",

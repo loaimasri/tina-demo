@@ -44,18 +44,14 @@ export function Footer({
 
   return (
     <footer {...props}>
-      <div
-        className="container flex 
-        justify-between py-8
-      "
-      >
+      <div className="py-8 container flex justify-between">
         <div>
           {socials.map(({ name, url }) => (
             <Link
               key={name}
               href={url}
               target="_blank"
-              className="mr-4 capitalize hover:underline"
+              className="mr-[4px] capitalize hover:underline"
               data-tina-field={tinaField(footer, "social")}
             >
               {name}

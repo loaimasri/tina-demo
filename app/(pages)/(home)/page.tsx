@@ -8,7 +8,7 @@ export default async function HomePage(): Promise<JSX.Element> {
   return (
     <PageContainer
       {...result}
-      data={JSON.parse(JSON.stringify(result.data)) as PageQuery}
+      data={JSON.parse(JSON.stringify(result.data ?? {})) as PageQuery}
     />
   );
 }
