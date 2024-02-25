@@ -16,13 +16,6 @@ pipeline {
             }
         }
         
-        #stage('Add .env File') {
-            #steps {
-                // Copy the .env file to the workspace
-                #sh 'cp /path/to/your/.env .'
-            #}
-        #}
-        
         stage('Build Docker Image') {
             steps {
                 // Build the Docker image
