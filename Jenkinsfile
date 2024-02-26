@@ -51,7 +51,7 @@ pipeline {
                 // Push the Docker image to Harbor registry
                 script {
                     sh "echo 'osama 1'"
-                    withCredentials([string(credentialsId: 'jenkinsharbor3', variable: 'jenkinsharbor3')]) {
+                    withCredentials([string(credentialsId: HARBOR_SECRET, variable: 'jenkinsharbor3')]) {
                         sh "echo 'osama 2'"
                         sh "docker push registry.foothilltech.net/tinacms/repository"
                     }
