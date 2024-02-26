@@ -42,7 +42,7 @@ pipeline {
                 }
                 // Push the Docker image to Harbor registry
                 script {
-                    withCredentials([string(credentialsId: 'IZXpyX0uMpylzc9b4BE5AfIDk0xtKpdO', variable: 'HARBOR_SECRET')]) {
+                    withCredentials([string(credentialsId: 'jenkinsharbor3', variable: 'HARBOR_SECRET')]) {
                         sh "echo '${HARBOR_SECRET}'"
                         sh "docker push registry.foothilltech.net/tinacms/REPOSITORY[:TAG]"
                     }
