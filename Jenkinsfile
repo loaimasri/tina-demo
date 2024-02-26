@@ -49,7 +49,7 @@ pipeline {
                 }
                 // Push the Docker image to Harbor registry
                 script {
-                    withCredentials([usernamePassword(credentialsId: HARBOR_SECRET, usernameVariable: 'HARBOR_USERNAME', passwordVariable: 'HARBOR_PASSWORD')]) {
+                    withCredentials([usernamePassword(credentialsId: 'jenkinsharbor3', usernameVariable: 'HARBOR_USERNAME', passwordVariable: 'HARBOR_PASSWORD')]) {
                         sh "docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD $HARBOR_REGISTRY"
                         sh "docker push $HARBOR_REGISTRY/$HARBOR_PROJECT/tina:latest"
                     }
