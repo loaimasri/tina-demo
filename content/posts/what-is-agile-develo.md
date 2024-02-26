@@ -1,6 +1,6 @@
 ---
 cover: /home-header.png
-title: What is Agile Development and why is it important? (Luai Masri)
+title: What is Agile Development and why is it important?
 description: >-
   Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
   et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad
