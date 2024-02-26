@@ -43,7 +43,7 @@ pipeline {
 }
         
          stage('Tag and Push to Harbor Registry') {
-          # steps {
+           steps {
                 // Tag the Docker image for Harbor registry
             #    script {
              #       sh "docker tag tina:latest $HARBOR_REGISTRY/$HARBOR_PROJECT/tina:latest"
@@ -56,7 +56,7 @@ pipeline {
                     #    sh "docker push registry.foothilltech.net/tinacms/repository"
        #             }
       #          }
-     #       }
+            }
         }
         stage('Run Docker Container') {
             steps {
