@@ -3,7 +3,7 @@ pipeline {
     environment {
         HARBOR_REGISTRY = "registry.foothilltech.net"
         HARBOR_PROJECT = "tinacms"
-        HARBOR_SECRET = credentials('jenkinsharbor4')
+        HARBOR_SECRET = credentials('jenkinsharbor3')
     }
     stages {
         stage('Checkout') {
@@ -33,14 +33,7 @@ pipeline {
             }
         }  
         
-        stage('Build Docker Image') {
-            steps {
-                // Build the Docker image
-                script{
-                sh 'sudo docker build . -t tina'
-                }
-            }
-        }
+      
          stage('Tag and Push to Harbor Registry') {
             steps {
                 // Tag the Docker image for Harbor registry
@@ -49,9 +42,9 @@ pipeline {
                 }
                 // Push the Docker image to Harbor registry
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'jenkinsharbor3', usernameVariable: 'HARBOR_USERNAME', passwordVariable: 'HARBOR_PASSWORD')]) {
-                        sh "docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD $HARBOR_REGISTRY"
-                        sh "docker push $HARBOR_REGISTRY/$HARBOR_PROJECT/tina:latest"
+                    withCredentials([string(credentialsId: 'HARBOR_SECRET', variable: 'HARBOR_SECRET')]) {
+                        sh "echo '${HARBOR_SECRET}'"
+                        sh "docker push registry.foothilltech.net/tinacms/REPOSITORY[:TAG]"
                     }
                 }
             }
@@ -61,6 +54,14 @@ pipeline {
                 script{
                 // Run the Docker container
             sh 'sudo docker run -p 3000:3000 -d --name tinacms tina'
+                }
+            }
+        }
+          stage('Build Docker Image') {
+            steps {
+                // Build the Docker image
+                script{
+                sh 'sudo docker build . -t tina'
                 }
             }
         }
