@@ -3,7 +3,7 @@ pipeline {
     environment {
         HARBOR_REGISTRY = "registry.foothilltech.net"
         HARBOR_PROJECT = "tinacms"
-        HARBOR_SECRET = credentials('jenkinsharbor') 
+        HARBOR_SECRET = credentials('jenkinsharbor2') 
     }
     stages {
         stage('Checkout') {
