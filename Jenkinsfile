@@ -43,20 +43,20 @@ pipeline {
 }
         
          stage('Tag and Push to Harbor Registry') {
-            steps {
+          # steps {
                 // Tag the Docker image for Harbor registry
-                script {
-                    sh "docker tag tina:latest $HARBOR_REGISTRY/$HARBOR_PROJECT/tina:latest"
-                }
-                // Push the Docker image to Harbor registry
-                script {
-                    sh "echo 'osama 1'"
-                    withCredentials([string(credentialsId: 'jenkinsharbor3', variable: 'harbor_token')]) {
-                        sh "echo 'osama 2'"
-                        sh "docker push registry.foothilltech.net/tinacms/repository"
-                    }
-                }
-            }
+            #    script {
+             #       sh "docker tag tina:latest $HARBOR_REGISTRY/$HARBOR_PROJECT/tina:latest"
+              #  }
+               # // Push the Docker image to Harbor registry
+                #script {
+                 #   sh "echo 'osama 1'"
+                  #  withCredentials([string(credentialsId: 'jenkinsharbor3', variable: 'harbor_token')]) {
+                   #     sh "echo 'osama 2'"
+                    #    sh "docker push registry.foothilltech.net/tinacms/repository"
+       #             }
+      #          }
+     #       }
         }
         stage('Run Docker Container') {
             steps {
