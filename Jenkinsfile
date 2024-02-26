@@ -33,6 +33,14 @@ pipeline {
             }
         }  
         
+          stage('Build Docker Image') {
+            steps {
+                // Build the Docker image
+                script{
+                sh 'sudo docker build . -t tina'
+                }
+            }
+        }
       
          stage('Tag and Push to Harbor Registry') {
             steps {
@@ -55,14 +63,6 @@ pipeline {
                 script{
                 // Run the Docker container
             sh 'sudo docker run -p 3000:3000 -d --name tinacms tina'
-                }
-            }
-        }
-          stage('Build Docker Image') {
-            steps {
-                // Build the Docker image
-                script{
-                sh 'sudo docker build . -t tina'
                 }
             }
         }
