@@ -33,15 +33,15 @@ pipeline {
             }
         }  
         
-          stage('Build Docker Image') {
-            steps {
-                // Build the Docker image
-                script{
-                sh 'sudo docker build . -t tina'
-                }
-            }
-        }
-      
+         stage('Build Docker Image') {
+  steps {
+    // Build the Docker image with the intended tag (replace 'v1.0.0' with your desired version)
+    script {
+      sh 'docker build . -t registry.foothilltech.net/tinacms/repository'
+    }
+  }
+}
+        
          stage('Tag and Push to Harbor Registry') {
             steps {
                 // Tag the Docker image for Harbor registry
