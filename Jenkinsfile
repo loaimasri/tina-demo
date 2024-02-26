@@ -41,9 +41,10 @@ pipeline {
                     sh "docker tag tina:latest $HARBOR_REGISTRY/$HARBOR_PROJECT/tina:latest"
                 }
                 // Push the Docker image to Harbor registry
-                script {sh "echo 'osama'"
+                script {
+                    sh echo 'osama 1'
                     withCredentials([string(credentialsId: 'jenkinsharbor3', variable: 'jenkinsharbor3')]) {
-                        sh "echo 'osama'"
+                        sh echo 'osama 2'
                         sh "docker push registry.foothilltech.net/tinacms/repository[:TAG]"
                     }
                 }
