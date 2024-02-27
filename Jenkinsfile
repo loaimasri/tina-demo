@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script{
                 // Run the Docker container
-            sh 'sudo docker run -p 3000:3000 -d --name tinacms tina'
+            sh 'sudo docker run -p 3000:3000 -d --name tinacms1 tina'
                 }
             }
         }
