@@ -3,7 +3,6 @@ version: "3.8"
 services:
   tinacms:
     build: .  # Specifies the current directory as the build context
-    dockerfile: Dockerfile  # Optional, specifies the Dockerfile name (defaults to Dockerfile)
     ports:
       - "3000:3000"  # Map container port 3000 to host port 3000
     volumes:
