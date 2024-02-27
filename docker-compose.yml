@@ -13,4 +13,4 @@ services:
 
     # Define persistent data storage (optional)
     volumes:
-      - mongodb-data:/data/db
+      mongodb-data:/data/db
