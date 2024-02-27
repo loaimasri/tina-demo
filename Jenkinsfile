@@ -28,7 +28,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'sudo docker-compose build'
+                    sh 'docker-compose build'
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'sudo docker-compose up -d --build'
+                    sh 'docker-compose up -d --build'
                 }
             }
         }
