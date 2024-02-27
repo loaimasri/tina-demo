@@ -9,12 +9,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the repository
-               script{
-                git credentialsId: 'tiacmsgithub', url: 'https://github.com/loaimasri/tina-demo.git', branch: 'main'
-               }
+                script {
+                    git credentialsId: 'tiacmsgithub', url: 'https://github.com/loaimasri/tina-demo.git', branch: 'main'
+                }
             }
         }
-        
+
         stage('Copy .env file') {
             steps {
                 // Copy .env file from home directory to cloned repository
@@ -23,26 +23,22 @@ pipeline {
                 }
             }
         }
-        
-        
-        
-         stage('Build Docker Image') {
-  steps {
-    // Build the Docker image with the intended tag (replace 'v1.0.0' with your desired version)
-   steps {
-    script {
-      sh 'docker-compose build'
-    }
-  }
-}
-         }
-        
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker-compose build'
+                }
+            }
+        }
+
         stage('Run Docker Container') {
-        steps {
-    script {
-      sh 'docker-compose up -d'
-    }
-  }
+            steps {
+                script {
+                    sh 'docker-compose up -d'
+                }
+            }
         }
     }
 }
+
