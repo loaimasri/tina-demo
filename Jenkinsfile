@@ -24,14 +24,7 @@ pipeline {
             }
         }
         
-      stage('Remove Old Container') {
-            steps {
-                // Remove the old container if it exists
-                script{
-                sh 'sudo docker rm -f tinacms || true'
-                }
-            }
-        }  
+        
         
          stage('Build Docker Image') {
   steps {
