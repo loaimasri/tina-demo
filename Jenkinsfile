@@ -28,7 +28,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker-compose build'
+                    sh 'docker-compose build -f docker-compose.yml'
                 }
             }
         }
