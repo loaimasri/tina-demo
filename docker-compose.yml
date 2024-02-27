@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   tinacms:
-    image: https://github.com/loaimasri/tina-demo.git  # Update with your desired image tag
+    image: registry.foothilltech.net/tinacms/repository:latest  # Update with your desired image tag
     ports:
       - "3000:3000"  # Map container port 3000 to host port 3000
     volumes:
