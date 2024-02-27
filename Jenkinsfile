@@ -29,19 +29,20 @@ pipeline {
          stage('Build Docker Image') {
   steps {
     // Build the Docker image with the intended tag (replace 'v1.0.0' with your desired version)
+   steps {
     script {
-      sh 'docker build . -t registry.foothilltech.net/tinacms/repository'
+      sh 'docker-compose build'
     }
   }
 }
         
         stage('Run Docker Container') {
             steps {
-                script{
-                // Run the Docker container
-            sh 'sudo docker run -p 3000:3000 -d --name tinacms tina'
-                }
-            }
+               steps {
+    script {
+      sh 'docker-compose up -d'
+    }
+  }
         }
     }
 }
