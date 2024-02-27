@@ -16,6 +16,7 @@ pipeline {
         }
 
         stage('Copy .env file') {
+            
             steps {
                 // Copy .env file from home directory to cloned repository
                 script {
