@@ -35,6 +35,7 @@ pipeline {
     }
   }
 }
+         }
         
         stage('Run Docker Container') {
         steps {
@@ -44,5 +45,4 @@ pipeline {
   }
         }
     }
-}
 }
