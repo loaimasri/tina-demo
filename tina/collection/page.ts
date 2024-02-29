@@ -11,7 +11,10 @@ export const Page: Collection = {
   label: "Page",
   path: "content/pages",
   ui: {
-    router: () => "/",
+    router: ({ document }) =>
+      document._sys.filename === "home"
+        ? "/"
+        : `/${document._sys.breadcrumbs.join("/")}`,
   },
   fields: [
     {

@@ -5,7 +5,12 @@ const nextConfig = {
       source: "/admin",
       destination: "/admin/index.html",
     },
+    {
+      source: "/",
+      destination: "/home",
+    },
   ],
+
   redirects: async () => [
     {
       source: "/home",
@@ -13,6 +18,7 @@ const nextConfig = {
       permanent: true,
     },
   ],
+
   images: {
     remotePatterns: [
       {
