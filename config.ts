@@ -17,5 +17,9 @@ export const environment = {
 
   auth: {
     secret: "changeme",
+    discord: {
+      clientId: "880470533131620422",
+      clientSecret: "KWbXCp-hv7wGN_IW9Rg0_WEU4R74dFMV",
+    },
   },
 };
