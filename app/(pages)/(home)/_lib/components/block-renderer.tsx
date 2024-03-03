@@ -23,9 +23,9 @@ const Block = (block: PageBlocks): JSX.Element | null => {
 export const Blocks = ({ blocks }: BlockRendererProps): JSX.Element => {
   return (
     <div className="bg-transparent">
-      {blocks?.map((block) => (
+      {blocks?.map((block, i) => (
         <div
-          key={block?.__typename}
+          key={`${block?.__typename + String(i)}`}
           data-tina-field={block ? tinaField(block) : null}
         >
           <Block {...block} />

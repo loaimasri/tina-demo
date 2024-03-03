@@ -26,7 +26,7 @@ export function Services({
       <div className="flex flex-wrap items-center justify-center gap-[1.25rem]">
         {services?.map((service) => (
           <ServiceCard
-            key={service?.__typename}
+            key={service?.label}
             title={service?.label ?? ""}
             description={service?.description ?? ""}
             icon={{

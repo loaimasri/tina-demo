@@ -45,11 +45,7 @@ export function Hero({
 
         <div className="mt-[1.875rem] flex items-center justify-center gap-[1.75rem]">
           {socials?.map((social) => (
-            <Link
-              key={social?.__typename}
-              href={social?.link ?? ""}
-              target="_blank"
-            >
+            <Link key={social?.label} href={social?.link ?? ""} target="_blank">
               {social?.icon && social.label && (
                 <Image
                   src={social.icon}

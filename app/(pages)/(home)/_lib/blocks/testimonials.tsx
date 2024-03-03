@@ -28,9 +28,9 @@ export function Testimonials({
         }}
       >
         <Carousel.Content>
-          {testimonials?.map((testimonial) => (
+          {testimonials?.map((testimonial, i) => (
             <Carousel.Item
-              key={testimonial?.__typename}
+              key={`${testimonial?.__typename + String(i)}`}
               className="flex items-center justify-center md:basis-1/2"
             >
               <TestimonialCard

@@ -29,7 +29,7 @@ export function OurClients({
         <Carousel.Content>
           {clients?.map((client) => (
             <Carousel.Item
-              key={client?.__typename}
+              key={client?.label}
               className="flex items-center justify-center md:basis-1/2 lg:basis-1/4"
             >
               <Link href={client?.link ?? ""}>
