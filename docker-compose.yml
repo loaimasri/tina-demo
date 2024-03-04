@@ -7,4 +7,16 @@ services:
       - "3000:3000"  # Map container port 3000 to host port 3000
     volumes:
       - .env:/app/.env  # Mount .env file from host directory to container's /app/.env
+      # Add Redis connection environment variable
+    environment:
+      - REDIS_HOST=$localhost  # Replace $REDIS_HOST with actual hostname/IP
+      # (Optional) Additional TinaCMS environment variables if needed
+    # Configure TinaCMS to use Redis (refer to TinaCMS documentation)
+    depends_on:
+      - redis  # Ensure Redis service starts before TinaCMS
+services:
+  redis:
+    image: redis:latest  # Use a Redis image
+    ports:
+      - "6379:6379"  # Map container port 6379 (default Redis port)
 
