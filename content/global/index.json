@@ -11,10 +11,6 @@
     },
     "nav": [
       {
-        "href": "home",
-        "label": "Tina3"
-      },
-      {
         "href": "/",
         "label": "Home"
       },
