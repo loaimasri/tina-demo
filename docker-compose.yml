@@ -5,6 +5,8 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+    expose: 
+      - 27017
     networks:
       - tina
     volumes:
@@ -13,7 +15,7 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - "3000:3000" 
     volumes:
       - .env:/app/.env
     networks:
