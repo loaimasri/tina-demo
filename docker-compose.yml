@@ -12,7 +12,7 @@ services:
     volumes:
       - db:/data/db
     environment: 
-   uri: "mongodb://admin:12345678@172.18.0.2:27017/
+   uri: "mongodb://localhost:27017/
 
   app:
     build: .
