@@ -11,8 +11,6 @@ services:
       - tinacms_tina
     volumes:
       - db:/data/db
-    environment: 
-   uri: "mongodb://localhost:27017/
 
   app:
     build: .
