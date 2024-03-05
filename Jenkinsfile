@@ -36,7 +36,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker-compose up -d --build --remove-orphans'
+                    sh './runner.sh'
                 }
             }
         }

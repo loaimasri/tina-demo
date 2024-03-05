@@ -1,11 +1,26 @@
 version: "3.8"
 
 services:
-  tinacms:
-    build: .  # Specifies the current directory as the build context
+  mongo:
+    image: mongo
     ports:
-      - "3000:3000"  # Map container port 3000 to host port 3000
+      - "27017:27017"
+    networks:
+      - tina
     volumes:
-      - .env:/app/.env  # Mount .env file from host directory to container's /app/.env
-      
+      - db:/data/db
 
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .env:/app/.env
+
+volumes:
+  db:
+
+
+networks:
+  tina:
+    driver: bridge
