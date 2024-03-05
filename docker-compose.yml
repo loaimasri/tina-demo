@@ -11,6 +11,9 @@ services:
       - tina
     volumes:
       - db:/data/db
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=12345678
 
   app:
     build: .
