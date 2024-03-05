@@ -7,7 +7,7 @@ export const environment = {
   },
 
   mongodb: {
-    uri: "mongodb://admin:12345678@172.18.0.2:27017/",
+    uri: "mongodb://admin:12345678@172.18.0.2:27017/mongo",
   },
 
   general: {
