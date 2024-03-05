@@ -8,7 +8,7 @@ services:
     expose: 
       - 27017
     networks:
-      - tina
+      - tinacms_tina
     volumes:
       - db:/data/db
     environment: 
@@ -22,12 +22,12 @@ services:
     volumes:
       - .env:/app/.env
     networks:
-      - tina
+      - tinacms_tina
 volumes:
   db:
 
 
 networks:
-  tina:
+  tinacms_tina:
     driver: bridge
     name: tina
