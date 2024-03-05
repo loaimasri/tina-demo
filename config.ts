@@ -7,7 +7,7 @@ export const environment = {
   },
 
   mongodb: {
-    uri: "mongodb://mongo:27017/tinacms",  # Use the container name "mongo" instead of "localhost"
+    uri: "mongodb://mongo:27017/tinacms",
   },
 
   general: {
