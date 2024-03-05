@@ -4,28 +4,28 @@ services:
   mongo:
     image: mongo
     ports:
-      - "27017:27017"  # Map container port 27017 to host port 27017
+      - "27017:27017"
     expose:
-      - 27017  # Expose for potential external communication (optional)
+      - 27017
     networks:
-      - tinacms_tina  # Connect to the "tinacms_tina" network
+      - tinacms_tina
     volumes:
-      - db:/data/db  # Mount a volume named "db" for persistent data storage
+      - db:/data/db
 
   app:
-    build: .  # Build the app from the current directory
+    build: .
     ports:
-      - "3000:3000"  # Map container port 3000 to host port 3000
+      - "3000:3000"
     volumes:
-      - .env:/app/.env  # Mount the ".env" file from the current directory
-      - node_modules:/app/node_modules  # Optional volume to cache dependencies
+      - .env:/app/.env
+      - node_modules:/app/node_modules  # Added volume definition
     networks:
-      - tinacms_tina  # Connect to the "tinacms_tina" network
+      - tinacms_tina
 
 volumes:
-  db:  # Create a volume named "db" for MongoDB data
+  db:
 
 networks:
   tinacms_tina:
-    driver: bridge  # Use the default bridge driver for container networking
-    name: tinacms_tina  # Network name
+    driver: bridge
+    name: tinacms_tina
