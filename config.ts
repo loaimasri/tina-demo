@@ -3,11 +3,11 @@ export const environment = {
     owner: "loaimasri",
     repo: "tina-demo",
     branch: "main",
-    personalToken: "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",
+    // Remove the personal token for security reasons
   },
 
   mongodb: {
-    uri: "mongodb://127.0.0.1:27017/tinacms",
+    uri: "mongodb://mongo:27017/tinacms",  # Use the container name "mongo" instead of "localhost"
   },
 
   general: {
@@ -16,7 +16,7 @@ export const environment = {
   },
 
   auth: {
-    secret: "changeme",
+    secret: "changeme", // Replace with a strong, unique secret
     discord: {
       clientId: "880470533131620422",
       clientSecret: "KWbXCp-hv7wGN_IW9Rg0_WEU4R74dFMV",
