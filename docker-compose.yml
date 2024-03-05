@@ -16,7 +16,8 @@ services:
       - "3000:3000"
     volumes:
       - .env:/app/.env
-
+    networks:
+      - tina
 volumes:
   db:
 
