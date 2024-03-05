@@ -9,7 +9,7 @@ services:
       - .env:/app/.env  # Mount .env file from host directory to container's /app/.env
       # Add Redis connection environment variable
     environment:
-      - REDIS_HOST=$localhost  # Replace $REDIS_HOST with actual hostname/IP
+      - REDIS_HOST=$tinacms_redis_1  # Replace $REDIS_HOST with actual hostname/IP
       # (Optional) Additional TinaCMS environment variables if needed
     # Configure TinaCMS to use Redis (refer to TinaCMS documentation)
     depends_on:
