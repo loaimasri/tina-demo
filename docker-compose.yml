@@ -16,3 +16,7 @@ services:
       - "27017:27017"  # Map container port 27017 to host port 27017
     volumes:
       - mongo-data:/data/db  # Mount volume for persistent data (optional)
+
+# New section: define the mongo-data volume
+volumes:
+  mongo-data:  # Create a named volume for Mongo data
