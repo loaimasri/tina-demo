@@ -1,8 +1,10 @@
 version: "3.8"
-    networks:
-    tinacms_default:
- services:
-    mongo:
+
+networks:
+  tinacms_default: # More descriptive network name
+
+services:
+  mongo:
     image: mongo:latest
     ports:
       - "27017:27017"
@@ -10,7 +12,6 @@ version: "3.8"
       - 27017
     networks:
       - tinacms_default
-    
 
   tinacms:
     build: .
@@ -19,13 +20,14 @@ version: "3.8"
     expose:
       - 3000
     networks:
-      -  tinacms_default
+      - tinacms_default
     volumes:
-      - .env:/app/.env  # Mount .env file (if using)
-    environment:  # Add the environment section for tinacms service
-      MONGODB_URI: mongodb://mongo:27017/_mdb_catalog
+      - .env:/app/.env  # Assuming you have a .env file outside the compose file
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/_mdb_catalog  # Using the defined service name
     depends_on:
-      - mongo  # Specify that tinacms depends on mongo
+      - mongo
+
 
 
 
