@@ -7,8 +7,8 @@ import { GitHubProvider } from "tinacms-gitprovider-github";
 const isLocal = environment.general.isLocal === "true";
 
 export default isLocal
-  ? createLocalDatabase()
-  : createDatabase({
+    createLocalDatabase()
+    createDatabase({
       gitProvider: new GitHubProvider({
         branch: environment.github.branch,
         owner: environment.github.owner,
