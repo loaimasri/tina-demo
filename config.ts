@@ -7,7 +7,7 @@ export const environment = {
   },
 
   mongodb: {
-    uri: "mongodb+srv://osamasarawan:UbvnBgGB8HREFJiY@cluster0.m4h5jss.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    uri: process.env.MONGODB_URI,
   },
 
   general: {
