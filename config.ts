@@ -7,7 +7,7 @@ export const environment = {
   },
 
   mongodb: {
-    uri: process.env.MONGODB_URI,
+    uri: "mongodb://mongo:27017/tinacms",
   },
 
   general: {
