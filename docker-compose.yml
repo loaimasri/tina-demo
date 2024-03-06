@@ -8,7 +8,7 @@ services:
     volumes:
       - .env:/app/.env  # Mount .env file from host directory to container's /app/.env
     environment:  # Add the environment section for tinacms service
-      MONGODB_URI: mongodb://mongo:27017/tinacms  # Set the MONGODB_URI variable
+      MONGODB_URI: mongodb://mongodb:27017/tinacms  # Set the MONGODB_URI variable
 
   mongo:
     image: mongo:latest
