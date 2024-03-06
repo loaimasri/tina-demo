@@ -36,10 +36,9 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh './runner.sh'
+                    sh 'docker-compose up -d --build'
                 }
             }
         }
     }
 }
-
