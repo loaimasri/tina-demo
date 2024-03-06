@@ -1,5 +1,6 @@
 version: "3.8"
-
+networks:
+    - tinacms_default
 services:
   mongo:
     image: mongo:latest
