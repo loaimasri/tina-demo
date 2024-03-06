@@ -1,8 +1,6 @@
 version: "3.8"
 networks:
     tinacms_default:
-volumes:
-    mongo-data:  # Create a named volume for Mongo data
 services:
     mongo:
     image: mongo:latest
@@ -12,8 +10,7 @@ services:
       - 27017
     networks:
       - tinacms_default
-    volumes:
-      - mongo-data:/data/db  # Optional: Mount volume for persistent data
+    
 
   tinacms:
     build: .
@@ -30,7 +27,6 @@ services:
     depends_on:
       - mongo  # Specify that tinacms depends on mongo
 
-# Define the named volume for Mongo data
 
 
 
