@@ -7,3 +7,9 @@ services:
       - "3000:3000"  # Map container port 3000 to host port 3000
     volumes:
       - .env:/app/.env  # Mount .env file from host directory to container's /app/.env
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Map container port 27017 to host port 27017
+    volumes:
+      - mongo-data:/data/db  # Mount volume for persistent data
