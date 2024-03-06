@@ -7,7 +7,7 @@ export const environment = {
   },
 
   mongodb: {
-    uri: "mongodb://mongo:27017/_mdb_catalog.wt",
+    uri: "mongodb://mongo:27017/_mdb_catalog",
   },
 
   general: {
