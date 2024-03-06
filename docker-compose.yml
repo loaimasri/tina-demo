@@ -21,5 +21,7 @@ services:
 
 # Define the named volume for Mongo data
 volumes:
-  mongo-data:  # Create a named volume for Mongo data
+    mongo-data:  # Create a named volume for Mongo data
+    networks:
+      - tinacms_default
 
