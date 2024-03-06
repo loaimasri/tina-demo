@@ -39,6 +39,8 @@ VOLUME /data/db
 
 # Copy Mongo configuration file (optional)
 COPY mongodb.conf /etc/mongodb.conf
+# Start Mongo service (uncomment if desired)
+CMD ["mongod", "--quiet", "--pidfilepath=/var/run/mongodb.pid", "--dbpath=/data/db"]
 
 
 
