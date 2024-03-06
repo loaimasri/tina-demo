@@ -1,11 +1,14 @@
 version: "3.8"
-networks:
-    - tinacms_default
+
 services:
   mongo:
     image: mongo:latest
     ports:
       - "27017:27017"
+    expose:
+      - 27017
+    networks:
+      - tinacms_default
     volumes:
       - mongo-data:/data/db  # Optional: Mount volume for persistent data
 
@@ -13,6 +16,10 @@ services:
     build: .
     ports:
       - "3000:3000"
+    expose:
+      - 3000
+    networks:
+      - tinacms_default
     volumes:
       - .env:/app/.env  # Mount .env file (if using)
     environment:  # Add the environment section for tinacms service
