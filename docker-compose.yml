@@ -24,7 +24,7 @@ services:
     volumes:
       - .env:/app/.env  # Mount .env file (if using)
     environment:  # Add the environment section for tinacms service
-      MONGODB_URI: mongodb://mongo:27017/_mdb_catalog.wt 
+      MONGODB_URI: mongodb://mongo:27017/_mdb_catalog
     depends_on:
       - mongo  # Specify that tinacms depends on mongo
 
