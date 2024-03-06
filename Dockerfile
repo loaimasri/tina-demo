@@ -34,6 +34,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends mongodb
 
 # Create Mongo data directory (optional)
 RUN mkdir -p /data/db
+# Mount volume for Mongo data
+VOLUME /data/db
+
+# Copy Mongo configuration file (optional)
+COPY mongodb.conf /etc/mongodb.conf
+
 
 
 # Define the command to start your application
