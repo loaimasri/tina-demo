@@ -29,6 +29,12 @@ RUN yarn build
 
 EXPOSE 3000
 
+# Add Mongo service
+RUN apt-get update && apt-get install -y --no-install-recommends mongodb
+
+# Create Mongo data directory (optional)
+RUN mkdir -p /data/db
+
 
 # Define the command to start your application
 
