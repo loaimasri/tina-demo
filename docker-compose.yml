@@ -18,4 +18,6 @@ services:
       MONGODB_URI: mongodb://mongo:27017/tinacms
     depends_on:
       - mongo  # Specify that tinacms depends on mongo
+      volumes:  # Add volume definition
+  mongo-data:  # Create a named volume for Mongo data
 
