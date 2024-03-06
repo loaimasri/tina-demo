@@ -1,16 +1,21 @@
 version: "3.8"
 
 services:
-  tinacms:
-    build: .  # Specifies the current directory as the build context
-    ports:
-      - "3000:3000"  # Map container port 3000 to host port 3000
-    volumes:
-      - .env:/app/.env  # Mount .env file from host directory to container's /app/.env
-    environment:  # Add the environment section for tinacms service
-      MONGODB_URI: mongodb://mongo:27017/tinacms  # Set the MONGODB_URI variable
-
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"  # Map container port 27017 to host port 27017
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db  # Optional: Mount volume for persistent data
+
+  tinacms:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .env:/app/.env  # Mount .env file (if using)
+    environment:  # Add the environment section for tinacms service
+      MONGODB_URI: mongodb://mongo:27017/tinacms
+    depends_on:
+      - mongo  # Specify that tinacms depends on mongo
+
