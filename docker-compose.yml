@@ -19,9 +19,7 @@ services:
      network: host
      context: .
     
-   
-     volumes:
-        .env:/app/.env  # Assuming you have a .env file outside the compose file
+
   
 
 
