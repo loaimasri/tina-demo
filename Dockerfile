@@ -16,7 +16,9 @@ COPY . .
 
 RUN export NEXTAUTH_SECRET="fFXJvULLSfyf2AKwVtJr6v23t7iozumhziZbqiuUueg="
 # Install project dependencies
-
+RUN echo "checking docker from curl"
+RUN curl http://localhost:27017 #check that mongodb is up
+RUN echo "docker responded"
 RUN yarn install
 
 RUN yarn build
