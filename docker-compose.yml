@@ -15,6 +15,10 @@ services:
 
   tinacms:
     build: .
+    network_mode: host
+    build:
+    network: host
+    context: .
     ports:
       - "3000:3000"
     expose:
