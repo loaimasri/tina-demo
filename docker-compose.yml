@@ -14,20 +14,18 @@ services:
       - tinacms_default
 
   tinacms:
-  build: .  # Build from the current directory
-  network_mode: host  # Assuming you intend to use host networking
-  ports:
-    - "3000:3000"
-  expose:
-    - 3000
-  networks:
-    - tinacms_default
-  volumes:
-    - .env:/app/.env  # Assuming you have a .env file outside the compose file
-  environment:
-    MONGODB_URI: mongodb://mongo:27017/_mdb_catalog  # Using the defined service name
-  depends_on:
-    - mongo
+    network_mode: host
+    build:
+     network: host
+     context: .
+    ports"
+      - "3000:3000"
+    expose:
+      - 3000
+      volumes:
+       depends_on:
+       - mongo
+
 
 
 
