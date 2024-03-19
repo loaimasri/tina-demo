@@ -5,7 +5,8 @@ import { environment } from "./../config";
 import { GitHubProvider } from "tinacms-gitprovider-github";
 
 const isLocal = environment.general.isLocal === "true";
-
+console.log(process.env)
+console.log(process.env.MONGODB_URI)
 export default isLocal
   ? createLocalDatabase()
   : createDatabase({
