@@ -22,7 +22,7 @@ export default isLocal
       databaseAdapter: new MongodbLevel<string, Record<string, unknown>>({
         collectionName: `tinacms-${environment.github.branch}`,
         dbName: "tinacms",
-        mongoUri: process.env.MONGODB_URI!,
+        mongoUri: "mongodb://localhost:27017",
         createIfMissing: true,
         errorIfExists: false,
         keyEncoding: "utf8",
