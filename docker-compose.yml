@@ -14,6 +14,8 @@ services:
       - tinacms_default
 
   tinacms:
+  depends_on:
+      - mongo
     build: .
     ports:
       - "3000:3000"
@@ -25,5 +27,4 @@ services:
       - .env:/app/.env  # Assuming you have a .env file outside the compose file
     environment:
       MONGODB_URI: mongodb://mongo:27017/_mdb_catalog  # Using the defined service name
-    depends_on:
-      - mongo
+    
