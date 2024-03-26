@@ -5,7 +5,8 @@ import { environment } from "./../config";
 import { GitHubProvider } from "tinacms-gitprovider-github";
 
 const isLocal = environment.general.isLocal === "true";
-
+console.log(process.env);
+console.log(process.env.MONGODB_URI);
 export default isLocal
   ? createLocalDatabase()
   : createDatabase({
@@ -21,7 +22,7 @@ export default isLocal
       databaseAdapter: new MongodbLevel<string, Record<string, unknown>>({
         collectionName: `tinacms-${environment.github.branch}`,
         dbName: "tinacms",
-        mongoUri: process.env.MONGODB_URI,
+        mongoUri: process.env.MONGODB_URI!,
         createIfMissing: true,
         errorIfExists: false,
         keyEncoding: "utf8",
