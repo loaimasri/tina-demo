@@ -1,15 +1,6 @@
 version: "3.8"
 
 services:
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    expose:
-      - 27017
-    volumes:
-      - mongo_data:/data/db
-
   app:
     network_mode: host
     build:
@@ -21,6 +12,3 @@ services:
       - 3000
     volumes:
       - .env:/app/.env # Assuming you have a .env file outside the compose file
-
-volumes:
-  mongo_data:
