@@ -6,13 +6,14 @@ WORKDIR /app
 
 COPY . .
 
+COPY .yarn ./.yarn
+COPY .yarnrc.yml .
+
 FROM base AS deps
 
-RUN --mount=type=cache,target=/app/.yarn/cache yarn install --immutable
+RUN yarn install --immutable
 
 FROM deps AS build
-
-RUN --mount=type=cache,target=/app/.yarn/cache yarn install --immutable
 
 RUN yarn build
 
