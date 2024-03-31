@@ -28,7 +28,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker-compose build'
+                    sh './scripts/build-and-deploy.sh local' // for local build, it should be used 'prod' for production build
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker-compose up -d --build'
+                    sh './scripts/run-compose.sh local' // for local build, it should be used 'prod' for production build
                 }
             }
         }
