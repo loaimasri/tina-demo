@@ -5,7 +5,7 @@ services:
     network_mode: host
     build:
       network: host
-      context: ..
+      context: .
     image: fts-tinacms:latest
     expose:
       - 3000
