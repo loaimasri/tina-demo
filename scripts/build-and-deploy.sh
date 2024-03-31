@@ -18,5 +18,5 @@ else
     echo "Setting up MongoDB for development..."
     docker run -p 27017:27017 --rm -d --name my-mongo-dev -v my-mongo-data-dev:/data/db mongo:latest mongod
 
-    docker compose -f ../docker-compose-build.yml build app
+    docker compose -f docker-compose-build.yml build app
 fi
