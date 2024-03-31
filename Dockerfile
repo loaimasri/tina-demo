@@ -1,38 +1,25 @@
-# Use the official Node.js LTS image as base
-
-FROM node:18.17.0
-
-# Set Yarn to use Berry version
+FROM node:18-slim AS base
 
 RUN yarn set version berry
 
-# Set the working directory inside the container
-
 WORKDIR /app
-
-# Copy package.json and yarn.lock to the working directory
 
 COPY . .
 
-RUN export NEXTAUTH_SECRET="fFXJvULLSfyf2AKwVtJr6v23t7iozumhziZbqiuUueg="
-# Install project dependencies
+FROM base AS deps
 
-RUN echo "checking docker from curl"
-RUN curl http://localhost:27017 #check that mongodb is up
-RUN echo "docker responded "
+RUN --mount=type=cache,target=/app/.yarn/cache yarn install --immutable
 
-RUN yarn install
+FROM deps AS build
+
+RUN --mount=type=cache,target=/app/.yarn/cache yarn install --immutable
 
 RUN yarn build
-# Copy the rest of the application code to the working directory
 
-#COPY . .
+FROM base AS release
 
-
-# Expose the port your Next.js application will run on (usually 3000)
+COPY --from=build /app/.next /app/.next
 
 EXPOSE 3000
-
-# Define the command to start your application
 
 CMD ["yarn", "start"]
