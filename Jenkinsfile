@@ -15,15 +15,40 @@ pipeline {
             }
         }
 
-        stage('Copy .env file') {
-            
+        // stage('Login to Harbor') {
+        //     steps {
+        //         script {
+        //             sh 'docker login -u $HARBOR_REGISTRY -p $HARBOR_SECRET $HARBOR_REGISTRY'
+        //         }
+        //     }
+        // }
+
+
+        // stage('Push Docker Image') {
+        //     steps {
+        //         script {
+        //             sh 'docker push $HARBOR_REGISTRY/$HARBOR_PROJECT/tina-demo:latest'
+        //         }
+        //     }
+        // }
+
+        stage("Install Ansible") {
             steps {
-                // Copy .env file from home directory to cloned repository
                 script {
-                    sh 'cp ~/.env ./'
+                    sh 'sudo apt install -y ansible'
                 }
             }
         }
+
+        stage("Decrypt Ansible Vault") {
+            steps {
+                script {
+                sh  'echo "${ANSIBLE_VAULT_PASSWORD}" > vault_password.txt; ' +
+                    'ansible-vault decrypt vault.prod-secrets.yml --vault-password-file vault_password.txt --output .env; ' +
+                    'rm vault_password.txt'
+                } 
+    }
+}
 
         stage('Build Docker Image') {
             steps {
@@ -40,5 +65,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Cleanup') {
+            steps {
+                script {
+                    sh 'echo Clean up untagged Docker images'
+                    sh 'docker image prune -f'
+                }
+            }
+        }
+        
     }
 }
