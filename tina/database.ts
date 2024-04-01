@@ -10,7 +10,7 @@ const {
   mongodb: { uri },
 } = environment;
 
-export default isLocal
+export default isLocal === "true"
   ? createLocalDatabase()
   : createDatabase({
       gitProvider: new GitHubProvider({
