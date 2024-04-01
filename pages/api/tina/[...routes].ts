@@ -6,7 +6,7 @@ import databaseClient from "@/tina/__generated__/databaseClient";
 import { NextAuthOptions } from "@utils/auth";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-const isLocal = environment.general.isLocal === "true";
+const isLocal = environment.tina.isLocal === "true";
 
 const tinaHandler = TinaNodeBackend({
   authProvider: isLocal

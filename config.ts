@@ -1,25 +1,27 @@
 export const environment = {
   github: {
-    owner: "loaimasri",
-    repo: "tina-demo",
-    branch: "main",
-    personalToken: "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",
+    owner: process.env.GITHUB_OWNER!,
+    repo: process.env.GITHUB_REPO!,
+    branch: process.env.GITHUB_BRANCH!,
+    personalToken: process.env.GITHUB_PERSONAL_TOKEN!,
   },
 
   mongodb: {
-    uri: "mongodb://0.0.0.0:27017/",
+    uri: process.env.MONGODB_URI!,
   },
 
-  general: {
-    isLocal: "false",
-    debug: "true",
+  tina: {
+    isLocal: process.env.TINA_PUBLIC_IS_LOCAL,
+    debug: process.env.TINA_PUBLIC_DEBUG,
+    clientId: process.env.TINA_PUBLIC_CLIENT_ID,
+    token: process.env.TINA_PUBLIC_TOKEN,
   },
 
   auth: {
-    secret: "changeme",
+    secret: process.env.NEXTAUTH_SECRET!,
     discord: {
-      clientId: "880470533131620422",
-      clientSecret: "KWbXCp-hv7wGN_IW9Rg0_WEU4R74dFMV",
+      clientId: process.env.DISCORD_CLIENT_ID!,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET!,
     },
   },
 };

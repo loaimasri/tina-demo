@@ -6,8 +6,12 @@ import type { JWT } from "next-auth/jwt";
 import DiscordProvider from "next-auth/providers/discord";
 import { TinaAuthJSOptions, TinaCredentialsProvider } from "tinacms-authjs";
 
+const {
+  tina: { debug },
+  auth: { secret, discord },
+} = environment;
+
 const uidProp: keyof Session["user"] = "sub";
-const debug = environment.general.debug === "true";
 
 type AuthorizeResult = {
   data: {
@@ -83,8 +87,8 @@ const sessionCallback = async ({
 
 export const NextAuthOptions = TinaAuthJSOptions({
   databaseClient,
-  secret: environment.auth.secret,
-  debug: true,
+  secret,
+  debug: debug === "true",
   uidProp,
 
   overrides: {
@@ -93,8 +97,8 @@ export const NextAuthOptions = TinaAuthJSOptions({
         databaseClient,
       }),
       DiscordProvider({
-        clientId: environment.auth.discord.clientId,
-        clientSecret: environment.auth.discord.clientSecret,
+        clientId: discord.clientId,
+        clientSecret: discord.clientSecret,
       }),
     ],
 

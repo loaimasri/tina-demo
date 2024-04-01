@@ -4,28 +4,31 @@ import { environment } from "./../config";
 
 import { GitHubProvider } from "tinacms-gitprovider-github";
 
-const isLocal = environment.general.isLocal === "true";
+const {
+  tina: { isLocal, debug },
+  github: { branch, owner, repo, personalToken: token },
+  mongodb: { uri },
+} = environment;
 
 export default isLocal
   ? createLocalDatabase()
   : createDatabase({
-    gitProvider: new GitHubProvider({
-      branch: environment.github.branch,
-      owner: environment.github.owner,
-      repo: environment.github.repo,
-      token:
-        environment.github.personalToken,
-    }),
-    databaseAdapter: new MongodbLevel<string, Record<string, unknown>>({
-      collectionName: `tinacms-${environment.github.branch}`,
-      dbName: "tinacms",
-      mongoUri: environment.mongodb.uri,
-      createIfMissing: true,
-      errorIfExists: false,
-      keyEncoding: "utf8",
-      valueEncoding: "json",
-    }),
+      gitProvider: new GitHubProvider({
+        branch,
+        owner,
+        repo,
+        token,
+      }),
+      databaseAdapter: new MongodbLevel<string, Record<string, unknown>>({
+        collectionName: `tinacms-${branch}`,
+        dbName: "tinacms",
+        mongoUri: uri,
+        createIfMissing: true,
+        errorIfExists: false,
+        keyEncoding: "utf8",
+        valueEncoding: "json",
+      }),
 
-    debug: process.env.DEBUG === "true" || false,
-    namespace: environment.github.branch,
-  });
+      debug: debug === "true" || false,
+      namespace: branch,
+    });
