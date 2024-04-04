@@ -3,12 +3,12 @@ import databaseClient from "@/tina/__generated__/databaseClient";
 import type { Account, Profile, Session, User } from "next-auth";
 import type { AdapterUser } from "next-auth/adapters";
 import type { JWT } from "next-auth/jwt";
-import DiscordProvider from "next-auth/providers/discord";
+import AzureAdProvider from "next-auth/providers/azure-ad";
 import { TinaAuthJSOptions, TinaCredentialsProvider } from "tinacms-authjs";
 
 const {
   tina: { debug },
-  auth: { secret, discord },
+  auth: { secret, azure },
 } = environment;
 
 const uidProp: keyof Session["user"] = "sub";
@@ -96,9 +96,10 @@ export const NextAuthOptions = TinaAuthJSOptions({
       TinaCredentialsProvider({
         databaseClient,
       }),
-      DiscordProvider({
-        clientId: discord.clientId,
-        clientSecret: discord.clientSecret,
+      AzureAdProvider({
+        clientId: azure.clientId,
+        clientSecret: azure.clientSecret,
+        tenantId: azure.tenantId,
       }),
     ],
 

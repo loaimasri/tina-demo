@@ -19,9 +19,10 @@ export const environment = {
 
   auth: {
     secret: process.env.NEXTAUTH_SECRET!,
-    discord: {
-      clientId: process.env.DISCORD_CLIENT_ID!,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET!,
+    azure: {
+      clientId: process.env.AZURE_CLIENT_ID!,
+      tenantId: process.env.AZURE_TENANT_ID!,
+      clientSecret: process.env.AZURE_CLIENT_SECRET!,
     },
   },
 };
