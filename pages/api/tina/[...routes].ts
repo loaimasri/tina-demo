@@ -1,6 +1,6 @@
 import { LocalBackendAuthProvider, TinaNodeBackend } from "@tinacms/datalayer";
-import { AuthJsBackendAuthProvider } from "tinacms-authjs";
 
+import { FTSBackendAuthProvider } from "@/app/_lib/utils/fts-backend-auth-provider";
 import { environment } from "@/config";
 import databaseClient from "@/tina/__generated__/databaseClient";
 import { NextAuthOptions } from "@utils/auth";
@@ -11,7 +11,7 @@ const isLocal = environment.tina.isLocal === "true";
 const tinaHandler = TinaNodeBackend({
   authProvider: isLocal
     ? LocalBackendAuthProvider()
-    : AuthJsBackendAuthProvider({
+    : FTSBackendAuthProvider({
         authOptions: NextAuthOptions,
       }),
   databaseClient,

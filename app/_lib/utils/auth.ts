@@ -36,17 +36,12 @@ type JWTCallbackParams = {
 const jwtCallback = async ({
   token: jwt,
   account,
+  profile,
 }: JWTCallbackParams): Promise<JWT> => {
   if (account) {
-    if (debug) {
-      console.table(jwt);
-    }
     try {
-      if (account.provider === "discord") {
-        //TODO: here we should check the user role from attributes we got from discord
-        jwt.discord = "discord";
-
-        console.log("discord account", jwt);
+      if (account.provider === "azure-ad") {
+        jwt.roles = profile?.roles ?? [];
       }
 
       if (jwt?.[uidProp]) {
@@ -65,6 +60,10 @@ const jwtCallback = async ({
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      if (debug) {
+        console.table(jwt);
+      }
     }
 
     jwt.role ??= "guest";
@@ -79,7 +78,7 @@ const sessionCallback = async ({
   session: Session;
   token: JWT;
 }): Promise<Session> => {
-  session.user.role = jwt.role;
+  session.user.roles = jwt.roles;
   session.user.passwordChangeRequired = jwt.passwordChangeRequired;
   session.user[uidProp] = jwt[uidProp];
   return session;
