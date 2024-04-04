@@ -39,8 +39,8 @@ pipeline {
                     'ansible-vault decrypt vault.prod-secrets.yml --vault-password-file vault_password.txt --output .env; ' +
                     'rm vault_password.txt'
                 } 
-    }
-}
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
@@ -57,15 +57,13 @@ pipeline {
                 }
             }
         }
-
-        stage('Cleanup') {
-            steps {
-                script {
-                    sh 'echo Clean up untagged Docker images'
-                    sh 'docker system prune -f'
-                }
+    }
+    post {
+        always {
+            script {
+                sh 'echo Clean up untagged Docker images'
+                sh 'docker system prune -f'
             }
         }
-        
     }
 }
