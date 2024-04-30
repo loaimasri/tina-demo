@@ -16,13 +16,13 @@ pipeline {
             }
         }
 
-        stage('Login to Harbor') {
-            steps {
-                script {
-                    sh 'docker login $HARBOR_REGISTRY -u $HARBOR_USER -p $HARBOR_SECRET'
-                }
-            }
-        }
+        // stage('Login to Harbor') {
+        //     steps {
+        //         script {
+        //             sh 'docker login $HARBOR_REGISTRY -u $HARBOR_USER -p $HARBOR_SECRET'
+        //         }
+        //     }
+        // }
 
         stage("Install Ansible") {
             steps {
@@ -45,7 +45,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh './scripts/build-and-deploy.sh prod' // for local build, it should be used 'prod' for production build
+                    sh './scripts/build-and-deploy.sh local' // for local build, it should be used 'prod' for production build
                 }
             }
         }
@@ -53,7 +53,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh './scripts/run-compose.sh prod' // for local build, it should be used 'prod' for production build
+                    sh './scripts/run-compose.sh local' // for local build, it should be used 'prod' for production build
                 }
             }
         }
