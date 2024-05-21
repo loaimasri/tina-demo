@@ -23,7 +23,26 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <head />
+      <head>
+      <script src="https://unpkg.com/highlight.run"></script>
+    <script>
+        H.init('56gl9g91', { // Get your project ID from https://app.highlight.io/setup
+            environment: 'production',
+            version: 'commit:abcdefg12345',
+            backendUrl: "https://monitoring-graph.foothilltech.net/public",
+            networkRecording: {
+                enabled: true,
+                recordHeadersAndBody: true,
+                urlBlocklist: [
+					// insert full or partial urls that you don't want to record here
+					// Out of the box, Highlight will not record these URLs (they can be safely removed):
+					"https://www.googleapis.com/identitytoolkit",
+					"https://securetoken.googleapis.com",
+                ],
+            },
+        });
+    </script>
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased relative",
