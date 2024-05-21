@@ -5,9 +5,11 @@ import { client } from "@/tina/__generated__/databaseClient";
 import type { GlobalConnectionQuery } from "@/tina/__generated__/types";
 import { Header } from "@components/core";
 import { Providers } from "@components/providers";
+import { HighlightInit } from "@highlight-run/next/client";
 import "@styles/styles.css";
 import { cn } from "@utils/cn";
 import { fontSans } from "@utils/fonts";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,48 +24,43 @@ export default async function RootLayout({
   const connection = await client.queries.globalConnection();
 
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <head />
-	     <script src="https://unpkg.com/highlight.run"></script>
-    <script>
-        H.init('56gl9g91', { // Get your project ID from https://app.highlight.io/setup
-            environment: 'production',
-            version: 'commit:abcdefg12345',
-            backendUrl: "https://monitoring-graph.foothilltech.net/public",
-            networkRecording: {
-                enabled: true,
-                recordHeadersAndBody: true,
-                urlBlocklist: [
-					// insert full or partial urls that you don't want to record here
-					// Out of the box, Highlight will not record these URLs (they can be safely removed):
-					"https://www.googleapis.com/identitytoolkit",
-					"https://securetoken.googleapis.com",
-                ],
-            },
-        });
-    </script>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased relative",
-          fontSans.variable,
-        )}
-      >
-        <Providers>
-          <div className="FTSContainer z-10 flex min-h-screen flex-col">
-            <Header
-              {...connection}
-              data={
-                JSON.parse(
-                  JSON.stringify(connection.data),
-                ) as GlobalConnectionQuery
-              }
-            />
+    <React.Fragment>
+      <HighlightInit
+        projectId={"56gl9g91"}
+        serviceName="my-nextjs-frontend"
+        tracingOrigins
+        backendUrl="https://monitoring-graph.foothilltech.net/public"
+        networkRecording={{
+          enabled: true,
+          recordHeadersAndBody: true,
+          urlBlocklist: [],
+        }}
+      />
 
-            <main className="min-h-[var(--section-height)] flex-1">
-              {children}
-            </main>
+      <html lang="en" suppressHydrationWarning={true}>
+        <head />
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased relative",
+            fontSans.variable,
+          )}
+        >
+          <Providers>
+            <div className="FTSContainer z-10 flex min-h-screen flex-col">
+              <Header
+                {...connection}
+                data={
+                  JSON.parse(
+                    JSON.stringify(connection.data),
+                  ) as GlobalConnectionQuery
+                }
+              />
 
-            {/* <Footer
+              <main className="min-h-[var(--section-height)] flex-1">
+                {children}
+              </main>
+
+              {/* <Footer
               {...connection}
               data={
                 JSON.parse(
@@ -72,9 +69,10 @@ export default async function RootLayout({
               }
               className="flex-none py-8"
             /> */}
-          </div>
-        </Providers>
-      </body>
-    </html>
+            </div>
+          </Providers>
+        </body>
+      </html>
+    </React.Fragment>
   );
 }
