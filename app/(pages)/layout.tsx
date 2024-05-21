@@ -23,8 +23,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <head>
-      <script src="https://unpkg.com/highlight.run"></script>
+      <head />
+	     <script src="https://unpkg.com/highlight.run"></script>
     <script>
         H.init('56gl9g91', { // Get your project ID from https://app.highlight.io/setup
             environment: 'production',
@@ -42,7 +42,6 @@ export default async function RootLayout({
             },
         });
     </script>
-      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased relative",
