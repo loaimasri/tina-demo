@@ -6,5 +6,7 @@ auth:
     - admin
     - lead
     - member
+blocks:
+  - _template: services
 ---
 
